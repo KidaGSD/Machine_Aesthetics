@@ -1,0 +1,52 @@
+# Large data directories
+texture_extractor/dtd/
+texture_extractor/results/
+audio_analysis/**/separated/
+
+# Generated files
+**/depth_maps/
+**/displacement_maps/
+*.png
+*.jpg
+*.jpeg
+*.wav
+*.mp3
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Model files and checkpoints
+*.pt
+*.pth
+*.h5
+*.ckpt
+*.bin
+**/pretrained_models/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Log files
+*.log
+logs/
+wandb/
+
+# Output directories
+**/results/
+**/outputs/
+
+# Temporary files
+*.tmp
