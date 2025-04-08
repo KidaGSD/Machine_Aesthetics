@@ -1,32 +1,39 @@
-import sys, os, csv
+import os, csv
 import librosa
 import numpy as np
 import torch
+from pydub import AudioSegment
 from audio_classifiers.emotion_classifier import EmotionClassifier
 
-# === Fix path if needed
-sys.path.append(os.path.dirname(__file__))
+# === 🔊 Set your audio file path here ===
+input_path = os.path.join(os.path.dirname(__file__), "audio", "screams.wav")
 
-# === CLI Argument (audio path)
-if len(sys.argv) > 1:
-    audio_path = sys.argv[1]
+
+# === Auto-convert MP3 to WAV if needed
+if input_path.lower().endswith(".mp3"):
+    print("🎧 Converting .mp3 to .wav...")
+    wav_path = input_path.replace(".mp3", ".wav")
+    audio = AudioSegment.from_mp3(input_path)
+    audio.export(wav_path, format="wav")
+    audio_path = wav_path
 else:
-    raise ValueError("❌ Please provide an audio file path as an argument.")
+    audio_path = input_path
 
 # === Config
-output_csv = "valence_arousal_timeline.csv"
+output_csv = os.path.join(os.path.dirname(__file__), "valence_arousal_timeline-screams.csv")
+
 sampling_rate = 44100
-chunk_duration_sec = 10
+chunk_duration_sec = 1
 
 # === Load audio
-print("🔊 Loading audio...")
+print(f"🔊 Loading audio from: {audio_path}")
 waveform, sr = librosa.load(audio_path, sr=sampling_rate)
 
-# === Set up emotion model
+# === Set up emotion classifier
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 emotion_classifier = EmotionClassifier(device)
 
-# === Chunking + emotion extraction
+# === Chunk audio and run emotion analysis
 chunk_size = int(chunk_duration_sec * sr)
 chunks = [waveform[i:i + chunk_size] for i in range(0, len(waveform), chunk_size)]
 
