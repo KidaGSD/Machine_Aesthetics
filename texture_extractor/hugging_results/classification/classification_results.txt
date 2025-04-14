@@ -1,0 +1,3751 @@
+VAD-Based Texture Classification Results
+======================================
+
+VAD Scores: Valence=-0.0853, Arousal=0.2096, Dominance=0.0032
+
+Emotion Quadrant: Negative-Low
+Dominance Category: Low
+
+Texture Descriptors Used:
+- dull
+- flat
+- stagnation
+- lifeless
+- heavy gloom
+
+Dominance Modifiers Used:
+- fragmented
+- scattered
+- randomized
+
+Prompts Generated:
+- A weathered finish, flat, uncontrollable texture
+- A texture that is heavy gloom, deep low contrast
+- A surface with flat, deep low contrast qualities
+- A texture that is flat, heavy gloom, smeared appearance
+- A surface with deep low contrast, dull, flowing together qualities
+
+
+Image Classification Results:
+============================
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0000_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0126
+- A texture that is heavy gloom, deep low contrast: 0.2727
+- A surface with flat, deep low contrast qualities: 0.1003
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0005_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1343
+- A texture that is heavy gloom, deep low contrast: 0.0168
+- A surface with flat, deep low contrast qualities: 0.3171
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0007_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0088
+- A texture that is heavy gloom, deep low contrast: 0.0958
+- A surface with flat, deep low contrast qualities: 0.2952
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0023_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3779
+- A texture that is heavy gloom, deep low contrast: 0.1152
+- A surface with flat, deep low contrast qualities: 0.0589
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0025_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2400
+- A texture that is heavy gloom, deep low contrast: 0.0131
+- A surface with flat, deep low contrast qualities: 0.1929
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0026_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0290
+- A texture that is heavy gloom, deep low contrast: 0.0789
+- A surface with flat, deep low contrast qualities: 0.4067
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0028_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0061
+- A texture that is heavy gloom, deep low contrast: 0.0402
+- A surface with flat, deep low contrast qualities: 0.6802
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0030_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3755
+- A texture that is heavy gloom, deep low contrast: 0.0281
+- A surface with flat, deep low contrast qualities: 0.1615
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0035_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0114
+- A texture that is heavy gloom, deep low contrast: 0.0509
+- A surface with flat, deep low contrast qualities: 0.5645
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0041_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0493
+- A texture that is heavy gloom, deep low contrast: 0.0240
+- A surface with flat, deep low contrast qualities: 0.5137
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0042_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4214
+- A texture that is heavy gloom, deep low contrast: 0.0897
+- A surface with flat, deep low contrast qualities: 0.1285
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0047_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2698
+- A texture that is heavy gloom, deep low contrast: 0.0359
+- A surface with flat, deep low contrast qualities: 0.0932
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0050_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0024
+- A texture that is heavy gloom, deep low contrast: 0.0286
+- A surface with flat, deep low contrast qualities: 0.0624
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0052_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4309
+- A texture that is heavy gloom, deep low contrast: 0.0263
+- A surface with flat, deep low contrast qualities: 0.0932
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0054_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0056
+- A texture that is heavy gloom, deep low contrast: 0.0273
+- A surface with flat, deep low contrast qualities: 0.6709
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0056_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0936
+- A texture that is heavy gloom, deep low contrast: 0.0501
+- A surface with flat, deep low contrast qualities: 0.2507
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0057_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0573
+- A texture that is heavy gloom, deep low contrast: 0.0629
+- A surface with flat, deep low contrast qualities: 0.3916
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0059_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0957
+- A texture that is heavy gloom, deep low contrast: 0.0769
+- A surface with flat, deep low contrast qualities: 0.1628
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0060_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0453
+- A texture that is heavy gloom, deep low contrast: 0.0412
+- A surface with flat, deep low contrast qualities: 0.0600
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0063_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0316
+- A texture that is heavy gloom, deep low contrast: 0.0886
+- A surface with flat, deep low contrast qualities: 0.1053
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0070_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0092
+- A texture that is heavy gloom, deep low contrast: 0.0232
+- A surface with flat, deep low contrast qualities: 0.6885
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0071_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0018
+- A texture that is heavy gloom, deep low contrast: 0.2278
+- A surface with flat, deep low contrast qualities: 0.5054
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0074_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0089
+- A texture that is heavy gloom, deep low contrast: 0.0093
+- A surface with flat, deep low contrast qualities: 0.0385
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0075_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.7925
+- A texture that is heavy gloom, deep low contrast: 0.0076
+- A surface with flat, deep low contrast qualities: 0.0671
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0079_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0190
+- A texture that is heavy gloom, deep low contrast: 0.0632
+- A surface with flat, deep low contrast qualities: 0.1182
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0084_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0086
+- A texture that is heavy gloom, deep low contrast: 0.0096
+- A surface with flat, deep low contrast qualities: 0.3291
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0085_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0441
+- A texture that is heavy gloom, deep low contrast: 0.0798
+- A surface with flat, deep low contrast qualities: 0.2498
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0090_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0176
+- A texture that is heavy gloom, deep low contrast: 0.0720
+- A surface with flat, deep low contrast qualities: 0.5576
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0095_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0509
+- A texture that is heavy gloom, deep low contrast: 0.0350
+- A surface with flat, deep low contrast qualities: 0.4468
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0098_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0208
+- A texture that is heavy gloom, deep low contrast: 0.0303
+- A surface with flat, deep low contrast qualities: 0.0574
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0099_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0842
+- A texture that is heavy gloom, deep low contrast: 0.0129
+- A surface with flat, deep low contrast qualities: 0.5938
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0107_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0181
+- A texture that is heavy gloom, deep low contrast: 0.1921
+- A surface with flat, deep low contrast qualities: 0.3762
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0113_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0229
+- A texture that is heavy gloom, deep low contrast: 0.0964
+- A surface with flat, deep low contrast qualities: 0.2500
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0117_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1398
+- A texture that is heavy gloom, deep low contrast: 0.1252
+- A surface with flat, deep low contrast qualities: 0.2737
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0119_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1177
+- A texture that is heavy gloom, deep low contrast: 0.0134
+- A surface with flat, deep low contrast qualities: 0.3354
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0123_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1718
+- A texture that is heavy gloom, deep low contrast: 0.0428
+- A surface with flat, deep low contrast qualities: 0.3062
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0132_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0191
+- A texture that is heavy gloom, deep low contrast: 0.2366
+- A surface with flat, deep low contrast qualities: 0.2222
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0133_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0486
+- A texture that is heavy gloom, deep low contrast: 0.0471
+- A surface with flat, deep low contrast qualities: 0.4832
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0151_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2092
+- A texture that is heavy gloom, deep low contrast: 0.0973
+- A surface with flat, deep low contrast qualities: 0.0872
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0157_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2524
+- A texture that is heavy gloom, deep low contrast: 0.0073
+- A surface with flat, deep low contrast qualities: 0.2817
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0158_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2771
+- A texture that is heavy gloom, deep low contrast: 0.0101
+- A surface with flat, deep low contrast qualities: 0.0872
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0159_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0251
+- A texture that is heavy gloom, deep low contrast: 0.0247
+- A surface with flat, deep low contrast qualities: 0.2007
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0160_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0581
+- A texture that is heavy gloom, deep low contrast: 0.0104
+- A surface with flat, deep low contrast qualities: 0.2688
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0162_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0820
+- A texture that is heavy gloom, deep low contrast: 0.0224
+- A surface with flat, deep low contrast qualities: 0.2861
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0166_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1584
+- A texture that is heavy gloom, deep low contrast: 0.0797
+- A surface with flat, deep low contrast qualities: 0.0961
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0168_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2593
+- A texture that is heavy gloom, deep low contrast: 0.0374
+- A surface with flat, deep low contrast qualities: 0.2324
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0169_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2656
+- A texture that is heavy gloom, deep low contrast: 0.0178
+- A surface with flat, deep low contrast qualities: 0.2168
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0170_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.6372
+- A texture that is heavy gloom, deep low contrast: 0.0081
+- A surface with flat, deep low contrast qualities: 0.0715
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0172_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3594
+- A texture that is heavy gloom, deep low contrast: 0.0282
+- A surface with flat, deep low contrast qualities: 0.1185
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0178_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0042
+- A texture that is heavy gloom, deep low contrast: 0.1110
+- A surface with flat, deep low contrast qualities: 0.1093
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0181_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0985
+- A texture that is heavy gloom, deep low contrast: 0.0817
+- A surface with flat, deep low contrast qualities: 0.0179
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0182_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3943
+- A texture that is heavy gloom, deep low contrast: 0.0108
+- A surface with flat, deep low contrast qualities: 0.3882
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0186_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0666
+- A texture that is heavy gloom, deep low contrast: 0.0146
+- A surface with flat, deep low contrast qualities: 0.7271
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0194_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1653
+- A texture that is heavy gloom, deep low contrast: 0.0306
+- A surface with flat, deep low contrast qualities: 0.5679
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0195_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0103
+- A texture that is heavy gloom, deep low contrast: 0.2194
+- A surface with flat, deep low contrast qualities: 0.2729
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0199_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3162
+- A texture that is heavy gloom, deep low contrast: 0.0093
+- A surface with flat, deep low contrast qualities: 0.4255
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0204_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0981
+- A texture that is heavy gloom, deep low contrast: 0.0826
+- A surface with flat, deep low contrast qualities: 0.2354
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0206_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0098
+- A texture that is heavy gloom, deep low contrast: 0.2233
+- A surface with flat, deep low contrast qualities: 0.1022
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0209_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0052
+- A texture that is heavy gloom, deep low contrast: 0.0370
+- A surface with flat, deep low contrast qualities: 0.5615
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0213_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1008
+- A texture that is heavy gloom, deep low contrast: 0.0175
+- A surface with flat, deep low contrast qualities: 0.1663
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0215_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0459
+- A texture that is heavy gloom, deep low contrast: 0.0956
+- A surface with flat, deep low contrast qualities: 0.1083
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0220_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3574
+- A texture that is heavy gloom, deep low contrast: 0.0184
+- A surface with flat, deep low contrast qualities: 0.1742
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0223_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4148
+- A texture that is heavy gloom, deep low contrast: 0.0140
+- A surface with flat, deep low contrast qualities: 0.1346
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0225_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3362
+- A texture that is heavy gloom, deep low contrast: 0.0108
+- A surface with flat, deep low contrast qualities: 0.3811
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0226_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2529
+- A texture that is heavy gloom, deep low contrast: 0.0154
+- A surface with flat, deep low contrast qualities: 0.1685
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0243_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1151
+- A texture that is heavy gloom, deep low contrast: 0.0261
+- A surface with flat, deep low contrast qualities: 0.4080
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0244_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0042
+- A texture that is heavy gloom, deep low contrast: 0.0252
+- A surface with flat, deep low contrast qualities: 0.6499
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0245_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0061
+- A texture that is heavy gloom, deep low contrast: 0.1309
+- A surface with flat, deep low contrast qualities: 0.0972
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0247_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0476
+- A texture that is heavy gloom, deep low contrast: 0.0154
+- A surface with flat, deep low contrast qualities: 0.1178
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0252_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0954
+- A texture that is heavy gloom, deep low contrast: 0.0527
+- A surface with flat, deep low contrast qualities: 0.3489
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0254_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4480
+- A texture that is heavy gloom, deep low contrast: 0.0450
+- A surface with flat, deep low contrast qualities: 0.1700
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0257_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0212
+- A texture that is heavy gloom, deep low contrast: 0.0776
+- A surface with flat, deep low contrast qualities: 0.2467
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0258_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0926
+- A texture that is heavy gloom, deep low contrast: 0.1246
+- A surface with flat, deep low contrast qualities: 0.4023
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0259_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1505
+- A texture that is heavy gloom, deep low contrast: 0.0274
+- A surface with flat, deep low contrast qualities: 0.6050
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0260_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4485
+- A texture that is heavy gloom, deep low contrast: 0.0544
+- A surface with flat, deep low contrast qualities: 0.1411
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0263_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.6597
+- A texture that is heavy gloom, deep low contrast: 0.0041
+- A surface with flat, deep low contrast qualities: 0.0921
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0267_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3582
+- A texture that is heavy gloom, deep low contrast: 0.0313
+- A surface with flat, deep low contrast qualities: 0.1589
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0268_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1272
+- A texture that is heavy gloom, deep low contrast: 0.0591
+- A surface with flat, deep low contrast qualities: 0.5356
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0270_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0038
+- A texture that is heavy gloom, deep low contrast: 0.0287
+- A surface with flat, deep low contrast qualities: 0.5767
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0275_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4631
+- A texture that is heavy gloom, deep low contrast: 0.0151
+- A surface with flat, deep low contrast qualities: 0.2520
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0276_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0302
+- A texture that is heavy gloom, deep low contrast: 0.0807
+- A surface with flat, deep low contrast qualities: 0.5264
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0283_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0839
+- A texture that is heavy gloom, deep low contrast: 0.0501
+- A surface with flat, deep low contrast qualities: 0.2391
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0285_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0054
+- A texture that is heavy gloom, deep low contrast: 0.1509
+- A surface with flat, deep low contrast qualities: 0.1193
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0289_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3513
+- A texture that is heavy gloom, deep low contrast: 0.0271
+- A surface with flat, deep low contrast qualities: 0.1766
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0293_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0014
+- A texture that is heavy gloom, deep low contrast: 0.0113
+- A surface with flat, deep low contrast qualities: 0.7095
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0296_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0361
+- A texture that is heavy gloom, deep low contrast: 0.1321
+- A surface with flat, deep low contrast qualities: 0.1061
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0301_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3333
+- A texture that is heavy gloom, deep low contrast: 0.0048
+- A surface with flat, deep low contrast qualities: 0.3179
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0302_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3396
+- A texture that is heavy gloom, deep low contrast: 0.0044
+- A surface with flat, deep low contrast qualities: 0.1230
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0303_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1245
+- A texture that is heavy gloom, deep low contrast: 0.0096
+- A surface with flat, deep low contrast qualities: 0.1624
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0306_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2090
+- A texture that is heavy gloom, deep low contrast: 0.0393
+- A surface with flat, deep low contrast qualities: 0.1995
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0307_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.6011
+- A texture that is heavy gloom, deep low contrast: 0.0168
+- A surface with flat, deep low contrast qualities: 0.1221
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0310_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0855
+- A texture that is heavy gloom, deep low contrast: 0.0230
+- A surface with flat, deep low contrast qualities: 0.1169
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0312_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3472
+- A texture that is heavy gloom, deep low contrast: 0.0470
+- A surface with flat, deep low contrast qualities: 0.1493
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0315_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0385
+- A texture that is heavy gloom, deep low contrast: 0.0319
+- A surface with flat, deep low contrast qualities: 0.0854
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0321_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0599
+- A texture that is heavy gloom, deep low contrast: 0.0346
+- A surface with flat, deep low contrast qualities: 0.3237
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0322_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0573
+- A texture that is heavy gloom, deep low contrast: 0.0737
+- A surface with flat, deep low contrast qualities: 0.4109
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0324_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0042
+- A texture that is heavy gloom, deep low contrast: 0.0268
+- A surface with flat, deep low contrast qualities: 0.1543
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0328_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1848
+- A texture that is heavy gloom, deep low contrast: 0.0214
+- A surface with flat, deep low contrast qualities: 0.3096
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0329_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3328
+- A texture that is heavy gloom, deep low contrast: 0.0391
+- A surface with flat, deep low contrast qualities: 0.0698
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0340_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0615
+- A texture that is heavy gloom, deep low contrast: 0.0719
+- A surface with flat, deep low contrast qualities: 0.3076
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0342_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.5308
+- A texture that is heavy gloom, deep low contrast: 0.0219
+- A surface with flat, deep low contrast qualities: 0.1095
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0346_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0110
+- A texture that is heavy gloom, deep low contrast: 0.0654
+- A surface with flat, deep low contrast qualities: 0.0645
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0351_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0280
+- A texture that is heavy gloom, deep low contrast: 0.3984
+- A surface with flat, deep low contrast qualities: 0.1215
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0359_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2032
+- A texture that is heavy gloom, deep low contrast: 0.0103
+- A surface with flat, deep low contrast qualities: 0.1194
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0364_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1287
+- A texture that is heavy gloom, deep low contrast: 0.0504
+- A surface with flat, deep low contrast qualities: 0.4026
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0365_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1431
+- A texture that is heavy gloom, deep low contrast: 0.0188
+- A surface with flat, deep low contrast qualities: 0.1014
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0368_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0432
+- A texture that is heavy gloom, deep low contrast: 0.0306
+- A surface with flat, deep low contrast qualities: 0.5684
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0369_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3386
+- A texture that is heavy gloom, deep low contrast: 0.0093
+- A surface with flat, deep low contrast qualities: 0.0926
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0377_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0616
+- A texture that is heavy gloom, deep low contrast: 0.1284
+- A surface with flat, deep low contrast qualities: 0.3230
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0382_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0080
+- A texture that is heavy gloom, deep low contrast: 0.2854
+- A surface with flat, deep low contrast qualities: 0.3442
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0394_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0163
+- A texture that is heavy gloom, deep low contrast: 0.0416
+- A surface with flat, deep low contrast qualities: 0.6211
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0397_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0429
+- A texture that is heavy gloom, deep low contrast: 0.0090
+- A surface with flat, deep low contrast qualities: 0.6113
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0407_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0759
+- A texture that is heavy gloom, deep low contrast: 0.0348
+- A surface with flat, deep low contrast qualities: 0.4651
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0408_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0012
+- A texture that is heavy gloom, deep low contrast: 0.4426
+- A surface with flat, deep low contrast qualities: 0.1578
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0411_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0107
+- A texture that is heavy gloom, deep low contrast: 0.0502
+- A surface with flat, deep low contrast qualities: 0.4990
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0417_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0931
+- A texture that is heavy gloom, deep low contrast: 0.0134
+- A surface with flat, deep low contrast qualities: 0.0660
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0424_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2976
+- A texture that is heavy gloom, deep low contrast: 0.0077
+- A surface with flat, deep low contrast qualities: 0.0577
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0427_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0274
+- A texture that is heavy gloom, deep low contrast: 0.1191
+- A surface with flat, deep low contrast qualities: 0.3289
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0429_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1510
+- A texture that is heavy gloom, deep low contrast: 0.0275
+- A surface with flat, deep low contrast qualities: 0.1442
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0431_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0305
+- A texture that is heavy gloom, deep low contrast: 0.1246
+- A surface with flat, deep low contrast qualities: 0.5767
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0432_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3049
+- A texture that is heavy gloom, deep low contrast: 0.0122
+- A surface with flat, deep low contrast qualities: 0.1395
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0443_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2131
+- A texture that is heavy gloom, deep low contrast: 0.0186
+- A surface with flat, deep low contrast qualities: 0.1420
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0446_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0041
+- A texture that is heavy gloom, deep low contrast: 0.0149
+- A surface with flat, deep low contrast qualities: 0.6978
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0449_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3328
+- A texture that is heavy gloom, deep low contrast: 0.0083
+- A surface with flat, deep low contrast qualities: 0.3379
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0450_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1769
+- A texture that is heavy gloom, deep low contrast: 0.0822
+- A surface with flat, deep low contrast qualities: 0.0704
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0452_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.9102
+- A texture that is heavy gloom, deep low contrast: 0.0033
+- A surface with flat, deep low contrast qualities: 0.0353
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0453_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0269
+- A texture that is heavy gloom, deep low contrast: 0.1246
+- A surface with flat, deep low contrast qualities: 0.2478
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0454_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0124
+- A texture that is heavy gloom, deep low contrast: 0.2006
+- A surface with flat, deep low contrast qualities: 0.4451
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0455_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2676
+- A texture that is heavy gloom, deep low contrast: 0.0910
+- A surface with flat, deep low contrast qualities: 0.0518
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0457_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.5601
+- A texture that is heavy gloom, deep low contrast: 0.0072
+- A surface with flat, deep low contrast qualities: 0.1996
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0458_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1069
+- A texture that is heavy gloom, deep low contrast: 0.0134
+- A surface with flat, deep low contrast qualities: 0.2998
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0459_color.png
+Mean Score: 0.2001
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3584
+- A texture that is heavy gloom, deep low contrast: 0.0500
+- A surface with flat, deep low contrast qualities: 0.1448
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0001_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0043
+- A texture that is heavy gloom, deep low contrast: 0.0958
+- A surface with flat, deep low contrast qualities: 0.4158
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0002_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1757
+- A texture that is heavy gloom, deep low contrast: 0.0884
+- A surface with flat, deep low contrast qualities: 0.0466
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0003_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3455
+- A texture that is heavy gloom, deep low contrast: 0.0262
+- A surface with flat, deep low contrast qualities: 0.1290
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0004_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0992
+- A texture that is heavy gloom, deep low contrast: 0.0760
+- A surface with flat, deep low contrast qualities: 0.0692
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0006_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0192
+- A texture that is heavy gloom, deep low contrast: 0.0247
+- A surface with flat, deep low contrast qualities: 0.5283
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0008_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0851
+- A texture that is heavy gloom, deep low contrast: 0.0299
+- A surface with flat, deep low contrast qualities: 0.2174
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0009_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2013
+- A texture that is heavy gloom, deep low contrast: 0.0264
+- A surface with flat, deep low contrast qualities: 0.2391
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0010_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.8071
+- A texture that is heavy gloom, deep low contrast: 0.0070
+- A surface with flat, deep low contrast qualities: 0.1381
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0011_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0293
+- A texture that is heavy gloom, deep low contrast: 0.0887
+- A surface with flat, deep low contrast qualities: 0.3000
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0012_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1724
+- A texture that is heavy gloom, deep low contrast: 0.0084
+- A surface with flat, deep low contrast qualities: 0.1544
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0013_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3044
+- A texture that is heavy gloom, deep low contrast: 0.1156
+- A surface with flat, deep low contrast qualities: 0.0619
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0014_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0273
+- A texture that is heavy gloom, deep low contrast: 0.0676
+- A surface with flat, deep low contrast qualities: 0.0666
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0015_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0081
+- A texture that is heavy gloom, deep low contrast: 0.0430
+- A surface with flat, deep low contrast qualities: 0.3547
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0016_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0724
+- A texture that is heavy gloom, deep low contrast: 0.0326
+- A surface with flat, deep low contrast qualities: 0.2908
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0017_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0052
+- A texture that is heavy gloom, deep low contrast: 0.1566
+- A surface with flat, deep low contrast qualities: 0.3213
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0018_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0407
+- A texture that is heavy gloom, deep low contrast: 0.2493
+- A surface with flat, deep low contrast qualities: 0.0784
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0019_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.5981
+- A texture that is heavy gloom, deep low contrast: 0.0145
+- A surface with flat, deep low contrast qualities: 0.1399
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0020_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0074
+- A texture that is heavy gloom, deep low contrast: 0.0359
+- A surface with flat, deep low contrast qualities: 0.6997
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0021_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1274
+- A texture that is heavy gloom, deep low contrast: 0.0523
+- A surface with flat, deep low contrast qualities: 0.1884
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0022_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0111
+- A texture that is heavy gloom, deep low contrast: 0.0352
+- A surface with flat, deep low contrast qualities: 0.5688
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0024_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4736
+- A texture that is heavy gloom, deep low contrast: 0.0215
+- A surface with flat, deep low contrast qualities: 0.1161
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0027_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2839
+- A texture that is heavy gloom, deep low contrast: 0.0272
+- A surface with flat, deep low contrast qualities: 0.2505
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0029_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0576
+- A texture that is heavy gloom, deep low contrast: 0.1093
+- A surface with flat, deep low contrast qualities: 0.4675
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0031_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0070
+- A texture that is heavy gloom, deep low contrast: 0.1989
+- A surface with flat, deep low contrast qualities: 0.3545
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0032_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3440
+- A texture that is heavy gloom, deep low contrast: 0.0217
+- A surface with flat, deep low contrast qualities: 0.1390
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0033_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0136
+- A texture that is heavy gloom, deep low contrast: 0.0930
+- A surface with flat, deep low contrast qualities: 0.4302
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0034_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0855
+- A texture that is heavy gloom, deep low contrast: 0.0635
+- A surface with flat, deep low contrast qualities: 0.4771
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0036_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3171
+- A texture that is heavy gloom, deep low contrast: 0.0062
+- A surface with flat, deep low contrast qualities: 0.3323
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0037_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0167
+- A texture that is heavy gloom, deep low contrast: 0.0370
+- A surface with flat, deep low contrast qualities: 0.4045
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0038_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0329
+- A texture that is heavy gloom, deep low contrast: 0.1282
+- A surface with flat, deep low contrast qualities: 0.2671
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0039_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3484
+- A texture that is heavy gloom, deep low contrast: 0.0053
+- A surface with flat, deep low contrast qualities: 0.4072
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0040_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2024
+- A texture that is heavy gloom, deep low contrast: 0.0504
+- A surface with flat, deep low contrast qualities: 0.2598
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0043_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0577
+- A texture that is heavy gloom, deep low contrast: 0.0741
+- A surface with flat, deep low contrast qualities: 0.1428
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0044_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0295
+- A texture that is heavy gloom, deep low contrast: 0.0281
+- A surface with flat, deep low contrast qualities: 0.3591
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0045_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0382
+- A texture that is heavy gloom, deep low contrast: 0.0808
+- A surface with flat, deep low contrast qualities: 0.4651
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0046_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2654
+- A texture that is heavy gloom, deep low contrast: 0.0556
+- A surface with flat, deep low contrast qualities: 0.1610
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0048_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0099
+- A texture that is heavy gloom, deep low contrast: 0.0969
+- A surface with flat, deep low contrast qualities: 0.1432
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0049_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3655
+- A texture that is heavy gloom, deep low contrast: 0.0261
+- A surface with flat, deep low contrast qualities: 0.1896
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0051_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0114
+- A texture that is heavy gloom, deep low contrast: 0.0256
+- A surface with flat, deep low contrast qualities: 0.1029
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0053_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0295
+- A texture that is heavy gloom, deep low contrast: 0.0895
+- A surface with flat, deep low contrast qualities: 0.1475
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0055_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4961
+- A texture that is heavy gloom, deep low contrast: 0.0136
+- A surface with flat, deep low contrast qualities: 0.1399
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0058_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0027
+- A texture that is heavy gloom, deep low contrast: 0.0197
+- A surface with flat, deep low contrast qualities: 0.5498
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0061_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4065
+- A texture that is heavy gloom, deep low contrast: 0.0187
+- A surface with flat, deep low contrast qualities: 0.1616
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0062_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3176
+- A texture that is heavy gloom, deep low contrast: 0.0056
+- A surface with flat, deep low contrast qualities: 0.2551
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0064_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2939
+- A texture that is heavy gloom, deep low contrast: 0.0743
+- A surface with flat, deep low contrast qualities: 0.3230
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0065_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1787
+- A texture that is heavy gloom, deep low contrast: 0.0589
+- A surface with flat, deep low contrast qualities: 0.0956
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0066_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0939
+- A texture that is heavy gloom, deep low contrast: 0.0291
+- A surface with flat, deep low contrast qualities: 0.4019
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0067_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4260
+- A texture that is heavy gloom, deep low contrast: 0.0339
+- A surface with flat, deep low contrast qualities: 0.1299
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0068_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0703
+- A texture that is heavy gloom, deep low contrast: 0.0117
+- A surface with flat, deep low contrast qualities: 0.1511
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0069_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3743
+- A texture that is heavy gloom, deep low contrast: 0.0236
+- A surface with flat, deep low contrast qualities: 0.1196
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0072_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2067
+- A texture that is heavy gloom, deep low contrast: 0.0136
+- A surface with flat, deep low contrast qualities: 0.3459
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0073_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0164
+- A texture that is heavy gloom, deep low contrast: 0.1531
+- A surface with flat, deep low contrast qualities: 0.5020
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0076_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0564
+- A texture that is heavy gloom, deep low contrast: 0.0591
+- A surface with flat, deep low contrast qualities: 0.1071
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0077_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0914
+- A texture that is heavy gloom, deep low contrast: 0.0746
+- A surface with flat, deep low contrast qualities: 0.5020
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0078_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.5317
+- A texture that is heavy gloom, deep low contrast: 0.0156
+- A surface with flat, deep low contrast qualities: 0.1622
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0080_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2159
+- A texture that is heavy gloom, deep low contrast: 0.0214
+- A surface with flat, deep low contrast qualities: 0.2605
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0081_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4509
+- A texture that is heavy gloom, deep low contrast: 0.0198
+- A surface with flat, deep low contrast qualities: 0.1851
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0082_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2002
+- A texture that is heavy gloom, deep low contrast: 0.0426
+- A surface with flat, deep low contrast qualities: 0.1740
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0083_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3232
+- A texture that is heavy gloom, deep low contrast: 0.0112
+- A surface with flat, deep low contrast qualities: 0.1550
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0086_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0108
+- A texture that is heavy gloom, deep low contrast: 0.0382
+- A surface with flat, deep low contrast qualities: 0.5439
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0087_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3752
+- A texture that is heavy gloom, deep low contrast: 0.0994
+- A surface with flat, deep low contrast qualities: 0.1338
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0088_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2087
+- A texture that is heavy gloom, deep low contrast: 0.0986
+- A surface with flat, deep low contrast qualities: 0.1703
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0089_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3938
+- A texture that is heavy gloom, deep low contrast: 0.0179
+- A surface with flat, deep low contrast qualities: 0.2108
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0091_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0137
+- A texture that is heavy gloom, deep low contrast: 0.0233
+- A surface with flat, deep low contrast qualities: 0.1364
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0092_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1113
+- A texture that is heavy gloom, deep low contrast: 0.0534
+- A surface with flat, deep low contrast qualities: 0.0997
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0093_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0115
+- A texture that is heavy gloom, deep low contrast: 0.0413
+- A surface with flat, deep low contrast qualities: 0.2031
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0094_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3955
+- A texture that is heavy gloom, deep low contrast: 0.0245
+- A surface with flat, deep low contrast qualities: 0.1840
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0096_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0035
+- A texture that is heavy gloom, deep low contrast: 0.3318
+- A surface with flat, deep low contrast qualities: 0.2837
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0097_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4392
+- A texture that is heavy gloom, deep low contrast: 0.0097
+- A surface with flat, deep low contrast qualities: 0.2705
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0100_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3115
+- A texture that is heavy gloom, deep low contrast: 0.0825
+- A surface with flat, deep low contrast qualities: 0.0965
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0101_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2839
+- A texture that is heavy gloom, deep low contrast: 0.0129
+- A surface with flat, deep low contrast qualities: 0.2625
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0102_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.5122
+- A texture that is heavy gloom, deep low contrast: 0.0050
+- A surface with flat, deep low contrast qualities: 0.1276
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0103_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0684
+- A texture that is heavy gloom, deep low contrast: 0.0920
+- A surface with flat, deep low contrast qualities: 0.3262
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0104_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3320
+- A texture that is heavy gloom, deep low contrast: 0.0908
+- A surface with flat, deep low contrast qualities: 0.1544
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0105_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0817
+- A texture that is heavy gloom, deep low contrast: 0.0677
+- A surface with flat, deep low contrast qualities: 0.3132
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0106_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1986
+- A texture that is heavy gloom, deep low contrast: 0.0625
+- A surface with flat, deep low contrast qualities: 0.0828
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0108_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1388
+- A texture that is heavy gloom, deep low contrast: 0.0570
+- A surface with flat, deep low contrast qualities: 0.2289
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0109_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2307
+- A texture that is heavy gloom, deep low contrast: 0.0080
+- A surface with flat, deep low contrast qualities: 0.0849
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0110_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2468
+- A texture that is heavy gloom, deep low contrast: 0.0827
+- A surface with flat, deep low contrast qualities: 0.1521
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0111_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0177
+- A texture that is heavy gloom, deep low contrast: 0.0792
+- A surface with flat, deep low contrast qualities: 0.2944
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0112_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1418
+- A texture that is heavy gloom, deep low contrast: 0.0132
+- A surface with flat, deep low contrast qualities: 0.1608
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0114_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2479
+- A texture that is heavy gloom, deep low contrast: 0.0768
+- A surface with flat, deep low contrast qualities: 0.2024
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0115_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2764
+- A texture that is heavy gloom, deep low contrast: 0.0050
+- A surface with flat, deep low contrast qualities: 0.1117
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0116_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0006
+- A texture that is heavy gloom, deep low contrast: 0.0076
+- A surface with flat, deep low contrast qualities: 0.8359
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0118_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0392
+- A texture that is heavy gloom, deep low contrast: 0.0496
+- A surface with flat, deep low contrast qualities: 0.1901
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0120_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2856
+- A texture that is heavy gloom, deep low contrast: 0.0134
+- A surface with flat, deep low contrast qualities: 0.2369
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0121_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1113
+- A texture that is heavy gloom, deep low contrast: 0.1779
+- A surface with flat, deep low contrast qualities: 0.1343
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0122_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0095
+- A texture that is heavy gloom, deep low contrast: 0.2612
+- A surface with flat, deep low contrast qualities: 0.2035
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0124_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0732
+- A texture that is heavy gloom, deep low contrast: 0.1840
+- A surface with flat, deep low contrast qualities: 0.2150
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0125_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4182
+- A texture that is heavy gloom, deep low contrast: 0.0034
+- A surface with flat, deep low contrast qualities: 0.2786
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0126_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0252
+- A texture that is heavy gloom, deep low contrast: 0.0812
+- A surface with flat, deep low contrast qualities: 0.0800
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0127_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2307
+- A texture that is heavy gloom, deep low contrast: 0.1008
+- A surface with flat, deep low contrast qualities: 0.1797
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0128_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0806
+- A texture that is heavy gloom, deep low contrast: 0.0658
+- A surface with flat, deep low contrast qualities: 0.2445
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0129_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2063
+- A texture that is heavy gloom, deep low contrast: 0.0266
+- A surface with flat, deep low contrast qualities: 0.4436
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0130_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0012
+- A texture that is heavy gloom, deep low contrast: 0.1785
+- A surface with flat, deep low contrast qualities: 0.3132
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0131_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0023
+- A texture that is heavy gloom, deep low contrast: 0.2715
+- A surface with flat, deep low contrast qualities: 0.4075
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0134_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4717
+- A texture that is heavy gloom, deep low contrast: 0.0302
+- A surface with flat, deep low contrast qualities: 0.1394
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0135_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0297
+- A texture that is heavy gloom, deep low contrast: 0.1290
+- A surface with flat, deep low contrast qualities: 0.3618
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0136_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0142
+- A texture that is heavy gloom, deep low contrast: 0.0379
+- A surface with flat, deep low contrast qualities: 0.1621
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0137_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4072
+- A texture that is heavy gloom, deep low contrast: 0.0518
+- A surface with flat, deep low contrast qualities: 0.2214
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0138_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2365
+- A texture that is heavy gloom, deep low contrast: 0.0106
+- A surface with flat, deep low contrast qualities: 0.1327
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0139_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0028
+- A texture that is heavy gloom, deep low contrast: 0.0963
+- A surface with flat, deep low contrast qualities: 0.5542
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0140_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0818
+- A texture that is heavy gloom, deep low contrast: 0.1653
+- A surface with flat, deep low contrast qualities: 0.1963
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0141_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0150
+- A texture that is heavy gloom, deep low contrast: 0.0427
+- A surface with flat, deep low contrast qualities: 0.0836
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0142_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0683
+- A texture that is heavy gloom, deep low contrast: 0.0328
+- A surface with flat, deep low contrast qualities: 0.0434
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0143_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0203
+- A texture that is heavy gloom, deep low contrast: 0.1676
+- A surface with flat, deep low contrast qualities: 0.4348
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0144_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0726
+- A texture that is heavy gloom, deep low contrast: 0.0704
+- A surface with flat, deep low contrast qualities: 0.1315
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0145_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1680
+- A texture that is heavy gloom, deep low contrast: 0.0769
+- A surface with flat, deep low contrast qualities: 0.1248
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0146_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1823
+- A texture that is heavy gloom, deep low contrast: 0.0784
+- A surface with flat, deep low contrast qualities: 0.1766
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0147_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0199
+- A texture that is heavy gloom, deep low contrast: 0.0867
+- A surface with flat, deep low contrast qualities: 0.2430
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0148_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4714
+- A texture that is heavy gloom, deep low contrast: 0.0099
+- A surface with flat, deep low contrast qualities: 0.0958
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0149_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4001
+- A texture that is heavy gloom, deep low contrast: 0.0141
+- A surface with flat, deep low contrast qualities: 0.0290
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0150_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0665
+- A texture that is heavy gloom, deep low contrast: 0.0223
+- A surface with flat, deep low contrast qualities: 0.4136
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0152_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1943
+- A texture that is heavy gloom, deep low contrast: 0.1688
+- A surface with flat, deep low contrast qualities: 0.1611
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0153_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0285
+- A texture that is heavy gloom, deep low contrast: 0.0448
+- A surface with flat, deep low contrast qualities: 0.4893
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0154_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1980
+- A texture that is heavy gloom, deep low contrast: 0.1279
+- A surface with flat, deep low contrast qualities: 0.1860
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0155_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0141
+- A texture that is heavy gloom, deep low contrast: 0.5381
+- A surface with flat, deep low contrast qualities: 0.1890
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0156_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4136
+- A texture that is heavy gloom, deep low contrast: 0.0125
+- A surface with flat, deep low contrast qualities: 0.2754
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0161_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0721
+- A texture that is heavy gloom, deep low contrast: 0.0473
+- A surface with flat, deep low contrast qualities: 0.1929
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0163_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1376
+- A texture that is heavy gloom, deep low contrast: 0.0122
+- A surface with flat, deep low contrast qualities: 0.4802
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0164_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0165
+- A texture that is heavy gloom, deep low contrast: 0.1566
+- A surface with flat, deep low contrast qualities: 0.4460
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0165_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0714
+- A texture that is heavy gloom, deep low contrast: 0.0439
+- A surface with flat, deep low contrast qualities: 0.3679
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0167_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0242
+- A texture that is heavy gloom, deep low contrast: 0.1555
+- A surface with flat, deep low contrast qualities: 0.2158
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0171_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3462
+- A texture that is heavy gloom, deep low contrast: 0.0145
+- A surface with flat, deep low contrast qualities: 0.1769
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0173_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4783
+- A texture that is heavy gloom, deep low contrast: 0.0042
+- A surface with flat, deep low contrast qualities: 0.3391
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0174_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3052
+- A texture that is heavy gloom, deep low contrast: 0.0122
+- A surface with flat, deep low contrast qualities: 0.1765
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0175_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1122
+- A texture that is heavy gloom, deep low contrast: 0.0539
+- A surface with flat, deep low contrast qualities: 0.3738
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0176_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1173
+- A texture that is heavy gloom, deep low contrast: 0.0316
+- A surface with flat, deep low contrast qualities: 0.3394
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0177_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1310
+- A texture that is heavy gloom, deep low contrast: 0.0649
+- A surface with flat, deep low contrast qualities: 0.0989
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0179_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2295
+- A texture that is heavy gloom, deep low contrast: 0.0183
+- A surface with flat, deep low contrast qualities: 0.2443
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0180_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4778
+- A texture that is heavy gloom, deep low contrast: 0.0070
+- A surface with flat, deep low contrast qualities: 0.2681
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0183_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0912
+- A texture that is heavy gloom, deep low contrast: 0.2441
+- A surface with flat, deep low contrast qualities: 0.1992
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0184_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0009
+- A texture that is heavy gloom, deep low contrast: 0.2363
+- A surface with flat, deep low contrast qualities: 0.4773
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0185_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3320
+- A texture that is heavy gloom, deep low contrast: 0.0614
+- A surface with flat, deep low contrast qualities: 0.2281
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0187_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.5498
+- A texture that is heavy gloom, deep low contrast: 0.0096
+- A surface with flat, deep low contrast qualities: 0.1731
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0188_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0314
+- A texture that is heavy gloom, deep low contrast: 0.0568
+- A surface with flat, deep low contrast qualities: 0.3269
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0189_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4023
+- A texture that is heavy gloom, deep low contrast: 0.0059
+- A surface with flat, deep low contrast qualities: 0.0817
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0190_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0267
+- A texture that is heavy gloom, deep low contrast: 0.0584
+- A surface with flat, deep low contrast qualities: 0.1092
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0191_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0215
+- A texture that is heavy gloom, deep low contrast: 0.0826
+- A surface with flat, deep low contrast qualities: 0.4001
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0192_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0503
+- A texture that is heavy gloom, deep low contrast: 0.0984
+- A surface with flat, deep low contrast qualities: 0.4551
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0193_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0013
+- A texture that is heavy gloom, deep low contrast: 0.3821
+- A surface with flat, deep low contrast qualities: 0.1593
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0196_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0062
+- A texture that is heavy gloom, deep low contrast: 0.0466
+- A surface with flat, deep low contrast qualities: 0.6328
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0197_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.6807
+- A texture that is heavy gloom, deep low contrast: 0.0046
+- A surface with flat, deep low contrast qualities: 0.1077
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0198_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0422
+- A texture that is heavy gloom, deep low contrast: 0.1077
+- A surface with flat, deep low contrast qualities: 0.4607
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0200_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0661
+- A texture that is heavy gloom, deep low contrast: 0.1315
+- A surface with flat, deep low contrast qualities: 0.3984
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0201_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0308
+- A texture that is heavy gloom, deep low contrast: 0.1161
+- A surface with flat, deep low contrast qualities: 0.0593
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0202_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3831
+- A texture that is heavy gloom, deep low contrast: 0.0109
+- A surface with flat, deep low contrast qualities: 0.3030
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0203_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3848
+- A texture that is heavy gloom, deep low contrast: 0.0302
+- A surface with flat, deep low contrast qualities: 0.0820
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0205_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0617
+- A texture that is heavy gloom, deep low contrast: 0.0040
+- A surface with flat, deep low contrast qualities: 0.7178
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0207_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1583
+- A texture that is heavy gloom, deep low contrast: 0.0178
+- A surface with flat, deep low contrast qualities: 0.1006
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0208_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.6411
+- A texture that is heavy gloom, deep low contrast: 0.0472
+- A surface with flat, deep low contrast qualities: 0.0510
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0210_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1947
+- A texture that is heavy gloom, deep low contrast: 0.0824
+- A surface with flat, deep low contrast qualities: 0.1470
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0211_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.5317
+- A texture that is heavy gloom, deep low contrast: 0.0123
+- A surface with flat, deep low contrast qualities: 0.0854
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0212_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1315
+- A texture that is heavy gloom, deep low contrast: 0.0167
+- A surface with flat, deep low contrast qualities: 0.4807
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0214_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0013
+- A texture that is heavy gloom, deep low contrast: 0.0374
+- A surface with flat, deep low contrast qualities: 0.7393
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0216_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0443
+- A texture that is heavy gloom, deep low contrast: 0.1727
+- A surface with flat, deep low contrast qualities: 0.1622
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0217_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0022
+- A texture that is heavy gloom, deep low contrast: 0.2479
+- A surface with flat, deep low contrast qualities: 0.1390
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0218_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.5015
+- A texture that is heavy gloom, deep low contrast: 0.0336
+- A surface with flat, deep low contrast qualities: 0.0512
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0219_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0393
+- A texture that is heavy gloom, deep low contrast: 0.0832
+- A surface with flat, deep low contrast qualities: 0.1102
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0221_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1897
+- A texture that is heavy gloom, deep low contrast: 0.0340
+- A surface with flat, deep low contrast qualities: 0.1244
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0222_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3853
+- A texture that is heavy gloom, deep low contrast: 0.0573
+- A surface with flat, deep low contrast qualities: 0.1764
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0224_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2908
+- A texture that is heavy gloom, deep low contrast: 0.0513
+- A surface with flat, deep low contrast qualities: 0.2128
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0227_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3538
+- A texture that is heavy gloom, deep low contrast: 0.1301
+- A surface with flat, deep low contrast qualities: 0.0967
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0228_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0092
+- A texture that is heavy gloom, deep low contrast: 0.3003
+- A surface with flat, deep low contrast qualities: 0.1354
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0229_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0504
+- A texture that is heavy gloom, deep low contrast: 0.0417
+- A surface with flat, deep low contrast qualities: 0.3606
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0230_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.6646
+- A texture that is heavy gloom, deep low contrast: 0.0161
+- A surface with flat, deep low contrast qualities: 0.0712
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0231_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2211
+- A texture that is heavy gloom, deep low contrast: 0.0229
+- A surface with flat, deep low contrast qualities: 0.0853
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0232_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0817
+- A texture that is heavy gloom, deep low contrast: 0.0127
+- A surface with flat, deep low contrast qualities: 0.1677
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0233_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2499
+- A texture that is heavy gloom, deep low contrast: 0.2104
+- A surface with flat, deep low contrast qualities: 0.0728
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0234_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0844
+- A texture that is heavy gloom, deep low contrast: 0.0745
+- A surface with flat, deep low contrast qualities: 0.4492
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0235_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1593
+- A texture that is heavy gloom, deep low contrast: 0.1166
+- A surface with flat, deep low contrast qualities: 0.1241
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0236_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0129
+- A texture that is heavy gloom, deep low contrast: 0.1627
+- A surface with flat, deep low contrast qualities: 0.2900
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0237_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0439
+- A texture that is heavy gloom, deep low contrast: 0.1121
+- A surface with flat, deep low contrast qualities: 0.4299
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0238_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4136
+- A texture that is heavy gloom, deep low contrast: 0.0151
+- A surface with flat, deep low contrast qualities: 0.0526
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0239_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0188
+- A texture that is heavy gloom, deep low contrast: 0.0319
+- A surface with flat, deep low contrast qualities: 0.6021
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0240_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2474
+- A texture that is heavy gloom, deep low contrast: 0.0305
+- A surface with flat, deep low contrast qualities: 0.2512
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0241_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0260
+- A texture that is heavy gloom, deep low contrast: 0.0219
+- A surface with flat, deep low contrast qualities: 0.2469
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0242_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0151
+- A texture that is heavy gloom, deep low contrast: 0.0869
+- A surface with flat, deep low contrast qualities: 0.0955
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0246_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0269
+- A texture that is heavy gloom, deep low contrast: 0.0261
+- A surface with flat, deep low contrast qualities: 0.2517
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0248_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1084
+- A texture that is heavy gloom, deep low contrast: 0.0201
+- A surface with flat, deep low contrast qualities: 0.1993
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0249_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0058
+- A texture that is heavy gloom, deep low contrast: 0.0552
+- A surface with flat, deep low contrast qualities: 0.6421
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0250_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3062
+- A texture that is heavy gloom, deep low contrast: 0.0148
+- A surface with flat, deep low contrast qualities: 0.3210
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0251_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1205
+- A texture that is heavy gloom, deep low contrast: 0.1674
+- A surface with flat, deep low contrast qualities: 0.0656
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0253_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0128
+- A texture that is heavy gloom, deep low contrast: 0.1329
+- A surface with flat, deep low contrast qualities: 0.0387
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0255_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0630
+- A texture that is heavy gloom, deep low contrast: 0.0164
+- A surface with flat, deep low contrast qualities: 0.5884
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0256_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4111
+- A texture that is heavy gloom, deep low contrast: 0.0507
+- A surface with flat, deep low contrast qualities: 0.1688
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0261_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1874
+- A texture that is heavy gloom, deep low contrast: 0.0151
+- A surface with flat, deep low contrast qualities: 0.1483
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0262_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4185
+- A texture that is heavy gloom, deep low contrast: 0.0289
+- A surface with flat, deep low contrast qualities: 0.1829
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0264_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1200
+- A texture that is heavy gloom, deep low contrast: 0.0272
+- A surface with flat, deep low contrast qualities: 0.2350
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0265_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1483
+- A texture that is heavy gloom, deep low contrast: 0.0151
+- A surface with flat, deep low contrast qualities: 0.4224
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0266_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3054
+- A texture that is heavy gloom, deep low contrast: 0.0263
+- A surface with flat, deep low contrast qualities: 0.3801
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0269_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0099
+- A texture that is heavy gloom, deep low contrast: 0.0334
+- A surface with flat, deep low contrast qualities: 0.7617
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0271_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0396
+- A texture that is heavy gloom, deep low contrast: 0.0728
+- A surface with flat, deep low contrast qualities: 0.2876
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0272_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0042
+- A texture that is heavy gloom, deep low contrast: 0.5542
+- A surface with flat, deep low contrast qualities: 0.0750
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0273_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0894
+- A texture that is heavy gloom, deep low contrast: 0.0686
+- A surface with flat, deep low contrast qualities: 0.2080
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0274_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2173
+- A texture that is heavy gloom, deep low contrast: 0.0415
+- A surface with flat, deep low contrast qualities: 0.1494
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0277_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0725
+- A texture that is heavy gloom, deep low contrast: 0.0522
+- A surface with flat, deep low contrast qualities: 0.3682
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0278_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0448
+- A texture that is heavy gloom, deep low contrast: 0.0349
+- A surface with flat, deep low contrast qualities: 0.0949
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0279_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.7827
+- A texture that is heavy gloom, deep low contrast: 0.0045
+- A surface with flat, deep low contrast qualities: 0.0344
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0280_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0051
+- A texture that is heavy gloom, deep low contrast: 0.0838
+- A surface with flat, deep low contrast qualities: 0.6694
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0281_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0479
+- A texture that is heavy gloom, deep low contrast: 0.1897
+- A surface with flat, deep low contrast qualities: 0.2803
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0282_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0051
+- A texture that is heavy gloom, deep low contrast: 0.1434
+- A surface with flat, deep low contrast qualities: 0.4485
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0284_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0029
+- A texture that is heavy gloom, deep low contrast: 0.1095
+- A surface with flat, deep low contrast qualities: 0.6812
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0286_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0046
+- A texture that is heavy gloom, deep low contrast: 0.0898
+- A surface with flat, deep low contrast qualities: 0.3335
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0287_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0986
+- A texture that is heavy gloom, deep low contrast: 0.0677
+- A surface with flat, deep low contrast qualities: 0.1134
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0288_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3987
+- A texture that is heavy gloom, deep low contrast: 0.0047
+- A surface with flat, deep low contrast qualities: 0.3008
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0290_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0933
+- A texture that is heavy gloom, deep low contrast: 0.2136
+- A surface with flat, deep low contrast qualities: 0.1827
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0291_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.5054
+- A texture that is heavy gloom, deep low contrast: 0.0290
+- A surface with flat, deep low contrast qualities: 0.1888
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0292_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0780
+- A texture that is heavy gloom, deep low contrast: 0.0519
+- A surface with flat, deep low contrast qualities: 0.3386
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0294_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0832
+- A texture that is heavy gloom, deep low contrast: 0.0942
+- A surface with flat, deep low contrast qualities: 0.2296
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0295_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0367
+- A texture that is heavy gloom, deep low contrast: 0.1130
+- A surface with flat, deep low contrast qualities: 0.1428
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0297_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1165
+- A texture that is heavy gloom, deep low contrast: 0.0654
+- A surface with flat, deep low contrast qualities: 0.3069
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0298_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0366
+- A texture that is heavy gloom, deep low contrast: 0.0706
+- A surface with flat, deep low contrast qualities: 0.0260
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0299_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0778
+- A texture that is heavy gloom, deep low contrast: 0.0417
+- A surface with flat, deep low contrast qualities: 0.6313
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0300_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0472
+- A texture that is heavy gloom, deep low contrast: 0.2935
+- A surface with flat, deep low contrast qualities: 0.1647
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0304_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3245
+- A texture that is heavy gloom, deep low contrast: 0.0068
+- A surface with flat, deep low contrast qualities: 0.2300
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0305_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0076
+- A texture that is heavy gloom, deep low contrast: 0.0259
+- A surface with flat, deep low contrast qualities: 0.6465
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0308_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3286
+- A texture that is heavy gloom, deep low contrast: 0.0452
+- A surface with flat, deep low contrast qualities: 0.1002
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0309_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2122
+- A texture that is heavy gloom, deep low contrast: 0.0098
+- A surface with flat, deep low contrast qualities: 0.4932
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0311_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0421
+- A texture that is heavy gloom, deep low contrast: 0.1317
+- A surface with flat, deep low contrast qualities: 0.1858
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0313_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2852
+- A texture that is heavy gloom, deep low contrast: 0.0169
+- A surface with flat, deep low contrast qualities: 0.0699
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0314_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.6152
+- A texture that is heavy gloom, deep low contrast: 0.0192
+- A surface with flat, deep low contrast qualities: 0.0807
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0316_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0292
+- A texture that is heavy gloom, deep low contrast: 0.0072
+- A surface with flat, deep low contrast qualities: 0.5337
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0317_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.5435
+- A texture that is heavy gloom, deep low contrast: 0.0072
+- A surface with flat, deep low contrast qualities: 0.1021
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0318_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3035
+- A texture that is heavy gloom, deep low contrast: 0.0305
+- A surface with flat, deep low contrast qualities: 0.1152
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0319_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0020
+- A texture that is heavy gloom, deep low contrast: 0.3086
+- A surface with flat, deep low contrast qualities: 0.1527
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0320_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0017
+- A texture that is heavy gloom, deep low contrast: 0.0283
+- A surface with flat, deep low contrast qualities: 0.8667
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0323_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0122
+- A texture that is heavy gloom, deep low contrast: 0.1732
+- A surface with flat, deep low contrast qualities: 0.4424
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0325_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0137
+- A texture that is heavy gloom, deep low contrast: 0.0704
+- A surface with flat, deep low contrast qualities: 0.3691
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0326_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4036
+- A texture that is heavy gloom, deep low contrast: 0.0132
+- A surface with flat, deep low contrast qualities: 0.1069
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0327_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1077
+- A texture that is heavy gloom, deep low contrast: 0.1028
+- A surface with flat, deep low contrast qualities: 0.3760
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0330_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0225
+- A texture that is heavy gloom, deep low contrast: 0.1659
+- A surface with flat, deep low contrast qualities: 0.3250
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0331_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0092
+- A texture that is heavy gloom, deep low contrast: 0.0147
+- A surface with flat, deep low contrast qualities: 0.2223
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0332_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0254
+- A texture that is heavy gloom, deep low contrast: 0.0958
+- A surface with flat, deep low contrast qualities: 0.3789
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0333_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0305
+- A texture that is heavy gloom, deep low contrast: 0.0923
+- A surface with flat, deep low contrast qualities: 0.3484
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0334_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0202
+- A texture that is heavy gloom, deep low contrast: 0.0739
+- A surface with flat, deep low contrast qualities: 0.1379
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0335_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0293
+- A texture that is heavy gloom, deep low contrast: 0.1274
+- A surface with flat, deep low contrast qualities: 0.3008
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0336_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.5200
+- A texture that is heavy gloom, deep low contrast: 0.0215
+- A surface with flat, deep low contrast qualities: 0.2457
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0337_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4744
+- A texture that is heavy gloom, deep low contrast: 0.0133
+- A surface with flat, deep low contrast qualities: 0.2073
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0338_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3591
+- A texture that is heavy gloom, deep low contrast: 0.0997
+- A surface with flat, deep low contrast qualities: 0.0777
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0339_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0236
+- A texture that is heavy gloom, deep low contrast: 0.2101
+- A surface with flat, deep low contrast qualities: 0.2871
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0341_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1885
+- A texture that is heavy gloom, deep low contrast: 0.0963
+- A surface with flat, deep low contrast qualities: 0.2874
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0343_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4575
+- A texture that is heavy gloom, deep low contrast: 0.0394
+- A surface with flat, deep low contrast qualities: 0.0807
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0344_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1665
+- A texture that is heavy gloom, deep low contrast: 0.0323
+- A surface with flat, deep low contrast qualities: 0.2744
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0345_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0454
+- A texture that is heavy gloom, deep low contrast: 0.0693
+- A surface with flat, deep low contrast qualities: 0.0583
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0347_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4851
+- A texture that is heavy gloom, deep low contrast: 0.0045
+- A surface with flat, deep low contrast qualities: 0.1066
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0348_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4233
+- A texture that is heavy gloom, deep low contrast: 0.0071
+- A surface with flat, deep low contrast qualities: 0.2374
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0349_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1566
+- A texture that is heavy gloom, deep low contrast: 0.1163
+- A surface with flat, deep low contrast qualities: 0.1219
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0350_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.6294
+- A texture that is heavy gloom, deep low contrast: 0.0294
+- A surface with flat, deep low contrast qualities: 0.0643
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0352_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1428
+- A texture that is heavy gloom, deep low contrast: 0.0256
+- A surface with flat, deep low contrast qualities: 0.1428
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0353_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1144
+- A texture that is heavy gloom, deep low contrast: 0.0377
+- A surface with flat, deep low contrast qualities: 0.5806
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0354_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3823
+- A texture that is heavy gloom, deep low contrast: 0.0082
+- A surface with flat, deep low contrast qualities: 0.0894
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0355_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0010
+- A texture that is heavy gloom, deep low contrast: 0.0219
+- A surface with flat, deep low contrast qualities: 0.7593
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0356_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3447
+- A texture that is heavy gloom, deep low contrast: 0.0489
+- A surface with flat, deep low contrast qualities: 0.0781
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0357_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1270
+- A texture that is heavy gloom, deep low contrast: 0.0297
+- A surface with flat, deep low contrast qualities: 0.2059
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0358_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0507
+- A texture that is heavy gloom, deep low contrast: 0.0178
+- A surface with flat, deep low contrast qualities: 0.1040
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0360_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0272
+- A texture that is heavy gloom, deep low contrast: 0.1471
+- A surface with flat, deep low contrast qualities: 0.1517
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0361_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0724
+- A texture that is heavy gloom, deep low contrast: 0.0453
+- A surface with flat, deep low contrast qualities: 0.3738
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0362_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0303
+- A texture that is heavy gloom, deep low contrast: 0.2832
+- A surface with flat, deep low contrast qualities: 0.1915
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0363_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0189
+- A texture that is heavy gloom, deep low contrast: 0.1351
+- A surface with flat, deep low contrast qualities: 0.2125
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0366_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0015
+- A texture that is heavy gloom, deep low contrast: 0.0285
+- A surface with flat, deep low contrast qualities: 0.8330
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0367_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1357
+- A texture that is heavy gloom, deep low contrast: 0.0395
+- A surface with flat, deep low contrast qualities: 0.2308
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0370_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.6323
+- A texture that is heavy gloom, deep low contrast: 0.0223
+- A surface with flat, deep low contrast qualities: 0.0636
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0371_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0414
+- A texture that is heavy gloom, deep low contrast: 0.1217
+- A surface with flat, deep low contrast qualities: 0.2786
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0372_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1903
+- A texture that is heavy gloom, deep low contrast: 0.0258
+- A surface with flat, deep low contrast qualities: 0.3447
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0373_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0139
+- A texture that is heavy gloom, deep low contrast: 0.0373
+- A surface with flat, deep low contrast qualities: 0.0340
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0374_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2145
+- A texture that is heavy gloom, deep low contrast: 0.0534
+- A surface with flat, deep low contrast qualities: 0.3591
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0375_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0327
+- A texture that is heavy gloom, deep low contrast: 0.1234
+- A surface with flat, deep low contrast qualities: 0.1824
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0376_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2627
+- A texture that is heavy gloom, deep low contrast: 0.0093
+- A surface with flat, deep low contrast qualities: 0.2213
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0378_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1775
+- A texture that is heavy gloom, deep low contrast: 0.0728
+- A surface with flat, deep low contrast qualities: 0.2042
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0379_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2874
+- A texture that is heavy gloom, deep low contrast: 0.0251
+- A surface with flat, deep low contrast qualities: 0.4382
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0380_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0892
+- A texture that is heavy gloom, deep low contrast: 0.0355
+- A surface with flat, deep low contrast qualities: 0.0643
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0381_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3838
+- A texture that is heavy gloom, deep low contrast: 0.0238
+- A surface with flat, deep low contrast qualities: 0.1930
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0383_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1191
+- A texture that is heavy gloom, deep low contrast: 0.0871
+- A surface with flat, deep low contrast qualities: 0.2947
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0384_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0036
+- A texture that is heavy gloom, deep low contrast: 0.0746
+- A surface with flat, deep low contrast qualities: 0.4292
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0385_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.6338
+- A texture that is heavy gloom, deep low contrast: 0.0238
+- A surface with flat, deep low contrast qualities: 0.1019
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0386_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3738
+- A texture that is heavy gloom, deep low contrast: 0.0154
+- A surface with flat, deep low contrast qualities: 0.0771
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0387_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0086
+- A texture that is heavy gloom, deep low contrast: 0.0818
+- A surface with flat, deep low contrast qualities: 0.2856
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0388_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1660
+- A texture that is heavy gloom, deep low contrast: 0.0130
+- A surface with flat, deep low contrast qualities: 0.2612
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0389_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.6460
+- A texture that is heavy gloom, deep low contrast: 0.0038
+- A surface with flat, deep low contrast qualities: 0.1420
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0390_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0240
+- A texture that is heavy gloom, deep low contrast: 0.1403
+- A surface with flat, deep low contrast qualities: 0.2578
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0391_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3391
+- A texture that is heavy gloom, deep low contrast: 0.0292
+- A surface with flat, deep low contrast qualities: 0.1248
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0392_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0663
+- A texture that is heavy gloom, deep low contrast: 0.2142
+- A surface with flat, deep low contrast qualities: 0.2837
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0393_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2007
+- A texture that is heavy gloom, deep low contrast: 0.1091
+- A surface with flat, deep low contrast qualities: 0.1126
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0395_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1582
+- A texture that is heavy gloom, deep low contrast: 0.0582
+- A surface with flat, deep low contrast qualities: 0.3977
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0396_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0012
+- A texture that is heavy gloom, deep low contrast: 0.4053
+- A surface with flat, deep low contrast qualities: 0.1295
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0398_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0568
+- A texture that is heavy gloom, deep low contrast: 0.1028
+- A surface with flat, deep low contrast qualities: 0.2749
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0399_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2267
+- A texture that is heavy gloom, deep low contrast: 0.0400
+- A surface with flat, deep low contrast qualities: 0.1375
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0400_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0042
+- A texture that is heavy gloom, deep low contrast: 0.0362
+- A surface with flat, deep low contrast qualities: 0.6929
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0401_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0482
+- A texture that is heavy gloom, deep low contrast: 0.1439
+- A surface with flat, deep low contrast qualities: 0.3398
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0402_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.6245
+- A texture that is heavy gloom, deep low contrast: 0.0210
+- A surface with flat, deep low contrast qualities: 0.0943
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0403_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3113
+- A texture that is heavy gloom, deep low contrast: 0.0117
+- A surface with flat, deep low contrast qualities: 0.1360
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0404_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1531
+- A texture that is heavy gloom, deep low contrast: 0.0546
+- A surface with flat, deep low contrast qualities: 0.2372
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0405_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.5747
+- A texture that is heavy gloom, deep low contrast: 0.0230
+- A surface with flat, deep low contrast qualities: 0.1132
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0406_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0094
+- A texture that is heavy gloom, deep low contrast: 0.0202
+- A surface with flat, deep low contrast qualities: 0.6899
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0409_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0771
+- A texture that is heavy gloom, deep low contrast: 0.1038
+- A surface with flat, deep low contrast qualities: 0.0522
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0410_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0723
+- A texture that is heavy gloom, deep low contrast: 0.0618
+- A surface with flat, deep low contrast qualities: 0.5596
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0412_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1284
+- A texture that is heavy gloom, deep low contrast: 0.0552
+- A surface with flat, deep low contrast qualities: 0.2986
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0413_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3926
+- A texture that is heavy gloom, deep low contrast: 0.0062
+- A surface with flat, deep low contrast qualities: 0.0704
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0414_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2747
+- A texture that is heavy gloom, deep low contrast: 0.0050
+- A surface with flat, deep low contrast qualities: 0.2500
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0415_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1707
+- A texture that is heavy gloom, deep low contrast: 0.0254
+- A surface with flat, deep low contrast qualities: 0.1483
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0416_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2194
+- A texture that is heavy gloom, deep low contrast: 0.0096
+- A surface with flat, deep low contrast qualities: 0.1250
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0418_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4209
+- A texture that is heavy gloom, deep low contrast: 0.0168
+- A surface with flat, deep low contrast qualities: 0.1410
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0419_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1034
+- A texture that is heavy gloom, deep low contrast: 0.0374
+- A surface with flat, deep low contrast qualities: 0.1678
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0420_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0292
+- A texture that is heavy gloom, deep low contrast: 0.0987
+- A surface with flat, deep low contrast qualities: 0.2025
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0421_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0181
+- A texture that is heavy gloom, deep low contrast: 0.1663
+- A surface with flat, deep low contrast qualities: 0.4448
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0422_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0178
+- A texture that is heavy gloom, deep low contrast: 0.0823
+- A surface with flat, deep low contrast qualities: 0.1179
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0423_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0446
+- A texture that is heavy gloom, deep low contrast: 0.1394
+- A surface with flat, deep low contrast qualities: 0.4502
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0425_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0606
+- A texture that is heavy gloom, deep low contrast: 0.0300
+- A surface with flat, deep low contrast qualities: 0.1187
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0426_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0114
+- A texture that is heavy gloom, deep low contrast: 0.1051
+- A surface with flat, deep low contrast qualities: 0.0151
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0428_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0232
+- A texture that is heavy gloom, deep low contrast: 0.0660
+- A surface with flat, deep low contrast qualities: 0.5708
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0430_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0637
+- A texture that is heavy gloom, deep low contrast: 0.0185
+- A surface with flat, deep low contrast qualities: 0.1411
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0433_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0952
+- A texture that is heavy gloom, deep low contrast: 0.0139
+- A surface with flat, deep low contrast qualities: 0.3481
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0434_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3770
+- A texture that is heavy gloom, deep low contrast: 0.0324
+- A surface with flat, deep low contrast qualities: 0.1837
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0435_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.6973
+- A texture that is heavy gloom, deep low contrast: 0.0364
+- A surface with flat, deep low contrast qualities: 0.1037
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0436_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0977
+- A texture that is heavy gloom, deep low contrast: 0.0218
+- A surface with flat, deep low contrast qualities: 0.2532
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0437_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.2695
+- A texture that is heavy gloom, deep low contrast: 0.0132
+- A surface with flat, deep low contrast qualities: 0.2571
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0438_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.7886
+- A texture that is heavy gloom, deep low contrast: 0.0074
+- A surface with flat, deep low contrast qualities: 0.0972
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0439_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0694
+- A texture that is heavy gloom, deep low contrast: 0.0837
+- A surface with flat, deep low contrast qualities: 0.2275
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0440_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0454
+- A texture that is heavy gloom, deep low contrast: 0.0531
+- A surface with flat, deep low contrast qualities: 0.1466
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0441_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1875
+- A texture that is heavy gloom, deep low contrast: 0.0770
+- A surface with flat, deep low contrast qualities: 0.2334
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0442_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1925
+- A texture that is heavy gloom, deep low contrast: 0.0237
+- A surface with flat, deep low contrast qualities: 0.1621
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0444_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0067
+- A texture that is heavy gloom, deep low contrast: 0.0881
+- A surface with flat, deep low contrast qualities: 0.0233
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0445_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1805
+- A texture that is heavy gloom, deep low contrast: 0.0644
+- A surface with flat, deep low contrast qualities: 0.3320
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0447_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1799
+- A texture that is heavy gloom, deep low contrast: 0.0508
+- A surface with flat, deep low contrast qualities: 0.2347
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0448_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.5322
+- A texture that is heavy gloom, deep low contrast: 0.0287
+- A surface with flat, deep low contrast qualities: 0.0925
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0451_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0055
+- A texture that is heavy gloom, deep low contrast: 0.0475
+- A surface with flat, deep low contrast qualities: 0.5103
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0456_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.4399
+- A texture that is heavy gloom, deep low contrast: 0.0605
+- A surface with flat, deep low contrast qualities: 0.2318
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0460_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0157
+- A texture that is heavy gloom, deep low contrast: 0.0455
+- A surface with flat, deep low contrast qualities: 0.5210
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0461_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.1852
+- A texture that is heavy gloom, deep low contrast: 0.0175
+- A surface with flat, deep low contrast qualities: 0.1766
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0462_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0323
+- A texture that is heavy gloom, deep low contrast: 0.1425
+- A surface with flat, deep low contrast qualities: 0.4458
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0463_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.0123
+- A texture that is heavy gloom, deep low contrast: 0.0116
+- A surface with flat, deep low contrast qualities: 0.3711
+Passed Threshold (0.3): NO
+
+Image: E:\ML For Design\Final\Machine_Aesthetics\texture_extractor\data\hugging_data\color\texture_0464_color.png
+Mean Score: 0.2000
+Top Prompt Matches:
+- A weathered finish, flat, uncontrollable texture: 0.3552
+- A texture that is heavy gloom, deep low contrast: 0.0035
+- A surface with flat, deep low contrast qualities: 0.1602
+Passed Threshold (0.3): NO
+
