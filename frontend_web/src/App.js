@@ -1,16 +1,15 @@
 import React from "react";
 import "./App.css";
-import MeshViewer from "./MeshViewer";
+import Scene from "./mesh_deformation"; // 👈 make sure path is correct
 
 function App() {
   return (
     <div className="App">
       <header className="header">
-        <h1>Shape Viewer</h1>
-        <button className="cta-button">Refresh Mesh</button>
+        <h1>Mesh Deformation Test</h1>
       </header>
       <div className="viewer-container">
-        <MeshViewer />
+        <Scene />
       </div>
     </div>
   );
