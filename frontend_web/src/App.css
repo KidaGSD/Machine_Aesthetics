@@ -7,6 +7,16 @@ body {
   color: #fff;
 }
 
+/* App.css */
+.viewer-container {
+  width: 100%;
+  height: 80vh;
+}
+canvas {
+  display: block;
+}
+
+
 .App {
   display: flex;
   flex-direction: column;
