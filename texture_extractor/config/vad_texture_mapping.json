@@ -1,0 +1,138 @@
+{
+  "valence_thresholds": [
+    0.4,
+    0.6
+  ],
+  "arousal_thresholds": [
+    0.4,
+    0.6
+  ],
+  "dominance_threshold": 0.5,
+  "mapping": {
+    "negative_high": [
+      "spiky",
+      "jagged",
+      "sharp edges",
+      "torn edges",
+      "chaotic scribbles",
+      "disruptive lines",
+      "erratic lines",
+      "fractured patterns",
+      "high-contrast",
+      "thunder-like impact"
+    ],
+    "neutral_high": [
+      "dynamic wave",
+      "hint of tension",
+      "vibrant swirl",
+      "neutral tone",
+      "geometric patterns",
+      "taut but not harsh",
+      "subtle pulsing",
+      "balanced extremes"
+    ],
+    "positive_high": [
+      "explosive swirl",
+      "bursting patterns",
+      "energetic patterns",
+      "bright bursts",
+      "intense highlights",
+      "bold dynamic lines",
+      "radiating effect",
+      "high saturation",
+      "radiating finish"
+    ],
+    "negative_moderate": [
+      "somber",
+      "subdued texture",
+      "melancholic brushstrokes",
+      "mild cracks",
+      "fine fractures",
+      "understated fractures",
+      "subtle grainy patterns",
+      "minimal light/dark contrast"
+    ],
+    "neutral_moderate": [
+      "balanced wave",
+      "uniform ripples",
+      "moderate motion",
+      "moderate swirl",
+      "gentle dynamic accents",
+      "quiet strokes",
+      "understated texture",
+      "soft medium contrast pattern"
+    ],
+    "positive_moderate": [
+      "soft flow",
+      "gentle texture",
+      "elegant texture",
+      "mild radiant lines",
+      "delicate pastel effect",
+      "subtle warm glow",
+      "smooth finish"
+    ],
+    "negative_low": [
+      "dull",
+      "flat",
+      "stagnation",
+      "lifeless",
+      "heavy gloom",
+      "deep low contrast",
+      "muted colors",
+      "faded finish",
+      "weathered finish"
+    ],
+    "neutral_low": [
+      "softly blurred",
+      "subtle texture",
+      "almost monotone",
+      "low contrast",
+      "misty effects",
+      "light fog",
+      "gentle fade",
+      "gradual transitions",
+      "restrained texture"
+    ],
+    "positive_low": [
+      "smooth pastel gradient",
+      "calm transitions",
+      "flowing transitions",
+      "flowing wave",
+      "water-like movement",
+      "serene swirl",
+      "light",
+      "airy",
+      "refreshing visual impression"
+    ]
+  },
+  "dominance_modifiers": {
+    "high": [
+      "bold",
+      "structured",
+      "organized patterns",
+      "strong lines",
+      "symmetry",
+      "confident",
+      "decisive",
+      "prominent",
+      "defined boundaries",
+      "distinct zones",
+      "color blocks"
+    ],
+    "low": [
+      "fragmented",
+      "scattered",
+      "randomized",
+      "broken lines",
+      "diffuse",
+      "soft edges",
+      "cloud-like",
+      "smeared appearance",
+      "fluid",
+      "melting",
+      "flowing together",
+      "uncontrollable",
+      "organic randomness"
+    ]
+  }
+}
