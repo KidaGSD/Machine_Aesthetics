@@ -1,0 +1,18 @@
+# Core dependencies
+numpy
+pandas
+matplotlib
+Pillow
+opencv-python
+tqdm
+scikit-learn
+PyYAML
+
+# ML / Deep Learning
+torch
+torchvision
+# transformers # Often needed for models like CLIP or audio classifiers
+# librosa # For audio processing (if audio analysis part is used)
+
+# Special installation (usually via pip install git+https://github.com/openai/CLIP.git)
+# clip

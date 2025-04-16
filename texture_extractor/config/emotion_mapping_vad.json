@@ -1,0 +1,98 @@
+{
+  "joy": {
+    "valence": [0.6, 1.0],
+    "arousal": [0.6, 1.0]
+  },
+  "peaceful": {
+    "valence": [0.6, 1.0],
+    "arousal": [0.0, 0.4]
+  },
+  "surprised": {
+    "valence": [0.5, 0.8],
+    "arousal": [0.8, 1.0]
+  },
+  "angry": {
+    "valence": [0.0, 0.4],
+    "arousal": [0.6, 1.0]
+  },
+  "fearful": {
+    "valence": [0.0, 0.4],
+    "arousal": [0.4, 0.8]
+  },
+  "disgusted": {
+    "valence": [0.0, 0.3],
+    "arousal": [0.3, 0.7]
+  },
+  "sad": {
+    "valence": [0.0, 0.4],
+    "arousal": [0.0, 0.4]
+  },
+  "serene": {
+    "valence": [0.5, 0.9],
+    "arousal": [0.1, 0.5]
+  },
+  "default_weight": 1.0,
+  "emotion_mapping": {
+    "negative_high": {
+      "weight": 1.2,
+      "texture_types": ["jagged", "spiky", "chaotic", "fractured"],
+      "description": "Textures with sharp, erratic patterns that convey negative high-energy emotions"
+    },
+    "negative_moderate": {
+      "weight": 1.0,
+      "texture_types": ["somber", "subdued", "melancholic"],
+      "description": "Textures with understated, muted qualities that convey negative moderate-energy emotions"
+    },
+    "negative_low": {
+      "weight": 0.8,
+      "texture_types": ["dull", "flat", "lifeless", "muted"],
+      "description": "Textures with low contrast, faded qualities that convey negative low-energy emotions"
+    },
+    "neutral_high": {
+      "weight": 1.0,
+      "texture_types": ["dynamic", "geometric", "taut"],
+      "description": "Textures with balanced movement that convey neutral high-energy emotions"
+    },
+    "neutral_moderate": {
+      "weight": 1.0,
+      "texture_types": ["balanced", "moderate", "uniform"],
+      "description": "Textures with even, balanced qualities that convey neutral moderate-energy emotions"
+    },
+    "neutral_low": {
+      "weight": 1.0,
+      "texture_types": ["blurred", "faded", "gentle"],
+      "description": "Textures with soft, subtle qualities that convey neutral low-energy emotions"
+    },
+    "positive_high": {
+      "weight": 1.2,
+      "texture_types": ["energetic", "bright", "bold", "radiating"],
+      "description": "Textures with vibrant, dynamic qualities that convey positive high-energy emotions"
+    },
+    "positive_moderate": {
+      "weight": 1.0,
+      "texture_types": ["elegant", "warm", "flowing", "soft flow"],
+      "description": "Textures with pleasant, flowing qualities that convey positive moderate-energy emotions"
+    },
+    "positive_low": {
+      "weight": 0.8,
+      "texture_types": ["calm", "smooth", "serene", "flowing wave"],
+      "description": "Textures with smooth, calming qualities that convey positive low-energy emotions"
+    }
+  },
+  "dominance_mapping": {
+    "high": {
+      "weight": 1.2,
+      "texture_modifiers": ["bold", "structured", "organized", "defined"],
+      "description": "Texture modifiers that create a sense of strength and control"
+    },
+    "low": {
+      "weight": 0.8,
+      "texture_modifiers": ["fragmented", "fluid", "diffuse", "scattered"],
+      "description": "Texture modifiers that create a sense of weakness or lack of control"
+    }
+  },
+  "texture_preferences": {
+    "priority_folders": ["textures/high_quality"],
+    "exclude_folders": ["textures/noisy", "textures/pixelated"]
+  }
+} 

@@ -1,0 +1,63 @@
+# VAD-Based Texture Classification Pipeline Configuration
+
+# Input directories and paths
+original_textures_dir: data/textures  # DTD dataset location
+hugging_data_dir: data/hugging_data   # Hugging Face dataset location (if using)
+
+# Audio input for texture mapping stage
+audio_timeline_path: ../audio_analysis/machine_ase/luminote/valence_arousal_timeline-screams.csv
+
+# VAD input for texture classification
+vad_csv_path: ../audio_analysis/machine_ase/luminote/valence_arousal_timeline-screams.csv
+
+# Emotion mapping file for texture selection stage
+emotion_mapping_path: config/emotion_mapping_vad.json
+
+# Classifier type ('emotion' or 'vad')
+classifier_type: vad
+
+# Base directory for results
+results_base_dir: results_vad
+
+# Device preference (optional, auto-detects if not specified)
+# device: cuda
+
+# Classification settings
+classification:
+  confidence_threshold: 0.3
+  high_confidence_list_filename: high_confidence_textures.txt
+  classification_results_filename: classification_results.txt
+
+# Classification output directories (resolved based on results_base_dir)
+classification_output_dir: ${results_base_dir}/classification
+depth_maps_output_dir: ${results_base_dir}/depth_maps
+
+# Texture mapping settings (audio timeline to texture selection)
+texture_mapping:
+  texture_timeline_filename: texture_timeline.json
+  frame_overlap: 0.5  # How much frames should overlap
+  segments_per_second: 2  # How many texture segments per second of audio
+
+# Texture blending settings
+texture_blending:
+  target_size: 512  # Size of the output textures (square)
+  blur_kernel: 5  # Blur kernel size for blending
+  displacement_scale: 1.0  # Scale factor for displacement maps
+  animation_data_filename: animation_data.json
+  blending_results_filename: blending_results.json
+
+# Parametric design settings
+parametric_design:
+  base_radius: 100.0  # Base radius of the lamp structure
+  # Specific lamp design parameters (adjust as needed)
+  segment_width: 40
+  segment_height: 20
+  segment_thickness: 2
+  design_results_filename: design_results.json
+  visualize_previews: true
+
+# Depth generation settings
+depth_generation:
+  model_type: DPT_Large  # MiDaS model type (DPT_Large, MiDaS_small, etc.)
+  batch_size: 4
+  num_workers: 4 
