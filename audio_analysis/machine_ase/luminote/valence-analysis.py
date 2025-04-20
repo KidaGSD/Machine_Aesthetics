@@ -7,7 +7,7 @@ from pydub import AudioSegment
 from audio_classifiers.emotion_classifier import EmotionClassifier
 
 # === 🔊 Set your audio file path here ===
-input_path = os.path.join(os.path.dirname(__file__), "audio", "screams.wav")
+input_path = os.path.join(os.path.dirname(__file__), "audio", "sudden-angry.wav")
 
 # === Auto-convert MP3 to WAV if needed ===
 if input_path.lower().endswith(".mp3"):
@@ -20,7 +20,7 @@ else:
     audio_path = input_path
 
 # === Config ===
-output_csv = os.path.join(os.path.dirname(__file__), "valence_arousal_timeline-screams.csv")
+output_csv = os.path.join(os.path.dirname(__file__), "valence_arousal_timeline-angry.csv")
 sampling_rate = 44100
 chunk_duration_sec = 0.5
 
