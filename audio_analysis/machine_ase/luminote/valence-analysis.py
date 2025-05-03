@@ -4,23 +4,32 @@ import librosa
 import numpy as np
 import torch
 from pydub import AudioSegment
+import subprocess
 from audio_classifiers.emotion_classifier import EmotionClassifier
 
-# === 🔊 Set your audio file path here ===
-input_path = os.path.join(os.path.dirname(__file__), "audio", "sudden-angry.wav")
+# Correct filename setup
+filename = "sobbing.wav"
+input_path = os.path.join(os.path.dirname(__file__), "audio", filename)
 
-# === Auto-convert MP3 to WAV if needed ===
+print("✅ Input audio path:", input_path)
+
+# === Auto-convert MP4 to WAV if needed using ffmpeg ===
 if input_path.lower().endswith(".mp3"):
     print("🎧 Converting .mp3 to .wav...")
     wav_path = input_path.replace(".mp3", ".wav")
     audio = AudioSegment.from_mp3(input_path)
     audio.export(wav_path, format="wav")
     audio_path = wav_path
+elif input_path.lower().endswith(".mp4"):
+    print("🎬 Extracting audio from .mp4 to .wav using ffmpeg...")
+    audio_path = input_path.replace(".mp4", ".wav")
+    command = f"ffmpeg -i \"{input_path}\" -vn -acodec pcm_s16le -ar 44100 -ac 2 \"{audio_path}\""
+    subprocess.call(command, shell=True)
 else:
     audio_path = input_path
 
 # === Config ===
-output_csv = os.path.join(os.path.dirname(__file__), "valence_arousal_timeline-angry.csv")
+output_csv = os.path.join(os.path.dirname(__file__), "valence_arousal_timeline-sobbing.csv")
 sampling_rate = 44100
 chunk_duration_sec = 0.5
 
