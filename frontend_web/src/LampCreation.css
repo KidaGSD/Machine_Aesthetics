@@ -1,6 +1,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
+.export-button {
+    margin-top: 12px;
+    background: black;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid white;
+  }
+  
+  .export-button:hover {
+    background: white;
+    color: black;
+  }
+
+
 .loading-overlay {
     position: absolute;
     top: 0;
@@ -263,7 +282,6 @@ body, html, #root {
     padding-top: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
   }
 
   

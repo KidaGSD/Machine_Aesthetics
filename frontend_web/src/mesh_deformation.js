@@ -1,3 +1,4 @@
+// --- Imports (same as original) ---
 import React, {
   useRef,
   useEffect,
@@ -21,7 +22,7 @@ const ColorCloud = forwardRef(({ csvPath, amplitudeCsvPath, emotionCurvesPath },
   const [generatedGeometry, setGeneratedGeometry] = useState(null);
   const [revealProgress, setRevealProgress] = useState(0);
 
-  const waveDivs = 40;
+  const waveDivs = 200;
   const waveCount = 5;
   const heightPerLayer = 40;
   const amplitudeFactor = 10;
@@ -47,31 +48,23 @@ const ColorCloud = forwardRef(({ csvPath, amplitudeCsvPath, emotionCurvesPath },
   }));
 
   useFrame(() => {
-    // Slow rotation
     if (meshRef.current) {
-      meshRef.current.rotation.y += 0.002; // Rotate around Y-axis
+      meshRef.current.rotation.y += 0.002;
     }
-  
-    // Reveal animation logic
     if (revealProgress < 1.0) {
       setRevealProgress((prev) => Math.min(prev + 0.003, 1.0));
     }
   });
-  
 
   const fetchWithNoCache = (url) => `${url}?t=${Date.now()}`;
 
   useEffect(() => {
     if (!csvPath) return;
     fetch(fetchWithNoCache(csvPath))
-      .then((res) => res.text())
-      .then((text) => {
+      .then(res => res.text())
+      .then(text => {
         const cleanText = text.replace(/^﻿/, '');
-        const parsed = Papa.parse(cleanText, {
-          header: true,
-          dynamicTyping: true,
-          skipEmptyLines: true,
-        });
+        const parsed = Papa.parse(cleanText, { header: true, dynamicTyping: true, skipEmptyLines: true });
         const cleaned = parsed.data.filter(row => row.emotion);
         setDataRows(cleaned);
       });
@@ -80,13 +73,9 @@ const ColorCloud = forwardRef(({ csvPath, amplitudeCsvPath, emotionCurvesPath },
   useEffect(() => {
     if (!amplitudeCsvPath) return;
     fetch(fetchWithNoCache(amplitudeCsvPath))
-      .then((res) => res.text())
-      .then((text) => {
-        const parsed = Papa.parse(text, {
-          header: true,
-          dynamicTyping: true,
-          skipEmptyLines: true,
-        });
+      .then(res => res.text())
+      .then(text => {
+        const parsed = Papa.parse(text, { header: true, dynamicTyping: true, skipEmptyLines: true });
         const amps = parsed.data.map(row => parseFloat(row.arousal ?? 0));
         setAmplitudes(amps);
       });
@@ -95,8 +84,8 @@ const ColorCloud = forwardRef(({ csvPath, amplitudeCsvPath, emotionCurvesPath },
   useEffect(() => {
     if (!emotionCurvesPath) return;
     fetch(fetchWithNoCache(emotionCurvesPath))
-      .then((res) => res.json())
-      .then((data) => setEmotionCurves(data));
+      .then(res => res.json())
+      .then(data => setEmotionCurves(data));
   }, [emotionCurvesPath]);
 
   useEffect(() => {
@@ -140,15 +129,13 @@ const ColorCloud = forwardRef(({ csvPath, amplitudeCsvPath, emotionCurvesPath },
       const amp = amplitudes[i % amplitudes.length] * amplitudeFactor;
       for (let j = 0; j < waveDivs; j++) {
         const t = j / (waveDivs - 1);
-        const revealT = Math.min(1, revealProgress * 1.2); // reveal stretch
-
+        const revealT = Math.min(1, revealProgress * 1.2);
         const waveOffset = Math.sin(t * Math.PI * waveCount + i * 0.3) * 3;
 
         const top = ptsA[i].clone().add(new THREE.Vector3(0, heightPerLayer / 2, 0));
         const bottom = alignedB[i].clone().add(new THREE.Vector3(0, -heightPerLayer / 2, 0));
         const base = new THREE.Vector3().lerpVectors(top, bottom, t);
         const anchor = new THREE.Vector3().lerpVectors(top, bottom, t);
-
         let radial = base.clone().sub(anchor).setY(0);
         if (radial.length() < 0.001) radial = new THREE.Vector3(1, 0, 0);
         else radial.normalize();
@@ -162,23 +149,32 @@ const ColorCloud = forwardRef(({ csvPath, amplitudeCsvPath, emotionCurvesPath },
       waveCurves.push(curvePoints);
     }
 
+    // Build connected mesh with shared vertices
     const vertices = [];
+    const uvs = [];
     const indices = [];
+
     for (let i = 0; i < segments; i++) {
-      const next = (i + 1) % segments;
+      for (let j = 0; j < waveDivs; j++) {
+        const p = waveCurves[i][j];
+        vertices.push(p.x, p.y, p.z);
+        uvs.push(i / (segments - 1), j / (waveDivs - 1));
+      }
+    }
+
+    for (let i = 0; i < segments - 1; i++) {
       for (let j = 0; j < waveDivs - 1; j++) {
-        const a = waveCurves[i][j];
-        const b = waveCurves[next][j];
-        const c = waveCurves[next][j + 1];
-        const d = waveCurves[i][j + 1];
-        const baseIdx = vertices.length / 3;
-        vertices.push(a.x, a.y, a.z, b.x, b.y, b.z, c.x, c.y, c.z, d.x, d.y, d.z);
-        indices.push(baseIdx, baseIdx + 1, baseIdx + 2, baseIdx, baseIdx + 2, baseIdx + 3);
+        const a = i * waveDivs + j;
+        const b = (i + 1) * waveDivs + j;
+        const c = (i + 1) * waveDivs + (j + 1);
+        const d = i * waveDivs + (j + 1);
+        indices.push(a, b, d, b, c, d);
       }
     }
 
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+    geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
     geometry.setIndex(indices);
     geometry.computeVertexNormals();
     setGeneratedGeometry(geometry);
