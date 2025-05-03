@@ -174,3 +174,79 @@ This component utilizes:
 - CLIP model by OpenAI
 - MiDaS model by Intel ISL
 - Various Python libraries (NumPy, OpenCV, Matplotlib, PyYAML, etc.)
+
+# Texture Filtering Scripts
+
+This directory contains scripts for filtering texture datasets to select only abstract textures and remove images containing recognizable objects.
+
+## Setup
+
+1. Install required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Make sure your dataset directories are properly organized:
+   - For normal maps: `data/hugging_data/normal` (source) and `data/hugging_data/normal_clean` (target)
+   - For DTD textures: `data/dtd/images` (source) and `data/dtd/filtered_images` (target)
+
+## Scripts
+
+### 1. Normal Map Filtering (`filter_normal_maps.py`)
+
+Filters out plain normal maps (blue/purple maps with no features) from a dataset.
+
+Usage:
+```bash
+python filter_normal_maps.py
+```
+
+The script uses file size and pixel variance to identify and exclude plain normal maps.
+
+### 2. DTD Texture Filtering (`filter_dtd_textures.py`)
+
+Filters out images containing recognizable objects from the Describable Textures Dataset (DTD), keeping only abstract texture-based images.
+
+Basic usage:
+```bash
+python filter_dtd_textures.py
+```
+
+With interactive review mode:
+```bash
+python filter_dtd_textures.py --review
+```
+
+This mode shows each image with its analysis and lets you approve or override the decision.
+
+Other options:
+- `--confidence 0.6`: Set the object detection confidence threshold (default: 0.5)
+- `--sample 5`: Process only a sample of 5 images per category (useful for testing)
+
+Example with all options:
+```bash
+python filter_dtd_textures.py --review --confidence 0.7 --sample 3
+```
+
+## How It Works
+
+### Normal Map Filtering
+
+The normal map filtering script:
+1. Checks file size (small files are often plain)
+2. Analyzes pixel variance (plain maps have very low variance)
+3. Copies only non-plain normal maps to the target directory
+
+### DTD Texture Filtering
+
+The DTD filtering script uses:
+1. Object detection with Faster R-CNN to identify images with recognizable objects
+2. Texture analysis metrics:
+   - Edge density (textures typically have higher edge density)
+   - Feature standardization (consistent patterns have moderate variation)
+   - Texture uniformity (abstract textures have consistent patterns)
+3. Interactive review mode for manually reviewing decisions
+
+## Output
+
+Filtered textures are saved to the target directories while maintaining the original folder structure.

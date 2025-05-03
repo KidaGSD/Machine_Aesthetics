@@ -1,9 +1,13 @@
-
 // need to install: npm install react-router-dom
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./landingpage";
 import LampCreation from "./LampCreation";
+import './App.css';
+// Import the new visualization component
+import VectorSpaceVisualization from './components/VectorSpaceVisualization';
+// Comment out or remove the old visualization component
+// import InteractiveVAVisualization from './components/InteractiveVAVisualization';
 
 function App() {
   return (

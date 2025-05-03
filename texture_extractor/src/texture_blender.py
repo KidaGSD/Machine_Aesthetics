@@ -147,18 +147,40 @@ class TextureBlender:
         # Convert back to 8-bit image for saving
         displacement_8bit = (displacement * 255).astype(np.uint8)
         return displacement_8bit
-    
-    def create_preview(self, texture, displacement, output_path=None):
-        """Create a side-by-side preview of texture and displacement map."""
+
+    def create_preview(self, texture_color, displacement_gray, normal_map_gray, output_path=None):
+        """Create a side-by-side preview of color texture, displacement map, and normal map."""
         try:
-            if len(texture.shape) == 2: texture_rgb = cv2.cvtColor(texture, cv2.COLOR_GRAY2RGB)
-            else: texture_rgb = texture.copy() # Assume RGB
-            
-            displacement_colored = cv2.applyColorMap(displacement, cv2.COLORMAP_VIRIDIS) # Use Viridis
+            # Ensure texture is RGB
+            if len(texture_color.shape) == 2:
+                texture_rgb = cv2.cvtColor(texture_color, cv2.COLOR_GRAY2RGB)
+            elif texture_color.shape[2] == 1: # Handle single channel color image?
+                 texture_rgb = cv2.cvtColor(texture_color, cv2.COLOR_GRAY2RGB)
+            else:
+                texture_rgb = texture_color.copy() # Assume RGB
+
+            # Colorize displacement map (Viridis)
+            displacement_colored = cv2.applyColorMap(displacement_gray, cv2.COLORMAP_VIRIDIS)
             displacement_rgb = cv2.cvtColor(displacement_colored, cv2.COLOR_BGR2RGB)
-            
-            preview = np.hstack((texture_rgb, displacement_rgb))
-            
+
+            # Ensure normal map is RGB for stacking (if it exists)
+            if normal_map_gray is not None:
+                if len(normal_map_gray.shape) == 2:
+                    normal_map_rgb = cv2.cvtColor(normal_map_gray, cv2.COLOR_GRAY2RGB)
+                else:
+                     normal_map_rgb = normal_map_gray.copy() # Assume it's already displayable
+                # Stack all three
+                preview = np.hstack((texture_rgb, displacement_rgb, normal_map_rgb))
+            else:
+                # Stack only texture and displacement if normal map is missing
+                # Create a placeholder for normal map?
+                placeholder_shape = list(texture_rgb.shape)
+                placeholder_shape[1] = texture_rgb.shape[1] # Match width
+                normal_placeholder = np.ones(placeholder_shape, dtype=np.uint8) * 128 # Gray placeholder
+                cv2.putText(normal_placeholder, 'No Normal Map', (10, placeholder_shape[0]//2), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,0), 2)
+                preview = np.hstack((texture_rgb, displacement_rgb, normal_placeholder))
+
+
             if output_path:
                 # Ensure directory exists
                 os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -168,9 +190,10 @@ class TextureBlender:
         except Exception as e:
             print(f"Error creating preview image: {e}")
             return None
-    
-    def process_timeline(self, target_size=(512, 512), blur_kernel=5, displacement_scale=1.0):
+
+    def process_timeline(self, target_size=(512, 512), blur_kernel=5, displacement_scale=1.0, displacement_scale_multiplier=2.0): # Added multiplier
         """Process the timeline to generate blended textures and displacement maps."""
+        print(f"Using displacement scale: {displacement_scale}, multiplier: {displacement_scale_multiplier}") # Log scale info
         if self.texture_timeline is None:
             print("Error: Texture timeline not loaded.")
             return None # Return None instead of raising error
@@ -186,58 +209,85 @@ class TextureBlender:
             if not textures_info:
                 print(f"Warning: No textures for time point {time_point}. Skipping.")
                 continue
-            
-            texture_paths = [t["texture_path"] for t in textures_info]
-            weights = [t["weight"] for t in textures_info]
-            
-            # Detect if any texture is from huggingface dataset
-            has_huggingface = any(detect_dataset_type(path) == 'huggingface' for path in texture_paths if path)
-            primary_texture_path = texture_paths[0] if texture_paths else None
-            
-            # Blend textures (grayscale for displacement map)
-            blended_gray = self.blend_textures(texture_paths, weights, target_size, grayscale=True)
-            if blended_gray is None:
-                print(f"Warning: Failed to blend textures for time point {time_point}. Skipping.")
-                continue
-            
-            # Create displacement map from grayscale blend or use existing normal map
+
+            # --- Updated logic for single texture per time point ---
+            if len(textures_info) != 1:
+                 print(f"Warning: Expected 1 texture info entry for time {time_point}, found {len(textures_info)}. Using the first.")
+                 # Continue anyway, using the first texture if available
+
+            texture_info = textures_info[0]
+            texture_path = texture_info.get("texture_path")
+
+            if not texture_path:
+                 print(f"Warning: No texture path found for time point {time_point}. Skipping.")
+                 continue
+
+            # Load the single texture (grayscale for displacement)
+            texture_gray = self.preprocess_texture(texture_path, target_size, grayscale=True)
+            if texture_gray is None:
+                 print(f"Warning: Failed to load texture {texture_path} for time point {time_point}. Skipping.")
+                 continue
+
+            # Create displacement map from the single texture or use existing normal map
+            # Use a potentially larger scale for visibility, now configurable
+            effective_displacement_scale = displacement_scale * displacement_scale_multiplier # Use multiplier
             displacement = self.create_displacement_map(
-                blended_gray, 
-                blur_kernel, 
-                displacement_scale,
-                primary_texture_path if has_huggingface else None
+                texture_gray,
+                blur_kernel,
+                effective_displacement_scale, # Use the increased scale
+                texture_path # Pass the actual path for normal map check
             )
-            
-            # Blend textures in color for preview (optional, could reuse gray)
-            blended_color = self.blend_textures(texture_paths, weights, target_size, grayscale=False)
-            if blended_color is None: blended_color = cv2.cvtColor(blended_gray, cv2.COLOR_GRAY2RGB) # Fallback
+
+            # Load the texture in color for preview
+            texture_color = self.preprocess_texture(texture_path, target_size, grayscale=False)
+            if texture_color is None: texture_color = cv2.cvtColor(texture_gray, cv2.COLOR_GRAY2RGB) # Fallback
 
             # Generate filenames
             time_str = f"{float(time_point):.2f}".replace('.', '_') # Format time for filename
-            texture_filename = f"texture_{i:04d}_t{time_str}.png"
-            displacement_filename = f"displace_{i:04d}_t{time_str}.png"
-            preview_filename = f"preview_{i:04d}_t{time_str}.png"
-            
+            # Use a more descriptive name if possible (e.g., from keywords)
+            keywords_str = "_".join(entry.get("keywords", [])).replace(" ", "")[:30] # Limit length
+            base_filename = f"{i:04d}_t{time_str}_{keywords_str}"
+            texture_filename = f"{base_filename}_texture.png"
+            displacement_filename = f"{base_filename}_displace.png"
+            preview_filename = f"{base_filename}_preview.png"
+
             # Define full output paths
-            texture_path = os.path.join(self.textures_output_dir, texture_filename)
-            displacement_path = os.path.join(self.displace_output_dir, displacement_filename)
-            preview_path = os.path.join(self.previews_output_dir, preview_filename)
-            
+            output_texture_path = os.path.join(self.textures_output_dir, texture_filename)
+            output_displacement_path = os.path.join(self.displace_output_dir, displacement_filename)
+            output_preview_path = os.path.join(self.previews_output_dir, preview_filename)
+
             # Save outputs
-            try: cv2.imwrite(texture_path, blended_gray) # Save grayscale blended texture
-            except Exception as e: print(f"Error saving texture {texture_path}: {e}")
-            try: cv2.imwrite(displacement_path, displacement)
-            except Exception as e: print(f"Error saving displacement map {displacement_path}: {e}")
-            
-            # Create and save preview
-            self.create_preview(blended_color, displacement, preview_path)
-            
+            try: cv2.imwrite(output_texture_path, texture_gray) # Save grayscale texture
+            except Exception as e: print(f"Error saving texture {output_texture_path}: {e}")
+            try: cv2.imwrite(output_displacement_path, displacement)
+            except Exception as e: print(f"Error saving displacement map {output_displacement_path}: {e}")
+
+            # Load normal map if available
+            normal_map_path = None
+            normal_map_gray = None
+            if detect_dataset_type(texture_path) == 'huggingface':
+                normal_map_path = get_normal_map_path(texture_path)
+                if normal_map_path and os.path.exists(normal_map_path):
+                    try:
+                        normal_map_gray = cv2.imread(normal_map_path, cv2.IMREAD_GRAYSCALE)
+                        if normal_map_gray is not None:
+                             normal_map_gray = cv2.resize(normal_map_gray, target_size, interpolation=cv2.INTER_LANCZOS4)
+                        else: print(f"Warning: Failed to load normal map {normal_map_path}")
+                    except Exception as e: print(f"Error loading normal map {normal_map_path}: {e}")
+
+            # Create and save preview (passing color texture, gray displacement, gray normal)
+            self.create_preview(texture_color, displacement, normal_map_gray, output_preview_path)
+
+            # Store original retrieved path and generated paths
             results.append({
                 "time": time_point,
-                "emotions": emotions,
-                "texture_path": texture_path,
-                "displacement_path": displacement_path,
-                "preview_path": preview_path
+                "emotions": entry.get("vad_quadrant", "unknown"), # Use quadrant for simplicity
+                "keywords": entry.get("keywords", []),
+                "clip_prompt": entry.get("clip_prompt", ""),
+                "retrieved_texture_path": texture_path, # Original path from CLIP
+                "texture_path": output_texture_path, # Path to saved grayscale texture
+                "displacement_path": output_displacement_path,
+                "preview_path": output_preview_path
             })
         
         print(f"Finished processing timeline. Generated {len(results)} sets of outputs.")

@@ -1,0 +1,29 @@
+Binary VA Classification Statistics
+=================================
+
+Total images analyzed: 432
+
+Quadrant Distribution:
+  low_low: 391 images (90.5%)
+  high_low: 28 images (6.5%)
+  low_high: 13 images (3.0%)
+
+Category Distribution:
+  normal_grey: 432 images (100.0%)
+
+Score Ranges:
+  Valence: -0.0200 to 0.0105
+  Arousal: -0.0154 to 0.0031
+
+Most Positive Valence:
+  texture_0091_normal.png (score: 0.0105)
+
+Most Negative Valence:
+  texture_0417_normal.png (score: -0.0200)
+
+Highest Arousal:
+  texture_0377_normal.png (score: 0.0031)
+
+Lowest Arousal:
+  texture_0186_normal.png (score: -0.0154)
+

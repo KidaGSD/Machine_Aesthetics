@@ -1,0 +1,72 @@
+Binary VA Classification Statistics
+=================================
+
+Total images analyzed: 989
+
+Quadrant Distribution:
+  high_low: 712 images (72.0%)
+  high_high: 277 images (28.0%)
+
+Category Distribution:
+  normal_grey: 432 images (43.7%)
+  stratified: 43 images (4.3%)
+  fibrous: 33 images (3.3%)
+  porous: 31 images (3.1%)
+  woven: 30 images (3.0%)
+  potholed: 30 images (3.0%)
+  scaly: 23 images (2.3%)
+  marbled: 23 images (2.3%)
+  flecked: 22 images (2.2%)
+  pitted: 22 images (2.2%)
+  meshed: 21 images (2.1%)
+  knitted: 21 images (2.1%)
+  perforated: 19 images (1.9%)
+  blotchy: 17 images (1.7%)
+  matted: 17 images (1.7%)
+  cracked: 15 images (1.5%)
+  grid: 15 images (1.5%)
+  grooved: 13 images (1.3%)
+  bumpy: 12 images (1.2%)
+  wrinkled: 11 images (1.1%)
+  lacelike: 11 images (1.1%)
+  bubbly: 10 images (1.0%)
+  stained: 10 images (1.0%)
+  braided: 9 images (0.9%)
+  crosshatched: 9 images (0.9%)
+  spiralled: 8 images (0.8%)
+  lined: 8 images (0.8%)
+  veined: 8 images (0.8%)
+  zigzagged: 7 images (0.7%)
+  frilly: 7 images (0.7%)
+  sprinkled: 6 images (0.6%)
+  honeycombed: 6 images (0.6%)
+  polka-dotted: 5 images (0.5%)
+  studded: 5 images (0.5%)
+  paisley: 4 images (0.4%)
+  banded: 4 images (0.4%)
+  crystalline: 3 images (0.3%)
+  smeared: 3 images (0.3%)
+  gauzy: 3 images (0.3%)
+  swirly: 3 images (0.3%)
+  pleated: 3 images (0.3%)
+  interlaced: 2 images (0.2%)
+  cobwebbed: 2 images (0.2%)
+  dotted: 2 images (0.2%)
+  chequered: 1 images (0.1%)
+
+Score Ranges:
+  Valence: 0.0272 to 0.0620
+  Arousal: -0.0134 to 0.0125
+
+Most Positive Valence:
+  texture_0091_normal.png (score: 0.0620)
+
+Most Negative Valence:
+  potholed_0152.jpg (score: 0.0272)
+
+Highest Arousal:
+  bumpy_0173.jpg (score: 0.0125)
+
+Lowest Arousal:
+  texture_0186_normal.png (score: -0.0134)
+

@@ -1,18 +1,30 @@
 # Core dependencies
-numpy
+numpy>=1.20.0
 pandas
-matplotlib
-Pillow
-opencv-python
+matplotlib>=3.5.0
+Pillow>=9.0.0
+opencv-python>=4.5.0
 tqdm
 scikit-learn
 PyYAML
 
 # ML / Deep Learning
-torch
-torchvision
-# transformers # Often needed for models like CLIP or audio classifiers
-# librosa # For audio processing (if audio analysis part is used)
+torch>=1.13.0
+torchvision>=0.14.0
 
-# Special installation (usually via pip install git+https://github.com/openai/CLIP.git)
-# clip
+# For CLIP model
+git+https://github.com/openai/CLIP.git
+
+# Audio processing
+librosa>=0.9.0
+pydub>=0.25.0
+
+# Web backend
+Flask>=2.0.0
+Flask-CORS>=3.0.0
+Werkzeug>=2.0.0
+
+# Other utilities
+requests
+pathlib
+uuid

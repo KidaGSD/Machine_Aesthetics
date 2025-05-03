@@ -129,8 +129,13 @@ def run_classification(config, dataset_type=None):
     
     # Determine input directory based on dataset type
     if dataset_type == 'huggingface':
-        input_dir = os.path.join(config.get('hugging_data_dir', 'data/hugging_data'), 'color')
+        # Resolve huggingface path relative to script_dir (texture_extractor)
+        hf_base = config.get('hugging_data_dir', 'data/hugging_data')
+        if not os.path.isabs(hf_base):
+            hf_base = os.path.join(script_dir, hf_base)
+        input_dir = os.path.join(hf_base, 'color')
     elif dataset_type == 'dtd':
+        # original_textures_dir should already be absolute from resolve_paths
         input_dir = config.get('original_textures_dir')
     else:
         # When no specific dataset is chosen, use both
@@ -138,8 +143,8 @@ def run_classification(config, dataset_type=None):
         dtd_dir = config.get('original_textures_dir')
         hf_dir = os.path.join(config.get('hugging_data_dir', 'data/hugging_data'), 'color')
         
-        # Find all textures from both datasets
-        texture_paths = find_textures_by_dataset(os.path.dirname(script_dir))
+        # Find all textures from both datasets, using texture_extractor as base
+        texture_paths = find_textures_by_dataset(script_dir)
         
         if not texture_paths:
             print(f"Error: No texture files found in either dataset.")
@@ -162,6 +167,9 @@ def run_classification(config, dataset_type=None):
     output_results_path = cls_config.get('classification_results_path')
     confidence = cls_config.get('confidence_threshold', 0.6)
     device_pref = config.get('device') # cuda, cpu, or None
+    
+    # Get valence bias parameter from config (with default value)
+    valence_bias = config.get('valence_bias', 0.05)
     
     # Check for VAD classifier usage
     classifier_type = config.get('classifier_type', 'emotion')
@@ -189,6 +197,7 @@ def run_classification(config, dataset_type=None):
     try:
         print(f"Running {classifier_type} classification on: {input_dir}")
         print(f"Confidence threshold: {confidence}")
+        print(f"Valence bias: {valence_bias}")
         print(f"Saving high-confidence list to: {output_list_path}")
         print(f"Saving detailed results to: {output_results_path}")
         
@@ -203,7 +212,8 @@ def run_classification(config, dataset_type=None):
                 output_list_path=output_list_path,
                 output_results_path=output_results_path,
                 is_file_list=(dataset_type is None),  # If we're using both datasets, we pass a file list
-                vad_csv_path=vad_csv_path
+                vad_csv_path=vad_csv_path,
+                valence_bias=valence_bias  # Pass the valence bias parameter
             )
         else:
             # Call the original emotion classifier
@@ -214,7 +224,8 @@ def run_classification(config, dataset_type=None):
                 device_pref=device_pref,
                 output_list_path=output_list_path,
                 output_results_path=output_results_path,
-                is_file_list=(dataset_type is None)  # If we're using both datasets, we pass a file list
+                is_file_list=(dataset_type is None),  # If we're using both datasets, we pass a file list
+                valence_bias=valence_bias  # Pass the valence bias parameter
             )
             
         if not success:
@@ -242,11 +253,14 @@ def run_depth_generation(config, dataset_type=None):
     print(f"Stage 2: Depth Map Generation (Dataset: {dataset_type or 'all'})")
     print("="*80)
 
-    # Skip depth generation for huggingface dataset if normal maps are available
+    # Skip depth generation for huggingface dataset if the normal map directory exists
     if dataset_type == 'huggingface':
-        normal_map_dir = os.path.join(config.get('hugging_data_dir', 'data/hugging_data'), 'normal')
-        if is_normal_map_available(normal_map_dir):
-            print(f"Normal maps already available at: {normal_map_dir}")
+        hf_base = config.get('hugging_data_dir', 'data/hugging_data')
+        if not os.path.isabs(hf_base):
+            hf_base = os.path.join(script_dir, hf_base)
+        normal_map_dir = os.path.join(hf_base, 'normal')
+        if os.path.exists(normal_map_dir):
+            print(f"Normal map directory found at: {normal_map_dir}")
             print("Skipping depth map generation for Hugging Face dataset.")
             return True
     
@@ -272,9 +286,12 @@ def run_depth_generation(config, dataset_type=None):
         
         # Use the refactored depth generator interface
         success = depth_generator.run_depth_generation_pipeline(
-            high_confidence_list_path=high_conf_path,
+            image_list_file=high_conf_path, # Correct argument name
             output_dir=output_dir,
             device_pref=device_pref
+            # Pass other relevant config options if needed, e.g., model_type, batch_size
+            # model_type=config.get('depth_generation', {}).get('model_type', 'DPT_Large'),
+            # batch_size=config.get('depth_generation', {}).get('batch_size', 4)
         )
         
         if not success:
@@ -304,6 +321,8 @@ def main():
     parser.add_argument("--vad_csv", help="Path to VAD CSV file for texture classification using the VAD model.")
     parser.add_argument("--classifier", choices=["emotion", "vad"], default="emotion",
                        help="Texture classifier to use: emotion (default) or vad (VAD-based).")
+    parser.add_argument("--valence-bias", type=float, default=0.05,
+                      help="Bias value to shift classifications toward high valence (default: 0.05)")
     
     args = parser.parse_args()
     
@@ -320,6 +339,9 @@ def main():
     
     # Set classifier type
     config['classifier_type'] = args.classifier
+    
+    # Add valence bias to config
+    config['valence_bias'] = args.valence_bias
     
     # Resolve paths in config
     config = resolve_paths(config, base_dir)

@@ -10,14 +10,20 @@ import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 import Papa from "papaparse";
 import { STLExporter } from "three/examples/jsm/exporters/STLExporter";
+import { useLoader } from '@react-three/fiber';
+//port * as THREE from 'three';
 
-const ColorCloud = forwardRef(({ csvPath }, ref) => {
+const ColorCloud = forwardRef(({ csvPath, onEmotionChange }, ref) => {
   const meshRef = useRef();
   const innerRef = useRef(); // ✅ inner shell
-  const groupRef = useRef(); // ✅ group for export
+  const groupRef = useRef(); // ✅ group for export 
   const [dataRows, setDataRows] = useState([]);
   const [originalData, setOriginalData] = useState(null);
   const [revealProgress, setRevealProgress] = useState(0);
+  // Add texture management state
+  const [currentEmotion, setCurrentEmotion] = useState("neutral");
+  const [activeTextures, setActiveTextures] = useState({});
+  const [textureLoading, setTextureLoading] = useState(false);
 
   const radiusTop = 10;
   const radiusBottom = 10;
@@ -25,6 +31,83 @@ const ColorCloud = forwardRef(({ csvPath }, ref) => {
   const radialSegments = 256;
   const heightSegments = 256;
   const wallThickness = 0.5; // ✅ thickness
+
+  // Base texture (used as fallback)
+  const fallbackTexture = useLoader(THREE.TextureLoader, '/data/textures/normal_grey/texture_0011_normal.png');
+  const fallbackColormap = useLoader(THREE.TextureLoader, '/data/textures/normal_grey/texture_0011_color.png');
+  const fallbackNormalMap = useLoader(THREE.TextureLoader, '/data/textures/normal_grey/texture_0011_normal_color.png');
+
+  // Configure texture wrapping and repeating for all textures
+  const configureTexture = (texture) => {
+    if (!texture) return null;
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.RepeatWrapping;
+    texture.repeat.set(2, 4);
+    return texture;
+  };
+
+  // Initialize fallback textures
+  useEffect(() => {
+    configureTexture(fallbackTexture);
+    configureTexture(fallbackColormap);
+    configureTexture(fallbackNormalMap);
+  }, [fallbackTexture, fallbackColormap, fallbackNormalMap]);
+
+  // Function to load emotion-specific textures
+  const loadTextureForEmotion = (emotion) => {
+    if (activeTextures[emotion]) return; // Already loaded
+    
+    setTextureLoading(true);
+    
+    // Path to texture directory based on emotion
+    const basePath = `/data/textures/${emotion.toLowerCase()}`;
+    
+    // Load textures asynchronously
+    const textureLoader = new THREE.TextureLoader();
+    Promise.all([
+      new Promise(resolve => textureLoader.load(`${basePath}/texture_normal.png`, texture => resolve(configureTexture(texture)))),
+      new Promise(resolve => textureLoader.load(`${basePath}/texture_color.png`, texture => resolve(configureTexture(texture)))),
+      new Promise(resolve => textureLoader.load(`${basePath}/texture_normal_color.png`, texture => resolve(configureTexture(texture))))
+    ])
+    .then(([normalTexture, colorTexture, normalColorTexture]) => {
+      setActiveTextures(prev => ({
+        ...prev,
+        [emotion]: {
+          normal: normalTexture,
+          color: colorTexture,
+          normalColor: normalColorTexture
+        }
+      }));
+      setTextureLoading(false);
+    })
+    .catch(error => {
+      console.error(`Error loading textures for emotion ${emotion}:`, error);
+      // Use fallback textures
+      setActiveTextures(prev => ({
+        ...prev,
+        [emotion]: {
+          normal: fallbackTexture,
+          color: fallbackColormap,
+          normalColor: fallbackNormalMap
+        }
+      }));
+      setTextureLoading(false);
+    });
+  };
+
+  // Get current textures based on emotion
+  const getCurrentTextures = () => {
+    if (activeTextures[currentEmotion]) {
+      return activeTextures[currentEmotion];
+    }
+    
+    // Return fallback textures if not loaded yet
+    return {
+      normal: fallbackTexture,
+      color: fallbackColormap,
+      normalColor: fallbackNormalMap
+    };
+  };
 
   useImperativeHandle(ref, () => ({
     getMesh: () => meshRef.current,
@@ -58,19 +141,71 @@ const ColorCloud = forwardRef(({ csvPath }, ref) => {
       uvs: originalUVs,
     });
 
-    fetch(csvPath + `?t=${Date.now()}`)
+    setTextureLoading(true);
+    fetch(csvPath)
       .then((res) => res.text())
       .then((text) => {
         const parsed = Papa.parse(text, { header: true, dynamicTyping: true });
-        const cleanedData = parsed.data.filter(
-          (row) =>
-            typeof row.Valence === "number" &&
-            typeof row.Arousal === "number" &&
-            typeof row.Dominance === "number"
-        );
-        setDataRows(cleanedData);
+        
+        // Handle both older and newer CSV formats
+        let cleanedData = [];
+        if (parsed.data[0] && 'ChunkValence' in parsed.data[0]) {
+          // New format
+          cleanedData = parsed.data.filter(
+            (row) =>
+              typeof row.ChunkValence === "number" &&
+              typeof row.ChunkArousal === "number" &&
+              typeof row.ChunkDominance === "number"
+          );
+          
+          // Set the current emotion from the overall emotion if available
+          if (cleanedData.length > 0 && cleanedData[0].OverallDiscreteEmotion) {
+            const overallEmotion = cleanedData[0].OverallDiscreteEmotion;
+            setCurrentEmotion(overallEmotion);
+            if (onEmotionChange) onEmotionChange(overallEmotion);
+            loadTextureForEmotion(overallEmotion);
+          }
+        } else {
+          // Old format
+          cleanedData = parsed.data.filter(
+            (row) =>
+              typeof row.Valence === "number" &&
+              typeof row.Arousal === "number" &&
+              typeof row.Dominance === "number"
+          );
+          
+          // For old format, determine emotion from valence/arousal
+          if (cleanedData.length > 0) {
+            const v = cleanedData[0].Valence;
+            const a = cleanedData[0].Arousal;
+            // Simple mapping logic
+            let emotion = "neutral";
+            if (v > 0.6 && a > 0.6) emotion = "joy";
+            else if (v > 0.6 && a < 0.4) emotion = "peaceful";
+            else if (v < 0.4 && a > 0.6) emotion = "angry";
+            else if (v < 0.4 && a < 0.4) emotion = "sad";
+            setCurrentEmotion(emotion);
+            if (onEmotionChange) onEmotionChange(emotion);
+            loadTextureForEmotion(emotion);
+          }
+        }
+        
+        // Normalize data for processing
+        const normalizedData = cleanedData.map(row => {
+          return {
+            Valence: row.ChunkValence || row.Valence || 0,
+            Arousal: row.ChunkArousal || row.Arousal || 0,
+            Dominance: row.ChunkDominance || row.Dominance || 0
+          };
+        });
+        
+        setDataRows(normalizedData);
+      })
+      .catch(error => {
+        console.error("Error loading CSV:", error);
+        setTextureLoading(false);
       });
-  }, [csvPath]);
+  }, [csvPath, onEmotionChange]);
 
   useEffect(() => {
     let start = performance.now();
@@ -154,24 +289,26 @@ const ColorCloud = forwardRef(({ csvPath }, ref) => {
     innerGeo.computeVertexNormals();
   });
 
+  // Get the current textures based on emotion
+  const textures = getCurrentTextures();
+  
   return (
     <>
       <pointLight position={[0, 0, 0]} intensity={1000} distance={10000} color="orange" />
       <group ref={groupRef}>
-        {/* Outer mesh */}
+        {/* Main lamp mesh */}
         <mesh ref={meshRef}>
           <cylinderGeometry
             args={[radiusTop, radiusBottom, height, radialSegments, heightSegments, true]}
           />
-          <meshPhysicalMaterial
-            color="white"
-            roughness={0.7}
-            transmission={0.6}
-            thickness={2.0}
-            transparent={true}
-            opacity={0.9}
-            side={THREE.DoubleSide}
-          />
+          <meshStandardMaterial
+            displacementMap={textures.normal}
+            displacementScale={0.5}
+            displacementSmoothing={0.04}
+            displacementBias={0.05}
+            normalMap={textures.normalColor}
+            map={textures.color}
+          />  
         </mesh>
 
         {/* Inner mesh with backface orientation */}
@@ -199,7 +336,7 @@ const ColorCloud = forwardRef(({ csvPath }, ref) => {
   );
 });
 
-const Scene = forwardRef(({ csvPath }, ref) => {
+const Scene = forwardRef(({ csvPath, onEmotionChange }, ref) => {
   return (
     <Canvas
       camera={{ position: [30, 10, 20], fov: 75 }}
@@ -207,7 +344,7 @@ const Scene = forwardRef(({ csvPath }, ref) => {
     >
       <ambientLight intensity={0.2} />
       <directionalLight position={[10, 10, 10]} intensity={0.8} />
-      <ColorCloud ref={ref} csvPath={csvPath} />
+      <ColorCloud ref={ref} csvPath={csvPath} onEmotionChange={onEmotionChange} />
       <OrbitControls />
     </Canvas>
   );

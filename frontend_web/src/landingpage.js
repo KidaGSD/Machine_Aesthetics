@@ -4,6 +4,7 @@ import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
 import { frostedGlassShader } from './shaders/frostedGlassShader';
 import './App.css';
 import { useNavigate } from "react-router-dom";
+import VectorSpaceVisualization from './components/VectorSpaceVisualization';
 
 const LandingPage = () => {
   const mountRef = useRef(null);
@@ -165,37 +166,80 @@ const LandingPage = () => {
   }, [navigate]);
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden">
-      <div ref={mountRef} className="absolute inset-0 z-0" />
-      <div
-        style={{
-          display: 'flex',
-          width: '1280px',
-          padding: '0px 60px',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-          gap: '9px',
-          height: '100vh',
-          justifyContent: 'center',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          zIndex: 10,
-          color: '#000',
-        }}
-      >
-        <h2 className="text-animate" style={{ fontWeight: '500', fontSize: '16px', marginBottom: '0px' }}>
-          Luminote
-        </h2>
-        <h1 className="text-animate" style={{ fontWeight: '600', fontSize: '24px', marginBottom: '8px' }}>
-          Generate Your Lamp Design From Voices
-        </h1>
-        <button
-          className="custom-button text-animate"
-          onClick={() => navigate('/lampcreation')}
+    <div className="landing-container" style={{ 
+      width: '100%', 
+      height: '100vh', 
+      overflow: 'auto',
+      scrollBehavior: 'smooth'
+    }}>
+      <div className="hero-section" style={{
+        position: 'relative',
+        width: '100%',
+        height: '100vh',
+        overflow: 'hidden'
+      }}>
+        <div ref={mountRef} className="absolute inset-0 z-0" />
+        <div
+          style={{
+            display: 'flex',
+            width: '100%',
+            maxWidth: '1280px',
+            padding: '0px 60px',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            gap: '9px',
+            height: '100vh',
+            justifyContent: 'center',
+            position: 'absolute',
+            top: 0,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: 10,
+            color: '#000',
+          }}
         >
-          Start Creating Now
-        </button>
+          <h2 className="text-animate" style={{ fontWeight: '500', fontSize: '16px', marginBottom: '0px' }}>
+            Luminote
+          </h2>
+          <h1 className="text-animate" style={{ fontWeight: '600', fontSize: '24px', marginBottom: '8px' }}>
+            Generate Your Lamp Design From Voices
+          </h1>
+          <button
+            className="custom-button text-animate"
+            onClick={() => navigate('/lampcreation')}
+          >
+            Start Creating Now
+          </button>
+        </div>
+        <div className="scroll-indicator" style={{
+          position: 'absolute',
+          bottom: '40px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 10,
+          opacity: 0.7,
+          animation: 'bounce 2s infinite',
+          textAlign: 'center',
+          color: '#000',
+          fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, sans-serif',
+          fontSize: '14px',
+          cursor: 'pointer'
+        }} onClick={() => {
+          document.querySelector('.visualization-section').scrollIntoView({ behavior: 'smooth' });
+        }}>
+          <div style={{ marginBottom: '8px' }}>Scroll to explore</div>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 18L6 12H8.5V6H15.5V12H18L12 18Z" fill="currentColor" transform="rotate(180 12 12)"/>
+          </svg>
+        </div>
+      </div>
+      
+      {/* VA Visualization Section */}
+      <div className="visualization-section" style={{
+        position: 'relative',
+        minHeight: '100vh'
+      }}>
+        <VectorSpaceVisualization />
       </div>
     </div>
   );
@@ -221,6 +265,29 @@ styleSheet.innerText = `
 
   .text-animate {
     animation: fadeInUp 1s ease-out forwards;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0) translateX(-50%);
+    }
+    40% {
+      transform: translateY(-10px) translateX(-50%);
+    }
+    60% {
+      transform: translateY(-5px) translateX(-50%);
+    }
+  }
+  
+  /* Fix for scrolling */
+  html, body {
+    height: 100%;
+    margin: 0;
+    overflow: auto;
+  }
+  
+  #root {
+    height: 100%;
   }
 `;
 document.head.appendChild(styleSheet);

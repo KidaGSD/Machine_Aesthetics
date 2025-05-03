@@ -1,0 +1,29 @@
+{
+  "joy": {
+    "texturePattern": "Bright, vibrant patterns with high energy"
+  },
+  "peaceful": {
+    "texturePattern": "Smooth, flowing patterns with calm energy"
+  },
+  "serene": {
+    "texturePattern": "Gentle, balanced patterns with tranquil energy"
+  },
+  "surprised": {
+    "texturePattern": "Bold, unexpected patterns with sudden energy"
+  },
+  "angry": {
+    "texturePattern": "Rough, jagged patterns with intense energy"
+  },
+  "fearful": {
+    "texturePattern": "Sharp, unsettling patterns with nervous energy"
+  },
+  "disgusted": {
+    "texturePattern": "Irregular, distorted patterns with rejecting energy"
+  },
+  "sad": {
+    "texturePattern": "Muted, heavy patterns with low energy"
+  },
+  "neutral": {
+    "texturePattern": "Balanced, moderate patterns with even energy"
+  }
+}

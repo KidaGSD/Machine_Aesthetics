@@ -76,7 +76,7 @@ class EmotionClassifier:
         self.processor = Wav2Vec2Processor.from_pretrained(self.model_name)
         
         try:
-            self.model = EmotionModel.from_pretrained(self.model_name)
+            self.model = EmotionModel.from_pretrained(self.model_name).to(self.device)
         except Exception as e:
             print(f"Error loading emotion model: {e}")
             print("Using fallback simple audio analysis instead")
@@ -132,5 +132,3 @@ class EmotionClassifier:
         }
 
         return result
-
-
