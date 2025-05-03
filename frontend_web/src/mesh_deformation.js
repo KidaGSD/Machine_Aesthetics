@@ -1,4 +1,4 @@
-// --- Imports (same as original) ---
+// mesh_deformation.js — Fragment Shader Integration Version
 import React, {
   useRef,
   useEffect,
@@ -11,7 +11,9 @@ import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 import Papa from "papaparse";
 import { STLExporter } from "three/examples/jsm/exporters/STLExporter";
-import { frostedGlassShader } from "./shaders/frostedGlassShader";
+import emotionGradientData from "./emotionGradientData";
+import emotionColors from "./emotionColors";
+import { emotionGradientShader } from "./shaders/emotionGradientShader"; // 🔄 NEW
 
 const ColorCloud = forwardRef(({ csvPath, amplitudeCsvPath, emotionCurvesPath }, ref) => {
   const groupRef = useRef();
@@ -96,8 +98,9 @@ const ColorCloud = forwardRef(({ csvPath, amplitudeCsvPath, emotionCurvesPath },
       surprise: "su", neutral: "c", disgust: "d"
     };
 
+    const bottomEmotion = dataRows[1].emotion?.trim().toLowerCase();
     const labelA = emotionMap[dataRows[0].emotion?.trim().toLowerCase()];
-    const labelB = emotionMap[dataRows[1].emotion?.trim().toLowerCase()];
+    const labelB = emotionMap[bottomEmotion];
     const rawA = emotionCurves[labelA]?.map(([x, y]) => new THREE.Vector3(x, 0, y));
     const rawB = emotionCurves[labelB]?.map(([x, y]) => new THREE.Vector3(x, 0, y));
     if (!rawA || !rawB) return;
@@ -105,7 +108,15 @@ const ColorCloud = forwardRef(({ csvPath, amplitudeCsvPath, emotionCurvesPath },
     const centroid = pts => pts.reduce((sum, p) => sum.add(p), new THREE.Vector3()).divideScalar(pts.length);
     const centerA = centroid(rawA);
     const centerB = centroid(rawB);
-    const ptsA = rawA.map(p => p.clone().sub(centerA));
+
+    const valence = parseFloat(dataRows[0]?.valence ?? 0);
+    const valenceScale = 1 + valence * 0.5;
+
+    const ptsA = rawA.map(p => {
+      const centered = p.clone().sub(centerA);
+      return new THREE.Vector3(centered.x * valenceScale, centered.y, centered.z * valenceScale);
+    });
+
     const ptsB = rawB.map(p => p.clone().sub(centerB));
 
     const alignedB = (() => {
@@ -126,12 +137,10 @@ const ColorCloud = forwardRef(({ csvPath, amplitudeCsvPath, emotionCurvesPath },
 
     for (let i = 0; i < segments; i++) {
       const curvePoints = [];
-      const amp = amplitudes[i % amplitudes.length] * amplitudeFactor;
       for (let j = 0; j < waveDivs; j++) {
         const t = j / (waveDivs - 1);
         const revealT = Math.min(1, revealProgress * 1.2);
         const waveOffset = Math.sin(t * Math.PI * waveCount + i * 0.3) * 3;
-
         const top = ptsA[i].clone().add(new THREE.Vector3(0, heightPerLayer / 2, 0));
         const bottom = alignedB[i].clone().add(new THREE.Vector3(0, -heightPerLayer / 2, 0));
         const base = new THREE.Vector3().lerpVectors(top, bottom, t);
@@ -149,9 +158,15 @@ const ColorCloud = forwardRef(({ csvPath, amplitudeCsvPath, emotionCurvesPath },
       waveCurves.push(curvePoints);
     }
 
-    // Build connected mesh with shared vertices
+    const segmentCount = emotionGradientData.length;
+    const baseColor = emotionColors[bottomEmotion] || new THREE.Color('gray');
+    const baseHSL = {};
+    baseColor.getHSL(baseHSL);
+
     const vertices = [];
     const uvs = [];
+    const valences = [];
+    const arousals = [];
     const indices = [];
 
     for (let i = 0; i < segments; i++) {
@@ -159,6 +174,12 @@ const ColorCloud = forwardRef(({ csvPath, amplitudeCsvPath, emotionCurvesPath },
         const p = waveCurves[i][j];
         vertices.push(p.x, p.y, p.z);
         uvs.push(i / (segments - 1), j / (waveDivs - 1));
+
+        const t = j / (waveDivs - 1);
+        const segmentIndex = Math.floor(t * segmentCount);
+        const { valence, arousal } = emotionGradientData[Math.min(segmentIndex, segmentCount - 1)];
+        valences.push(valence);
+        arousals.push(arousal);
       }
     }
 
@@ -175,8 +196,11 @@ const ColorCloud = forwardRef(({ csvPath, amplitudeCsvPath, emotionCurvesPath },
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
     geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+    geometry.setAttribute('valence', new THREE.Float32BufferAttribute(valences, 1));
+    geometry.setAttribute('arousal', new THREE.Float32BufferAttribute(arousals, 1));
     geometry.setIndex(indices);
     geometry.computeVertexNormals();
+    emotionGradientShader.uniforms.baseHue.value = baseHSL.h;
     setGeneratedGeometry(geometry);
   }, [dataRows, amplitudes, emotionCurves, revealProgress]);
 
@@ -186,7 +210,7 @@ const ColorCloud = forwardRef(({ csvPath, amplitudeCsvPath, emotionCurvesPath },
       <pointLight position={[0, 0, 0]} intensity={100} color={new THREE.Color(1.0, 0.85, 0.3)} distance={100} decay={2} />
       <group ref={groupRef}>
         {generatedGeometry && (
-          <mesh ref={meshRef} geometry={generatedGeometry} material={frostedGlassShader} />
+          <mesh ref={meshRef} geometry={generatedGeometry} material={emotionGradientShader} />
         )}
       </group>
     </>

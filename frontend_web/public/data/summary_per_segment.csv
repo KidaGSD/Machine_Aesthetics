@@ -1,63 +1,18 @@
 start,end,text,emotion,valence,arousal,duration
-30.0,32.32,I'm a true hearted to do,joy,0.2177,0.9,2.3200000000000003
-32.32,34.56,I got the superstar girl so,joy,0.2899,0.9,2.240000000000002
-34.56,35.6,Woo,surprise,0.0335,0.95,1.0399999999999991
-35.6,35.84,Woo,surprise,-0.04,0.95,0.240000000000002
-35.84,36.44,To the point,neutral,-0.0549,0.5,0.5999999999999943
-36.44,39.24,A slice that brought it left to me,neutral,-0.0826,0.5,2.8000000000000043
-40.84,44.519999999999996,I like the moon right with me baby,joy,0.2859,0.9,3.6799999999999926
-45.16,46.84,Know that I've got the heat,neutral,-0.1273,0.5,1.6800000000000068
-46.84,49.28,Let me show you guys how I can ship,neutral,-0.1283,0.5,2.4399999999999977
-49.28,52.28,A slice that brought it left to me,neutral,-0.1486,0.5,3.0
-52.28,54.28,"Get it, let it flow",neutral,-0.1056,0.5,2.0
-54.28,55.8,"Booth, light, butter",neutral,-0.0686,0.5,1.519999999999996
-55.8,57.879999999999995,For you we like no other,neutral,-0.123,0.5,2.0799999999999983
-58.160000000000004,60.160000000000004,Don't need no pressure,anger,-0.382,0.95,2.0
-60.160000000000004,62.68,Dream on me you can't be bad,fear,-0.3627,0.9,2.519999999999996
-62.68,64.44,Ain't no other,neutral,-0.1024,0.5,1.759999999999998
-64.44,66.76,That could sweep you up like a rubber,neutral,-0.0419,0.5,2.3200000000000074
-66.76,68.92,"Straight up, I got ya",neutral,-0.0047,0.5,2.1599999999999966
-68.92,70.72,Making you fall like that,neutral,-0.115,0.5,1.7999999999999972
-70.72,71.56,Break it down,neutral,-0.1232,0.4679,0.8400000000000034
-71.56,73.8,"Ooh, when I look in the mirror",surprise,0.0485,0.95,2.239999999999995
-73.8,76.0,I'm a true hearted to do,joy,0.2665,0.9,2.200000000000003
-76.0,78.04,I got the superstar girl so,joy,0.3538,0.9,2.0400000000000063
-78.04,79.44,Woo,surprise,0.041,0.95,1.3999999999999915
-79.44,80.32000000000001,To the point,neutral,0.129,0.4894,0.8800000000000097
-80.32000000000001,82.92,A slice that brought it left to me,neutral,-0.1307,0.5,2.5999999999999943
-84.52000000000001,87.24000000000001,I like the moon right with me,joy,0.2631,0.9,2.719999999999999
-87.28,88.8,Baby,neutral,-0.1957,0.5,1.519999999999996
-88.8,90.67999999999999,Know that I've got the heat,neutral,-0.1349,0.5,1.8799999999999955
-90.67999999999999,93.19999999999999,Let me show you guys how I can ship,neutral,-0.131,0.5,2.519999999999996
-93.19999999999999,95.88,A slice that brought it left to me,neutral,-0.1393,0.5,2.680000000000007
-95.88,97.88,"Get it, let it flow",neutral,-0.1032,0.5,2.0
-104.88,106.72,"Get it, let it flow",neutral,-0.1229,0.5,1.8400000000000034
-113.56,115.56,"Get it, let it flow",neutral,-0.1249,0.5,2.0
-115.84,117.88,"I saw my wrist, I'm the next guy",surprise,0.1883,0.95,2.039999999999992
-117.88,120.08,Got the right body and the right mind,neutral,-0.1362,0.5,2.200000000000003
-120.08,122.08,"Rollin' up the party, got the right vibes",neutral,-0.1179,0.5,2.0
-122.08,123.08,We like,neutral,-0.1709,0.5,1.0
-123.08,124.48,Hey there,neutral,-0.0665,0.5,1.4000000000000057
-124.48,126.4,Fresh boy pull up and we'll lay low,neutral,-0.1328,0.5,1.9200000000000017
-126.4,128.52,"On the best day, move on with the bass low",neutral,-0.111,0.5,2.1200000000000045
-128.52,130.72,"Got all me, why be honest, we can say so",neutral,-0.1038,0.5,2.1999999999999886
-131.76,132.68,Let's go,neutral,0.1264,0.5,0.9200000000000159
-132.68,135.28,Best that brought it left to me,neutral,-0.1195,0.5,2.5999999999999943
-135.28,137.08,We left to me,neutral,-0.1862,0.5,1.8000000000000114
-137.08,141.08,I like the moon right with me baby,joy,0.2695,0.9,4.0
-141.08,143.04,Know that I've got the heat,neutral,-0.1491,0.5,1.9599999999999795
-143.04,145.2,Let me show you guys how I can ship,neutral,-0.1202,0.5,2.1599999999999966
-145.2,148.35999999999999,A slice that brought it left to me,neutral,-0.1789,0.5,3.1599999999999966
-148.35999999999999,150.16,"Get it, let it flow",neutral,-0.1328,0.5,1.8000000000000114
-150.16,151.23999999999998,I like,joy,0.3482,0.9,1.079999999999984
-151.23999999999998,152.23999999999998,Cool shape,neutral,-0.1045,0.5,1.0
-152.23999999999998,154.23999999999998,And you know we don't stop,anger,-0.4492,0.95,2.0
-154.23999999999998,155.32,How I,neutral,-0.1281,0.5,1.0800000000000125
-155.32,156.39999999999998,In anal,disgust,-0.5478,0.85,1.079999999999984
-156.39999999999998,157.51999999999998,How you feel like,neutral,-0.1459,0.5,1.1200000000000045
-157.51999999999998,158.72,Oh my god,surprise,0.0726,0.95,1.200000000000017
-158.72,160.72,We gon' make the rocket is air,neutral,-0.1428,0.5,2.0
-160.72,162.72,We gon' make it blast in the air,anger,-0.4587,0.95,2.0
-162.72,164.72,Hot up the speed of cooler,neutral,-0.1692,0.5,2.0
-164.72,165.72,But,neutral,-0.1994,0.5,1.0
-165.72,167.72,"Get it, let it flow",neutral,-0.1725,0.5,2.0
+0.0,14.22,...,neutral,-0.2864,-0.5,14.22
+14.700000000000001,17.26,brooz,neutral,-0.2879,-0.5,2.5600000000000005
+38.660000000000004,39.64,phones,neutral,-0.1962,0.2614,0.9799999999999969
+39.64,41.64,No!,anger,-0.5136,0.95,2.0
+41.64,42.64,Stop!,anger,-0.511,0.8035,1.0
+42.64,43.64,Wolves!,anger,-0.5049,0.6474,1.0
+43.64,44.64,What are you doing?,surprise,0.0775,0.8397,1.0
+44.64,45.64,Stop!,anger,-0.5033,0.2882,1.0
+46.64,47.64,No!,anger,-0.5414,0.3525,1.0
+65.64,66.64,Wolves!,anger,-0.4388,0.4609,1.0
+70.64,71.64,I'm so stupid!,anger,-0.5074,0.2976,1.0
+71.64,72.64,Why did you do that?,surprise,0.0553,0.3815,1.0
+72.64,73.64,Huh?,surprise,0.001,0.5499,1.0
+73.64,75.64,"You're so stupid, Wolves.",anger,-0.4546,0.2189,2.0
+76.64,78.64,What did you do that? Why?,surprise,0.0359,0.5134,2.0
+79.64,81.64,"You jump high, jump right.",neutral,-0.1878,-0.4022,2.0
+83.64,84.64,Right.,neutral,-0.1925,-0.4722,1.0
