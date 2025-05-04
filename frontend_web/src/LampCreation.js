@@ -8,6 +8,8 @@ const LampCreation = () => {
   const [audioFile, setAudioFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [sceneKey, setSceneKey] = useState(0); // Refresh Scene
+  const [currentEmotion, setCurrentEmotion] = useState("neutral");
+  const [testMode, setTestMode] = useState(false); // Add test mode state
 
   const handleAudioChange = async (event) => {
     const file = event.target.files[0];
@@ -16,23 +18,27 @@ const LampCreation = () => {
       setLoading(true);
 
       const formData = new FormData();
-      formData.append("file", file);
+      formData.append("audioFile", file);
 
       try {
-        const response = await fetch("http://localhost:5001/upload-audio", {
+        const response = await fetch("http://localhost:3001/api/process-audio", {
           method: "POST",
           body: formData,
         });
 
         const result = await response.json();
-        if (result.status === "success") {
-          setSceneKey((prev) => prev + 1); // trigger mesh refresh
+        if (result.success) {
+          setSceneKey((prev) => prev + 1);
+          if (result.overallEmotion) {
+            setCurrentEmotion(result.overallEmotion);
+          }
         } else {
-          alert("Upload failed. Try again.");
+          console.error("Processing failed:", result.error);
+          alert("Failed to process audio: " + (result.error || "Unknown error"));
         }
       } catch (error) {
         console.error("Upload error:", error);
-        alert("Server error occurred.");
+        alert("Server error: Please ensure the backend server is running on port 3001");
       } finally {
         setLoading(false);
       }
@@ -41,6 +47,17 @@ const LampCreation = () => {
 
   const handleDeleteAudio = () => {
     setAudioFile(null);
+  };
+  
+  const handleEmotionChange = (emotion) => {
+    setCurrentEmotion(emotion);
+  };
+  
+  // Toggle test mode function
+  const toggleTestMode = () => {
+    setTestMode(!testMode);
+    // Reset key to force re-render
+    setSceneKey(prev => prev + 1);
   };
 
   return (
@@ -60,11 +77,12 @@ const LampCreation = () => {
             <span>LAMP GENERATION FROM SOUND</span>
           </div>
           <div className="meta-item">
-            <input type="checkbox" />
-            <span>
-              DESIGNED BY KIDA HUANG AND SIJIA MA @HARVARD GSD MACHINE
-              AESTHETIC
-            </span>
+            <input 
+              type="checkbox" 
+              checked={testMode}
+              onChange={toggleTestMode}
+            />
+            <span>TEST MODE (CYLINDER WITH DEFAULT TEXTURES)</span>
           </div>
         </div>
       </header>
@@ -142,26 +160,30 @@ const LampCreation = () => {
             csvPath="data/top2_emotion_summary.csv"
             amplitudeCsvPath="data/summary_per_segment.csv"
             emotionCurvesPath="emotions/emotion_curves.json"
+            onEmotionChange={handleEmotionChange}
+            testMode={testMode}
           />
         </div>
 
         {/* Right Panel */}
         <div className="lamp-right">
-        <div className="content-container01">
-        <span>☐ Emotion Data</span>
-        <div>Base Shape Design</div>
-        <div
-          style={{
-            width: "100%",
-            height: "200px",
-            overflow: "hidden",
-          }}
-        >
-          <Canvas camera={{ position: [0, 0, 30], fov: 40 }}>
-            <EmotionCurveMorph emotionCurvesPath="emotions/emotion_curves.json" />
-          </Canvas>
-        </div>
-      </div>
+          <div className="content-container01">
+            <span>☐ Emotion Data</span>
+            <div>Base Shape Design</div>
+            <div>Detected Emotion: {currentEmotion}</div>
+            <div>{testMode ? "TEST MODE ACTIVE" : "Normal Mode"}</div>
+            <div
+              style={{
+                width: "100%",
+                height: "200px",
+                overflow: "hidden",
+              }}
+            >
+              <Canvas camera={{ position: [0, 0, 30], fov: 40 }}>
+                <EmotionCurveMorph emotionCurvesPath="emotions/emotion_curves.json" />
+              </Canvas>
+            </div>
+          </div>
 
           <div className="section-block">
             <span>☐ Emotion Textures</span>
