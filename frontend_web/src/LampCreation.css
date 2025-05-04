@@ -1,0 +1,326 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+.export-button {
+    margin-top: 12px;
+    background: black;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid white;
+  }
+  
+  .export-button:hover {
+    background: white;
+    color: black;
+  }
+
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 50%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ffffff44;
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .loading-overlay p {
+    font-family: 'Manrope', sans-serif;
+    color: white;
+    font-size: 0.9rem;
+    margin-top: 0;
+  }
+  
+
+.uploaded-file {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .uploaded-file span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px; /* Adjust this as needed */
+  }
+  
+  .delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .delete-button:hover {
+    opacity: 0.7;
+  }
+  
+.upload-box {
+    padding: 12px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Manrope', sans-serif;
+    color: white;
+    background: transparent;
+    border: 1px solid white;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .upload-box:hover {
+    background: white;
+    color: black;
+  }
+  
+  .upload-box:hover .upload-icon {
+    filter: brightness(0);
+  }
+  
+
+.p {
+    color: #FFF;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    gap: 0.1rem;
+    margin-bottom: 2rem;
+    align-self: stretch;
+    }
+
+ .content-container01 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.1rem;
+        margin-bottom: 2rem;
+        align-self: stretch;
+        padding-bottom: 1.2rem;
+        border-bottom: 1px solid #444;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        }
+
+.step-wrapper {
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  
+  .step-box-group {
+    display: flex;
+    align-items: center;
+    flex-direction: center;
+    gap: 6px;
+  }
+  
+  .step-box {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 2px;
+  }
+  
+  .step-box.first {
+    background: #fff;
+  }
+  
+  .step-box.faded {
+    background: rgba(255, 255, 255, 0.4);
+  }
+  
+  .step-caption {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #fff;
+  }
+  
+
+.reveal-heading {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400; 
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 0rem; 
+  }
+  
+
+.meta-item span {
+    font-size: 0.7rem; /* or try 0.75rem, 1rem etc. */
+    font-weight: 400;
+    line-height: 1.4;
+    color: #ccc;
+  }
+  
+
+body {
+    font-family: 'Manrope', sans-serif;
+  }
+  
+  .lamp-container {
+    font-family: 'Manrope', sans-serif;
+  }
+  
+
+body, html, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: black;
+    color: white;
+    overflow: hidden;
+  }
+  
+  .lamp-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .lamp-header {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid #444;
+    font-size: 14px;
+  }
+  
+  .lamp-logo {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .lamp-meta {
+    text-align: right;
+    font-size: 12px;
+  }
+  
+  .lamp-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .lamp-left {
+    width: 25%;
+    gap: 2rem;
+    padding-top: 2rem;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .lamp-left::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .lamp-center {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+  }
+  
+  .lamp-right {
+    width: 25%;;
+    gap: 2rem;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+  .lamp-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .lamp-buttons button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 16px;
+    cursor: pointer;
+  }
+  
+  .section-block {
+    border: 1px solid #333;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  .lamp-meta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+  }
+  
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: white;
+    font-size: 14px;
+  }
+  
+  
