@@ -10,32 +10,55 @@ const LampCreation = () => {
   const [sceneKey, setSceneKey] = useState(0);
   const sceneRef = useRef();
   const [topEmotions, setTopEmotions] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [timestamp, setTimestamp] = useState(Date.now()); // Add timestamp for cache busting
+  
+  // Use direct backend URL for data files
+  const backendUrl = "http://localhost:5001";
+  const getDataUrl = (path) => `${backendUrl}/data/${path.replace('data/', '')}?t=${timestamp}`;
 
   const handleAudioChange = async (event) => {
     const file = event.target.files[0];
     if (file) {
       setAudioFile(file);
       setLoading(true);
+      setErrorMessage('');
 
       const formData = new FormData();
       formData.append("file", file);
 
       try {
-        const response = await fetch("http://localhost:5001/upload-audio", {
+        const response = await fetch(`${backendUrl}/upload-audio`, {
           method: "POST",
           body: formData,
         });
 
         const result = await response.json();
         if (result.status === "success") {
+          // Use server timestamp if available
+          const serverTimestamp = result.timestamp || Date.now();
+          console.log("Analysis complete, updating with timestamp:", serverTimestamp);
+          
+          // Update timestamp for cache busting
+          setTimestamp(serverTimestamp);
+          // Increment sceneKey to force re-render
           setSceneKey((prev) => prev + 1);
-          loadTopEmotions(); // Refresh emotion summary
+          // Explicitly start the reveal animation
+          setTimeout(() => {
+            if (sceneRef.current) {
+              console.log("Starting reveal animation");
+              sceneRef.current.startRevealAnimation();
+            }
+          }, 100);
+          loadTopEmotions(serverTimestamp); // Refresh emotion summary with new timestamp
         } else {
-          alert("Upload failed. Try again.");
+          // Display the specific error message from the server
+          setErrorMessage(result.message || "Upload failed. Try again.");
+          console.error("Upload error details:", result);
         }
       } catch (error) {
         console.error("Upload error:", error);
-        alert("Server error occurred.");
+        setErrorMessage("Server error occurred. Make sure the backend server is running.");
       } finally {
         setLoading(false);
       }
@@ -45,10 +68,12 @@ const LampCreation = () => {
   const handleDeleteAudio = () => setAudioFile(null);
   const handleExportMesh = () => sceneRef.current?.exportSTL();
 
-  const loadTopEmotions = async () => {
+  const loadTopEmotions = async (customTimestamp = timestamp) => {
     try {
-      const response = await fetch("data/top2_emotion_summary.csv");
+      // Add timestamp to prevent caching
+      const response = await fetch(`${backendUrl}/data/top2_emotion_summary.csv?t=${customTimestamp}`);
       const text = await response.text();
+      console.log("Loaded top emotions data:", text.slice(0, 100));
       const parsed = Papa.parse(text, { header: true });
       const filtered = parsed.data.filter(row => row.emotion);
       const top2 = filtered.slice(0, 2).map(row => row.emotion);
@@ -68,6 +93,28 @@ const LampCreation = () => {
         <div className="loading-overlay">
           <div className="loading-spinner" />
           <p>Analyzing your audio...</p>
+        </div>
+      )}
+
+      {errorMessage && (
+        <div className="error-message" style={{
+          position: 'fixed', 
+          top: '20px', 
+          right: '20px',
+          background: 'rgba(255, 0, 0, 0.8)',
+          color: 'white',
+          padding: '10px',
+          borderRadius: '5px',
+          zIndex: 1000,
+          maxWidth: '300px'
+        }}>
+          <p>{errorMessage}</p>
+          <button 
+            style={{background: 'transparent', border: 'none', color: 'white', cursor: 'pointer'}}
+            onClick={() => setErrorMessage('')}
+          >
+            ✕
+          </button>
         </div>
       )}
 
@@ -153,9 +200,13 @@ const LampCreation = () => {
           <Scene
             ref={sceneRef}
             key={sceneKey}
-            csvPath="data/top2_emotion_summary.csv"
-            amplitudeCsvPath="data/summary_per_segment.csv"
-            emotionCurvesPath="emotions/emotion_curves.json"
+            csvPath={getDataUrl("top2_emotion_summary.csv")}
+            amplitudeCsvPath={getDataUrl("summary_per_segment.csv")}
+            emotionCurvesPath={`emotions/emotion_curves.json?t=${timestamp}`}
+            onError={(error) => {
+              console.error("Scene error:", error);
+              setErrorMessage(`Error generating lamp: ${error.message || 'Unknown error'}`);
+            }}
           />
         </div>
 
@@ -188,8 +239,8 @@ const LampCreation = () => {
             >
               <EmotionCurveMorph
                 key={sceneKey}
-                emotionCurvesPath="emotions/emotion_curves.json"
-                top2CsvPath="data/top2_emotion_summary.csv"
+                emotionCurvesPath={`emotions/emotion_curves.json?t=${timestamp}`}
+                top2CsvPath={getDataUrl("top2_emotion_summary.csv")}
               />
             </div>
           </div>
