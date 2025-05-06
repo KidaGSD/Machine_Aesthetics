@@ -1,0 +1,9 @@
+// Simple placeholder for a PNG image
+// This is not a real image but a text representation
+// You should create a proper fallback_normal.png file in this location
+//
+// The fallback texture should be a simple normal map with a subtle pattern
+// It will be used when texture loading fails
+//
+// This is just a placeholder for the textual representation
+// of where the file should be created 

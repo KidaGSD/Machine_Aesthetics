@@ -189,7 +189,7 @@ const VectorSpaceVisualization = () => {
       className="vector-space-visualization" 
       style={{
         width: '100%',
-        height: '100vh',
+        height: '70vh',
         position: 'relative',
         backgroundColor: '#000',
         overflow: 'hidden'
@@ -229,7 +229,7 @@ const VectorSpaceVisualization = () => {
               antialias: true, 
               alpha: false,
               logarithmicDepthBuffer: true,
-              pixelRatio: window.devicePixelRatio
+              pixelRatio: Math.min(2, window.devicePixelRatio)
             }}
             style={{ background: '#000' }}
             camera={{ position: [0, 0, 5], fov: 60 }}
@@ -253,11 +253,11 @@ const VectorSpaceVisualization = () => {
                 dampingFactor={0.05} 
                 minDistance={2} 
                 maxDistance={10}
-                rotateSpeed={0.3}
-                minAzimuthAngle={-Math.PI/36}
-                maxAzimuthAngle={Math.PI/36}
-                minPolarAngle={Math.PI/2 - Math.PI/36}
-                maxPolarAngle={Math.PI/2 + Math.PI/36}
+                rotateSpeed={0.5}
+                minAzimuthAngle={-Math.PI/4}
+                maxAzimuthAngle={Math.PI/4}
+                minPolarAngle={Math.PI/3}
+                maxPolarAngle={Math.PI/1.5}
                 autoRotate={false}
               />
               
@@ -275,7 +275,7 @@ const VectorSpaceVisualization = () => {
           <div 
             style={{
               position: 'absolute',
-              bottom: '20px',
+              top: '20px',
               right: '20px',
               backgroundColor: 'rgba(0, 0, 0, 0.7)',
               backdropFilter: 'blur(10px)',
@@ -331,6 +331,28 @@ const VectorSpaceVisualization = () => {
               <div>Y-axis: Arousal (Calm → Energetic)</div>
               <div>Z-axis: Category Grouping</div>
             </div>
+          </div>
+          
+          {/* Add interaction hint */}
+          <div 
+            style={{
+              position: 'absolute',
+              bottom: '20px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              backdropFilter: 'blur(5px)',
+              borderRadius: '10px',
+              padding: '8px 16px',
+              color: 'white',
+              fontSize: '14px',
+              textAlign: 'center',
+              opacity: 0.8,
+              transition: 'opacity 0.3s',
+              zIndex: 99
+            }}
+          >
+            Click and drag to rotate • Scroll to zoom
           </div>
           
           {/* Hover info */}
@@ -489,9 +511,10 @@ const TextureItem = ({ texture, setHoveredTexture, index, totalTextures }) => {
   const [textureObj, setTextureObj] = useState(null);
   const [displayValue, setDisplayValue] = useState({ valence: 0, arousal: 0 });
 
-  // Much smaller base scale
-  const baseScale = 0.2;
-  const hoverScale = 0.8; // Keep hover reasonable
+  // Much smaller base scale for performance
+  const baseScale = 0.15;
+  // Larger hover scale for better visibility
+  const hoverScale = 1.5;
 
   // Update display values on hover (keep this logic)
   useEffect(() => {
@@ -613,45 +636,45 @@ const TextureItem = ({ texture, setHoveredTexture, index, totalTextures }) => {
         side={THREE.DoubleSide}
       />
       
-      {/* Hover text */} 
+      {/* Hover text - adjust positions and font sizes for new scale */}
       {hovered && (
         <group position={[0, 0, 0.02]}>
           <Text
-            position={[0, 0.15, 0]} // Adjusted position for smaller planes
-            fontSize={0.08}
+            position={[0, 0.1, 0]} // Adjusted Y position 
+            fontSize={0.05} // Reduced font size
             color="#00ffff"
             anchorX="left"
             anchorY="middle"
-            outlineWidth={0.003}
+            outlineWidth={0.002} // Reduced outline
             outlineColor="#003333"
           >
             {`V: ${displayValue.valence}`}
           </Text>
           <Text
-            position={[0, 0.05, 0]} // Adjusted position
-            fontSize={0.08}
+            position={[0, 0.02, 0]} // Adjusted Y position
+            fontSize={0.05} // Reduced font size
             color="#ff00ff"
             anchorX="left"
             anchorY="middle"
-            outlineWidth={0.003}
+            outlineWidth={0.002} // Reduced outline
             outlineColor="#330033"
           >
             {`A: ${displayValue.arousal}`}
           </Text>
           <Text
-            position={[0, -0.05, 0]} // Adjusted position
-            fontSize={0.06}
+            position={[0, -0.06, 0]} // Adjusted Y position
+            fontSize={0.04} // Reduced font size
             color="#ffffff"
             anchorX="left"
             anchorY="middle"
-            outlineWidth={0.003}
+            outlineWidth={0.002} // Reduced outline
             outlineColor="#333333"
           >
             {texture.category}
           </Text>
           {/* Smaller background */}
-          <mesh position={[0.2, 0.05, -0.01]}> 
-            <planeGeometry args={[0.5, 0.4]} /> 
+          <mesh position={[0.15, 0.02, -0.01]}> 
+            <planeGeometry args={[0.4, 0.25]} /> // Adjusted background size
             <meshBasicMaterial color="#000000" transparent opacity={0.7} />
           </mesh>
         </group>

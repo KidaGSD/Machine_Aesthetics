@@ -13,7 +13,7 @@ Dependencies  (one‑time):
     #     have a GPU, otherwise CPU is fine (slower but OK for <30 min).
 """
 
-import os, sys, subprocess, traceback, warnings, tempfile
+import os, sys, subprocess, traceback, warnings, tempfile, time
 import numpy as np, pandas as pd, librosa
 from scipy import signal
 from sklearn.preprocessing import MinMaxScaler
@@ -22,6 +22,7 @@ from transformers import pipeline
 import whisper
 import torch
 import opensmile
+import json
 # 可选导入pyannote (如果安装了)
 try:
     from pyannote.audio import Pipeline as PyannotePipeline
@@ -207,28 +208,31 @@ def run_analysis(audio_path: str):
         if not os.path.exists(audio_path):
             raise FileNotFoundError(audio_path)
 
-        # 修改输出路径，使用绝对路径确保一致性
+        # Define output directories relative to this script
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        base_path = os.path.join(script_dir, "..", "public", "data")
-        base_path = os.path.abspath(base_path)
+        output_base_path = os.path.join(script_dir, "output") # For CSVs
+        static_base_path = os.path.join(script_dir, "static", "emotions") # For JSON
         
-        print(f"📂 Output directory: {base_path}")
-        os.makedirs(base_path, exist_ok=True)
+        print(f"📂 Output directory for CSVs: {output_base_path}")
+        print(f"📂 Output directory for JSON: {static_base_path}")
+        os.makedirs(output_base_path, exist_ok=True)
+        os.makedirs(static_base_path, exist_ok=True)
         
-        # 确认目录存在且可写
-        if not os.path.exists(base_path):
-            print(f"❌ 无法创建输出目录: {base_path}")
-        else:
-            print(f"✓ 输出目录已创建: {base_path}")
-            # 尝试写入测试文件
-            test_file = os.path.join(base_path, "test_write.txt")
-            try:
-                with open(test_file, "w") as f:
-                    f.write("Test write access")
-                print(f"✓ 输出目录可写: {base_path}")
-                os.remove(test_file)
-            except Exception as e:
-                print(f"❌ 无法写入输出目录: {e}")
+        # Confirm directories exist and are writable
+        for path in [output_base_path, static_base_path]:
+            if not os.path.exists(path):
+                print(f"❌ 无法创建目录: {path}")
+            else:
+                test_file = os.path.join(path, "test_write.txt")
+                try:
+                    with open(test_file, "w") as f:
+                        f.write("Test write access")
+                    print(f"✓ 目录可写: {path}")
+                    os.remove(test_file)
+                except Exception as e:
+                    print(f"❌ 无法写入目录: {e}")
+                    # Optionally, raise an error here if write access is critical
+                    # raise IOError(f"Cannot write to directory: {path}") from e
         
         wav_path = _to_wav(audio_path)
 
@@ -753,10 +757,10 @@ def run_analysis(audio_path: str):
         df_summary = pd.DataFrame(seg_rows)
         
         # ---------- 7 GROUP & CSV OUTPUTS ------------------------------
-        # 确保没有NaN值
+        # Ensure no NaN values
         df_summary = df_summary.fillna({'emotion': 'neutral', 'valence': 0.0, 'arousal': 0.0, 'dominance': 0.0})
         
-        # 按情感分组
+        # Group by emotion
         df_grouped = (df_summary.groupby('emotion')
                                  .agg({'valence': 'mean',
                                        'arousal': 'mean',
@@ -764,9 +768,9 @@ def run_analysis(audio_path: str):
                                        'duration': 'sum'})
                                  .reset_index())
         
-        # 确保至少有两种情感类别
+        # Ensure at least two emotion categories
         if len(df_grouped) < 2:
-            print("检测到只有一种情感，添加第二种情感类别...")
+            print("Detected only one emotion, adding a second...")
             extra = "joy" if df_grouped.iloc[0]['emotion'] != "joy" else "sad"
             extra_valence = 0.7 if extra == "joy" else -0.5
             extra_arousal = 0.6 if extra == "joy" else 0.2
@@ -779,70 +783,112 @@ def run_analysis(audio_path: str):
                     "valence": extra_valence,
                     "arousal": extra_arousal,
                     "dominance": extra_dominance,
-                    "duration": df_grouped.iloc[0]['duration'] * 0.3  # 30%的主情感持续时间
+                    "duration": df_grouped.iloc[0]['duration'] * 0.3
                 }])
-            ])
+            ], ignore_index=True)
         
-        # 生成top2情感摘要
-        top2_csv_path = os.path.join(base_path, "top2_emotion_summary.csv")
+        # Generate top2 emotion summary - Save to output_base_path
+        top2_csv_path = os.path.join(output_base_path, "top2_emotion_summary.csv")
         df_grouped.sort_values("duration", ascending=False)\
                   .head(2)\
                   .to_csv(top2_csv_path, index=False)
         print(f"💾 Saved top2_emotion_summary.csv: {top2_csv_path}")
         
-        # 平滑连续轨迹
+        # Smooth continuous tracks if enough data
         if len(df_summary) >= 11:
             try:
-                df_summary[['valence', 'arousal', 'dominance']] = df_summary[['valence', 'arousal', 'dominance']]\
-                    .apply(lambda s: signal.savgol_filter(s, min(11, len(s) - (len(s) % 2) - 1), 3))
+                smooth_cols = ['valence', 'arousal', 'dominance']
+                window_len = min(11, len(df_summary) - (len(df_summary) % 2) - 1)
+                df_summary[smooth_cols] = df_summary[smooth_cols].apply(
+                    lambda s: signal.savgol_filter(s, window_len, 3)
+                )
             except Exception as e:
-                print(f"平滑处理错误: {e}")
+                print(f"Smoothing error: {e}")
         
-        # 保存完整的段落摘要
-        segments_csv_path = os.path.join(base_path, "summary_per_segment.csv")
+        # Save full segment summary - Save to output_base_path
+        segments_csv_path = os.path.join(output_base_path, "summary_per_segment.csv")
         df_summary.to_csv(segments_csv_path, index=False)
         print(f"💾 Saved summary_per_segment.csv: {segments_csv_path}")
         
-        # 生成均匀采样的arousal轨迹(100点)
+        # Generate evenly sampled arousal track (100 points)
         arousal_track = df_summary['arousal'].to_numpy()
         if len(arousal_track) == 1:
             arousal_track = np.full(100, arousal_track[0])
-        else:
+        elif len(arousal_track) > 1:
             arousal_track = np.interp(np.linspace(0, len(arousal_track)-1, 100),
                                       np.arange(len(arousal_track)),
                                       arousal_track)
+        else: # Handle empty arousal data
+            arousal_track = np.zeros(100)
         
-        # 在"arousal_100.csv"保存附近
-        arousal_csv_path = os.path.join(base_path, "arousal_100.csv")
+        # Save arousal track to output_base_path
+        arousal_csv_path = os.path.join(output_base_path, "arousal_100.csv")
         pd.DataFrame({"arousal": arousal_track})\
           .to_csv(arousal_csv_path, index=False)
         print(f"💾 Saved arousal_100.csv: {arousal_csv_path}")
         
-        print("✅ 情感分析完成")
+        # Generate and save placeholder emotion_curves.json to static_base_path
+        try:
+            # Example placeholder curves (replace with actual generation logic if available)
+            emotion_curves_data = {
+                "j": [[10,0],[15,15],[0,10],[-15,15],[-10,0],[-15,-15],[0,-10],[15,-15]], # Joy
+                "s": [[8,0],[10,10],[0,8],[-10,10],[-8,0],[-10,-10],[0,-8],[10,-10]],     # Sad
+                "a": [[12,0],[18,18],[0,12],[-18,18],[-12,0],[-18,-18],[0,-12],[18,-18]], # Angry
+                "f": [[9,0],[12,12],[0,9],[-12,12],[-9,0],[-12,-12],[0,-9],[12,-12]],     # Fear
+                "su": [[11,0],[16,16],[0,11],[-16,16],[-11,0],[-16,-16],[0,-11],[16,-16]],# Surprise
+                "c": [[10,0],[14,14],[0,10],[-14,14],[-10,0],[-14,-14],[0,-10],[14,-14]], # Calm/Neutral
+                "d": [[7,0],[9,9],[0,7],[-9,9],[-7,0],[-9,-9],[0,-7],[9,-9]]          # Disgust
+            }
+            curves_path = os.path.join(static_base_path, "emotion_curves.json")
+            with open(curves_path, 'w') as f:
+                json.dump(emotion_curves_data, f, indent=2)
+            print(f"💾 Saved emotion_curves.json: {curves_path}")
+        except Exception as curve_err:
+            print(f"❌ Failed to save emotion_curves.json: {curve_err}")
+            # Indicate failure in the response
+            return { 
+                "error": f"Analysis complete but failed to save emotion curves: {curve_err}",
+                # Include paths for other files that might have saved successfully
+                "top2SummaryPath": f"output/top2_emotion_summary.csv",
+                "segmentSummaryPath": f"output/summary_per_segment.csv",
+                "arousalTrackPath": f"output/arousal_100.csv",
+                "emotionCurvesPath": None,
+                "timestamp": int(time.time() * 1000) 
+            }
+
+        print("✅ Emotion analysis complete")
         
+        # Return relative paths for the frontend
+        return {
+            "top2SummaryPath": f"output/top2_emotion_summary.csv",
+            "segmentSummaryPath": f"output/summary_per_segment.csv",
+            "arousalTrackPath": f"output/arousal_100.csv",
+            # Assuming emotion_curves.json is saved correctly:
+            "emotionCurvesPath": f"static/emotions/emotion_curves.json", 
+            "timestamp": int(time.time() * 1000) # Add timestamp for cache busting
+        }
+
     except Exception as err:
-        print("❌ 错误:", err)
+        print("❌ Error:", err)
         traceback.print_exc()
         
-        # 即使出错，也尝试创建一些基本文件
+        # On error, try to create basic fallback files in the correct output directory
         try:
             script_dir = os.path.dirname(os.path.abspath(__file__))
-            base_path = os.path.join(script_dir, "..", "public", "data")
-            base_path = os.path.abspath(base_path)
+            output_base_path = os.path.join(script_dir, "output")
+            print(f"📂 Emergency output to: {output_base_path}")
+            os.makedirs(output_base_path, exist_ok=True)
             
-            print(f"📂 Emergency output to: {base_path}")
-            os.makedirs(base_path, exist_ok=True)
-            
-            # 创建基本的top2_emotion_summary.csv
-            emergency_path = os.path.join(base_path, "top2_emotion_summary.csv")
+            # Create basic top2_emotion_summary.csv
+            emergency_path = os.path.join(output_base_path, "top2_emotion_summary.csv")
             pd.DataFrame([
                 {"emotion": "neutral", "valence": 0.0, "arousal": 0.0, "dominance": 0.0, "duration": 5.0},
                 {"emotion": "joy", "valence": 0.7, "arousal": 0.6, "dominance": 0.5, "duration": 5.0}
             ]).to_csv(emergency_path, index=False)
             print(f"💾 Emergency save to: {emergency_path}")
             
-            # 创建基本的summary_per_segment.csv
-            emergency_path = os.path.join(base_path, "summary_per_segment.csv")
+            # Create basic summary_per_segment.csv
+            emergency_path = os.path.join(output_base_path, "summary_per_segment.csv")
             pd.DataFrame([
                 {"start": 0, "end": 5, "text": "(audio)", "emotion": "neutral", 
                     "valence": 0.0, "arousal": 0.0, "dominance": 0.0, "duration": 5.0},
@@ -851,14 +897,28 @@ def run_analysis(audio_path: str):
             ]).to_csv(emergency_path, index=False)
             print(f"💾 Emergency save to: {emergency_path}")
             
-            # 创建基本的arousal_100.csv
-            emergency_path = os.path.join(base_path, "arousal_100.csv")
+            # Create basic arousal_100.csv
+            emergency_path = os.path.join(output_base_path, "arousal_100.csv")
             arousal = np.sin(np.linspace(0, np.pi * 2, 100)) * 0.5
             pd.DataFrame({"arousal": arousal}).to_csv(emergency_path, index=False)
             print(f"💾 Emergency save to: {emergency_path}")
             
-            print("✅ 创建了基本的回退CSV文件")
+            print("✅ Created basic fallback CSV files")
+            
+            # Return paths to these fallback files
+            return {
+                "top2SummaryPath": f"output/top2_emotion_summary.csv",
+                "segmentSummaryPath": f"output/summary_per_segment.csv",
+                "arousalTrackPath": f"output/arousal_100.csv",
+                "emotionCurvesPath": None, # Indicate curves aren't available
+                "error": "Analysis failed, using fallback data.",
+                "timestamp": int(time.time() * 1000)
+            }
+            
         except Exception as backup_err:
-            print(f"❌ 创建回退文件失败: {backup_err}")
+            print(f"❌ Failed to create fallback files: {backup_err}")
             traceback.print_exc()
+            # Return an error state if even fallback fails
+            return {"error": f"Analysis and fallback creation failed: {backup_err}"}
+
 # ---------------------------------------------------------- end file ----

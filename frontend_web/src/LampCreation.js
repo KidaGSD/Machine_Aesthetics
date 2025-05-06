@@ -3,6 +3,7 @@ import "./LampCreation.css";
 import Scene from "./mesh_deformation";
 import EmotionCurveMorph from "./EmotionCurveMorph";
 import Papa from "papaparse";
+import VectorSpaceVisualization from "./components/VectorSpaceVisualization";
 
 const LampCreation = () => {
   const [audioFile, setAudioFile] = useState(null);
@@ -11,11 +12,28 @@ const LampCreation = () => {
   const sceneRef = useRef();
   const [topEmotions, setTopEmotions] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
-  const [timestamp, setTimestamp] = useState(Date.now()); // Add timestamp for cache busting
+  const [resultPaths, setResultPaths] = useState({}); // Store paths from backend
+  const [textureEnabled, setTextureEnabled] = useState(true); // Add texture toggle state
+  const [currentTextureInfo, setCurrentTextureInfo] = useState(null); // Store full texture info
+  const audioRef = useRef(null);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   
   // Use direct backend URL for data files
   const backendUrl = "http://localhost:5001";
-  const getDataUrl = (path) => `${backendUrl}/data/${path.replace('data/', '')}?t=${timestamp}`;
+
+  // Add scroll event listener to hide indicator after user scrolls
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowScrollIndicator(false);
+      } else {
+        setShowScrollIndicator(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleAudioChange = async (event) => {
     const file = event.target.files[0];
@@ -23,24 +41,31 @@ const LampCreation = () => {
       setAudioFile(file);
       setLoading(true);
       setErrorMessage('');
+      setResultPaths({}); // Clear previous results
 
       const formData = new FormData();
       formData.append("file", file);
 
       try {
-        const response = await fetch(`${backendUrl}/upload-audio`, {
+        // Updated to use /analyze endpoint
+        const response = await fetch(`${backendUrl}/analyze`, {
           method: "POST",
           body: formData,
         });
 
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Analysis request failed: ${response.status} - ${errorText}`);
+        }
+
         const result = await response.json();
-        if (result.status === "success") {
-          // Use server timestamp if available
-          const serverTimestamp = result.timestamp || Date.now();
-          console.log("Analysis complete, updating with timestamp:", serverTimestamp);
-          
-          // Update timestamp for cache busting
-          setTimestamp(serverTimestamp);
+        
+        if (result.error) {
+          setErrorMessage(result.error || "Analysis failed. Check backend logs.");
+          console.error("Analysis error details:", result);
+        } else {
+          console.log("Analysis successful, paths received:", result);
+          setResultPaths(result); // Store the received paths
           // Increment sceneKey to force re-render
           setSceneKey((prev) => prev + 1);
           // Explicitly start the reveal animation
@@ -50,42 +75,101 @@ const LampCreation = () => {
               sceneRef.current.startRevealAnimation();
             }
           }, 100);
-          loadTopEmotions(serverTimestamp); // Refresh emotion summary with new timestamp
-        } else {
-          // Display the specific error message from the server
-          setErrorMessage(result.message || "Upload failed. Try again.");
-          console.error("Upload error details:", result);
+          // Load top emotions using the new paths
+          if (result.top2SummaryPath) {
+              loadTopEmotions(`${backendUrl}/${result.top2SummaryPath}?t=${result.timestamp || Date.now()}`);
+          }
         }
       } catch (error) {
-        console.error("Upload error:", error);
-        setErrorMessage("Server error occurred. Make sure the backend server is running.");
+        console.error("Upload/Analysis error:", error);
+        setErrorMessage(`Server/Analysis error: ${error.message}`);
       } finally {
         setLoading(false);
       }
     }
   };
 
-  const handleDeleteAudio = () => setAudioFile(null);
+  const handleDeleteAudio = () => {
+      setAudioFile(null);
+      setResultPaths({}); // Clear results when audio is deleted
+      setSceneKey(prev => prev + 1); // Force scene re-render to default state
+  };
+  
   const handleExportMesh = () => sceneRef.current?.exportSTL();
 
-  const loadTopEmotions = async (customTimestamp = timestamp) => {
+  // Add texture toggle handler
+  const handleToggleTexture = () => {
+    setTextureEnabled(!textureEnabled);
+    // Call the toggle method on the 3D scene
+    if (sceneRef.current?.toggleTextures) {
+      sceneRef.current.toggleTextures();
+    }
+  };
+
+  const loadTopEmotions = async (url) => {
+    if (!url) {
+      console.warn("loadTopEmotions called without a valid URL");
+      setTopEmotions([]);
+      setCurrentTextureInfo(null);
+      return;
+    }
     try {
-      // Add timestamp to prevent caching
-      const response = await fetch(`${backendUrl}/data/top2_emotion_summary.csv?t=${customTimestamp}`);
+      const response = await fetch(url);
+      if (!response.ok) {
+         throw new Error(`Failed to load top emotions: ${response.status}`);
+      }
       const text = await response.text();
       console.log("Loaded top emotions data:", text.slice(0, 100));
       const parsed = Papa.parse(text, { header: true });
       const filtered = parsed.data.filter(row => row.emotion);
       const top2 = filtered.slice(0, 2).map(row => row.emotion);
       setTopEmotions(top2);
+      
+      // Set current texture info based on quadrant
+      if (filtered.length > 0) {
+        const valence = parseFloat(filtered[0].valence || 0); // Use valence, not valence_normalized
+        const arousal = parseFloat(filtered[0].arousal || 0); // Use arousal, not arousal_normalized
+        const quadrant = valence >= 0 
+          ? (arousal >= 0 ? "high_high" : "high_low")
+          : (arousal >= 0 ? "low_high" : "low_low");
+        setCurrentTextureInfo({ filename: quadrant });
+      }
     } catch (err) {
       console.error("Failed to load emotion summary:", err);
+      setErrorMessage(`Failed to load visualization data: ${err.message}`);
+      setTopEmotions([]); // Clear emotions on error
+      setCurrentTextureInfo(null);
     }
   };
 
-  useEffect(() => {
-    loadTopEmotions(); // Initial load
-  }, []);
+  // Handle texture update from the mesh component
+  const handleTextureUpdate = (textureInfo) => {
+    if (textureInfo && textureInfo !== currentTextureInfo) {
+      console.log("Texture update:", textureInfo);
+      setCurrentTextureInfo(textureInfo);
+    }
+  };
+
+  // Construct full URLs for Scene and EmotionCurveMorph components
+  const getFullPath = (relativePath) => {
+      if (!relativePath) return null;
+      const timestamp = resultPaths.timestamp || Date.now();
+      // Ensure we don't double the base path if it's already absolute
+      if (relativePath.startsWith('http')) {
+          // Check if timestamp is already present
+          if (relativePath.includes('?t=')) {
+              return relativePath; // Return as is if timestamp exists
+          } 
+          return `${relativePath}?t=${timestamp}`;
+      }
+      return `${backendUrl}/${relativePath}?t=${timestamp}`;
+  }
+
+  const top2Path = getFullPath(resultPaths.top2SummaryPath);
+  const amplitudePath = getFullPath(resultPaths.arousalTrackPath); // Use arousal for amplitude
+  const curvesPath = getFullPath(resultPaths.emotionCurvesPath);
+  // Construct the path for the full texture classification data
+  const classificationPath = `${backendUrl}/texture_extractor/data/binary_va_classification9/va_classification_all.csv`;
 
   return (
     <div className="lamp-container">
@@ -94,6 +178,17 @@ const LampCreation = () => {
           <div className="loading-spinner" />
           <p>Analyzing your audio...</p>
         </div>
+      )}
+
+      {/* Scroll Indicator */}
+      {showScrollIndicator && (
+        <div className="scroll-indicator" onClick={() => {
+          window.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth'
+          });
+          setShowScrollIndicator(false);
+        }}></div>
       )}
 
       {errorMessage && (
@@ -175,6 +270,17 @@ const LampCreation = () => {
                 </button>
               </div>
             )}
+
+            {audioFile && (
+              <div className="audio-player" style={{ marginTop: "15px", width: "100%" }}>
+                <audio 
+                  ref={audioRef}
+                  controls 
+                  src={URL.createObjectURL(audioFile)}
+                  style={{ width: "100%" }}
+                />
+              </div>
+            )}
           </div>
 
           {/* Step 2 */}
@@ -189,7 +295,7 @@ const LampCreation = () => {
             </div>
 
             <p>Ready to save and export your design?</p>
-            <button className="export-button" onClick={handleExportMesh}>
+            <button className="export-button" onClick={handleExportMesh} disabled={!resultPaths.top2SummaryPath}>
               Download My Design
             </button>
           </div>
@@ -200,13 +306,12 @@ const LampCreation = () => {
           <Scene
             ref={sceneRef}
             key={sceneKey}
-            csvPath={getDataUrl("top2_emotion_summary.csv")}
-            amplitudeCsvPath={getDataUrl("summary_per_segment.csv")}
-            emotionCurvesPath={`emotions/emotion_curves.json?t=${timestamp}`}
-            onError={(error) => {
-              console.error("Scene error:", error);
-              setErrorMessage(`Error generating lamp: ${error.message || 'Unknown error'}`);
-            }}
+            // Pass specific paths needed by components
+            top2CsvPath={top2Path} 
+            amplitudeCsvPath={amplitudePath} // For waves/amplitude visual effect if needed
+            textureClassificationCsvPath={classificationPath} // For texture database
+            emotionCurvesPath={curvesPath} // For shape morph
+            onTextureUpdate={handleTextureUpdate}
           />
         </div>
 
@@ -215,15 +320,17 @@ const LampCreation = () => {
           <div className="content-container01">
             <div className="step-wrapper">
             <div className="step-box first"></div>
-              <span> Base Shape Visualization</span>
+              <span>Base Shape Visualization</span>
             </div>
             <div className="step-wrapper">
             <div className="step-box"></div>
 
-            {topEmotions.length === 2 && (
+              {topEmotions.length === 2 ? (
               <p>
-                The audio transitions from <strong>{topEmotions[0]}</strong> to <strong>{topEmotions[1]}</strong>
+                  Audio transitions: <strong>{topEmotions[0]}</strong> to <strong>{topEmotions[1]}</strong>
               </p>
+              ) : (
+                <p>Analyzing emotions...</p> 
             )}
               </div>
 
@@ -237,20 +344,95 @@ const LampCreation = () => {
                 background: "#1a1a1a"
               }}
             >
+              {curvesPath && top2Path ? (
               <EmotionCurveMorph
                 key={sceneKey}
-                emotionCurvesPath={`emotions/emotion_curves.json?t=${timestamp}`}
-                top2CsvPath={getDataUrl("top2_emotion_summary.csv")}
+                  emotionCurvesPath={curvesPath}
+                  top2CsvPath={top2Path}
               />
+              ) : (
+                 <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', color: 'grey'}}>
+                     {errorMessage ? <span style={{color: 'red'}}>Error</span> : <span>Waiting for analysis...</span>}
+                 </div>
+              )}
             </div>
           </div>
 
           <div className="content-container01">
             <div className="step-wrapper">
             <div className="step-box first"></div>
-              <span> Texture Visualization</span>
+              <span>Texture Visualization</span>
+            </div>
+            
+            {/* Texture Controls */}
+            <div className="texture-controls" style={{ marginTop: "10px", display: "flex", flexDirection: "column", gap: "10px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span>Surface Texture</span>
+                <button
+                  onClick={handleToggleTexture}
+                  style={{
+                    background: textureEnabled ? "#4CAF50" : "#555",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "20px",
+                    padding: "5px 15px",
+                    cursor: "pointer",
+                    transition: "background-color 0.3s"
+                  }}
+                  disabled={!resultPaths.top2SummaryPath}
+                >
+                  {textureEnabled ? "ON" : "OFF"}
+                </button>
+              </div>
+              
+              {/* Current Texture Display */}
+              <div style={{ 
+                background: "#1a1a1a", 
+                padding: "10px", 
+                borderRadius: "8px",
+                marginTop: "5px" 
+              }}>
+                <p style={{ margin: "0 0 5px 0", fontSize: "14px" }}>Current Texture:</p>
+                <div style={{ 
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px" 
+                }}>
+                  <div style={{ 
+                    width: "50px",
+                    height: "50px",
+                    background: "#333",
+                    borderRadius: "4px",
+                    backgroundSize: "cover"
+                  }}></div>
+                  <span style={{ fontSize: "12px", wordBreak: 'break-all' }}>
+                      {currentTextureInfo?.filename || "Loading..."}
+                  </span>
+                </div>
+              </div>
+              
+              <p style={{ fontSize: "13px", color: "#888", marginTop: "5px" }}>
+                Textures are automatically selected based on emotional analysis of the audio.
+              </p>
             </div>
           </div>
+        </div>
+      </div>
+      
+      {/* New Section for Vector Space Visualization */}
+      <div className="vector-space-section">
+        <h2 className="vector-space-title">Texture Emotion Space</h2>
+        <div style={{ 
+          fontSize: "14px", 
+          color: "#aaa", 
+          maxWidth: "800px", 
+          margin: "0 auto 20px auto", 
+          textAlign: "center" 
+        }}>
+          Explore how different textures map to emotional states based on valence (positive/negative) and arousal (energetic/calm)
+        </div>
+        <div className="vector-space-wrapper">
+          <VectorSpaceVisualization />
         </div>
       </div>
     </div>

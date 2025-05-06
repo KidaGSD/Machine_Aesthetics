@@ -6,11 +6,15 @@ audio_analysis/**/separated/
 # Generated files
 **/depth_maps/
 **/displacement_maps/
-*.png
-*.jpg
-*.jpeg
 *.wav
 *.mp3
+
+# Ignore specific data directories
+texture_extractor/data/dtd/*
+!texture_extractor/data/dtd/gray_textures/
+texture_extractor/data/hugging_data/*
+!texture_extractor/data/hugging_data/normal_grey/
+frontend_web/public/data/textures/
 
 # Python cache files
 __pycache__/

@@ -1,51 +1,51 @@
 start,end,text,emotion,valence,arousal,dominance,duration
-0.0,0.3,Joe Biden.,surprised,0.0,0.5000000000000004,0.24490000000000023,0.3
-3.135,3.4349999999999996,I quote my wife.,surprised,0.0,0.5000000000000002,0.2449000000000002,0.3
-6.27,6.569999999999999,I quote my wife.,surprised,0.0,0.5000000000000001,0.2449000000000002,0.3
-9.69,9.99,"And please welcome the 45th President of the United States, Donald Trump.",surprised,0.0,0.5000000000000001,0.24490000000000023,0.3
-12.825,13.125,"And please welcome the 45th President of the United States, Donald Trump.",surprised,0.0,0.5000000000000001,0.24490000000000028,0.3
-16.245,16.545,"And please welcome the 45th President of the United States, Donald Trump.",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-19.38,19.68,"And please welcome the 45th President of the United States, Donald Trump.",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-22.515,22.815,"Child care, elder care, making sure that we continue to strengthen our healthcare system,",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-25.935,26.235,"Child care, elder care, making sure that we continue to strengthen our healthcare system, making sure that we're able to make every single solitary person eligible for what I've",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-29.07,29.37,making sure that we're able to make every single solitary person eligible for what I've,surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-32.49,32.79,been able to do with the COVID.,surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-35.625,35.925,I'm just giving me with dealing with everything we have to do with.,surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-38.76,39.059999999999995,I'm just giving me with dealing with everything we have to do with.,surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-42.18,42.48,(instrumental),surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-45.315,45.614999999999995,We finally beat Medicare.,surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-48.735,49.035,"I went to the World War II cemetery,",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-51.87,52.169999999999995,"He was standing with his first art general,",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-55.005,55.305,"and he told me, said, I don't want to go in there because there are much to lose it in suckers.",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-58.425,58.724999999999994,"My son was not a loser, he was not a sucker.",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-61.56,61.86,"You're the sucker, you're the loser. Well, I took two test cognitive tests, I aced them.",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-64.98,65.28,"Both of them, as you know, we made it public.",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-68.115,68.41499999999999,"He took none, I'd like to see him take one, just one.",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-71.25,71.55,"I just won two club championships, not even senior,",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-74.67,74.97,"To do that, you have to be.",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-77.805,78.105,quite smart and you have to be able to hit the ball a long way.,surprised,0.0,0.5419580419580434,0.26545104895104965,0.3
-81.225,81.52499999999999,"Look, I'd be happy to have a driving contest with him.",surprised,0.0,0.4895104895104908,0.23976223776223837,0.3
-84.36,84.66,"The dream I got my handicap, which one I was vice president.",surprised,0.0,0.4487179487179499,0.21978205128205186,0.3
-87.78,88.08,(instrumental),surprised,0.0,0.4195804195804207,0.20551048951049006,0.3
-90.915,91.215,"And by the way, I told you before I'm happy to play golf",surprised,0.0,0.4020979020979032,0.19694755244755294,0.3
-94.05,94.35,The crimes that you are still charged with.,serene,0.0,0.3962703962703973,0.19409324009324058,0.3
-97.47,97.77,And think of all the civil penalties you have. How many billions of dollars do you owe,surprised,0.0,0.4020979020979032,0.19694755244755294,0.3
-100.605,100.905,"in civil penalties for molesting a woman in public,",surprised,0.0,0.4195804195804207,0.20551048951049006,0.3
-104.025,104.325,for doing a whole range of things?,surprised,0.0,0.4487179487179499,0.21978205128205186,0.3
-107.16,107.46,"of having sex with a porn star on the night,",surprised,0.0,0.4895104895104908,0.23976223776223837,0.3
-110.295,110.595,while your wife was pregnant.,surprised,0.0,0.5419580419580434,0.26545104895104965,0.3
-113.715,114.015,You have the morals of an alley cat.,surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-116.85,117.14999999999999,"We are very, very close to World War III, and he's driving us there.",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-120.27,120.57,"And Kim Jong-un and President Xi of China, Kim Jong-un of North Korea, all of these Putin,",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-123.405,123.705,"And Kim Jong-un and President Xi of China, Kim Jong-un of North Korea, all of these Putin,",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-126.54,126.84,"they don't respect him, they don't fear him, they have nothing going with this gentleman,",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-129.96,130.26000000000002,"they don't respect him, they don't fear him, they have nothing going with this gentleman,",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-133.095,133.395,and he's going to drive us into World War III.,surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-136.515,136.815,You want a World War III?,surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-139.65,139.95000000000002,"Let him follow and win, and I put him, say, do what you want, NATO.",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-142.785,143.085,"The whole country is exploding because of you, because they don't respect you, and they",surprised,0.0,0.5000000000000013,0.24490000000000062,0.3
-146.205,146.50500000000002,"have to respect their president, and they don't respect you throughout the world.",surprised,0.0,0.5000000000000002,0.24490000000000034,0.3
-149.34,149.64000000000001,(instrumental),surprised,0.0,0.5000000000000003,0.24490000000000037,0.3
-152.76,153.06,(instrumental),surprised,0.0,0.5000000000000004,0.24490000000000037,0.3
-155.895,156.19500000000002,(instrumental),surprised,0.0,0.5000000000000004,0.2449000000000003,0.3
-159.315,159.615,(instrumental),surprised,0.0,0.5000000000000003,0.24490000000000023,0.20612500000001432
+0.0,0.3,Joe Biden.,surprised,-0.36363636363636404,0.5909090909090908,0.11085454545454552,0.3
+3.135,3.4349999999999996,I quote my wife.,angry,-0.16783216783216742,0.5419580419580418,0.18303286713286732,0.3
+6.27,6.569999999999999,I quote my wife.,surprised,-0.06526806526806433,0.5163170163170161,0.22084055944055972,0.3
+9.69,9.99,"And please welcome the 45th President of the United States, Donald Trump.",surprised,-0.04195804195804076,0.5104895104895103,0.22943321678321707,0.3
+12.825,13.125,"And please welcome the 45th President of the United States, Donald Trump.",surprised,-0.08391608391608268,0.5209790209790208,0.2139664335664338,0.3
+16.245,16.545,"And please welcome the 45th President of the United States, Donald Trump.",surprised,-0.1771561771561776,0.5442890442890458,0.1795958041958047,0.3
+19.38,19.68,"And please welcome the 45th President of the United States, Donald Trump.",surprised,-0.31701631701631783,0.5792540792540808,0.12803986013986052,0.3
+22.515,22.815,"Child care, elder care, making sure that we continue to strengthen our healthcare system,",angry,-0.4662004662004675,0.6165501165501182,0.07304685314685334,0.3
+25.935,26.235,"Child care, elder care, making sure that we continue to strengthen our healthcare system, making sure that we're able to make every single solitary person eligible for what I've",angry,-0.6247086247086264,0.6561771561771579,0.014616783216783249,0.3
+29.07,29.37,making sure that we're able to make every single solitary person eligible for what I've,angry,-0.6899766899766919,0.6724941724941742,-0.009442657342657382,0.3
+32.49,32.79,been able to do with the COVID.,angry,-0.5948717948717965,0.6487179487179504,0.025615384615384675,0.3
+35.625,35.925,I'm just giving me with dealing with everything we have to do with.,surprised,-0.5575757575757591,0.6393939393939411,0.039363636363636476,0.3
+38.76,39.059999999999995,I'm just giving me with dealing with everything we have to do with.,angry,-0.4083916083916095,0.6020979020979036,0.09435664335664362,0.3
+42.18,42.48,(instrumental),surprised,-0.24988344988345051,0.562470862470864,0.15278671328671373,0.3
+45.315,45.614999999999995,We finally beat Medicare.,surprised,-0.2517482517482524,0.5629370629370645,0.1520993006993011,0.3
+48.735,49.035,"I went to the World War II cemetery,",angry,-0.26293706293706365,0.5657342657342672,0.14797482517482557,0.3
+51.87,52.169999999999995,"He was standing with his first art general,",surprised,-0.3020979020979029,0.575524475524477,0.1335391608391612,0.3
+55.005,55.305,"and he told me, said, I don't want to go in there because there are much to lose it in suckers.",surprised,-0.1510489510489514,0.5377622377622392,0.18921958041958092,0.3
+58.425,58.724999999999994,"My son was not a loser, he was not a sucker.",angry,-0.2648018648018655,0.5662004662004676,0.14728741258741299,0.3
+61.56,61.86,"You're the sucker, you're the loser. Well, I took two test cognitive tests, I aced them.",surprised,-0.1883449883449888,0.5470862470862485,0.17547132867132914,0.3
+64.98,65.28,"Both of them, as you know, we made it public.",surprised,-0.13986013986014018,0.5349650349650363,0.1933440559440565,0.3
+68.115,68.41499999999999,"He took none, I'd like to see him take one, just one.",surprised,-0.2703962703962711,0.5675990675990691,0.14522517482517522,0.3
+71.25,71.55,"I just won two club championships, not even senior,",angry,-0.41025641025641135,0.6025641025641042,0.09366923076923103,0.3
+74.67,74.97,"To do that, you have to be.",surprised,-0.38974358974359075,0.597435897435899,0.10123076923076951,0.3
+77.805,78.105,quite smart and you have to be able to hit the ball a long way.,angry,-0.5967365967365984,0.6491841491841509,0.02492797202797209,0.3
+81.225,81.52499999999999,"Look, I'd be happy to have a driving contest with him.",angry,-0.5762237762237779,0.6440559440559457,0.032489510489510556,0.3
+84.36,84.66,"The dream I got my handicap, which one I was vice president.",angry,-0.6135198135198152,0.6533799533799551,0.018741258741258787,0.3
+87.78,88.08,(instrumental),surprised,-0.5389277389277404,0.6347319347319365,0.04623776223776237,0.3
+90.915,91.215,"And by the way, I told you before I'm happy to play golf",angry,-0.5221445221445236,0.6305361305361321,0.05242447552447567,0.3
+94.05,94.35,The crimes that you are still charged with.,surprised,-0.3449883449883459,0.5862470862470878,0.11772867132867164,0.3
+97.47,97.77,And think of all the civil penalties you have. How many billions of dollars do you owe,angry,-0.24428904428904494,0.5610722610722625,0.15484895104895147,0.3
+100.605,100.905,"in civil penalties for molesting a woman in public,",surprised,-0.171561771561772,0.5428904428904443,0.18165804195804244,0.3
+104.025,104.325,for doing a whole range of things?,surprised,-0.14545454545454584,0.5363636363636377,0.19128181818181872,0.3
+107.16,107.46,"of having sex with a porn star on the night,",surprised,0.05221445221445241,0.4869463869463882,0.26414755244755317,0.3
+110.295,110.595,while your wife was pregnant.,surprised,0.03356643356643371,0.4916083916083929,0.2572734265734273,0.3
+113.715,114.015,You have the morals of an alley cat.,surprised,0.035431235431235594,0.49114219114219243,0.2579608391608399,0.3
+116.85,117.14999999999999,"We are very, very close to World War III, and he's driving us there.",surprised,-0.16037296037296078,0.5400932400932414,0.185782517482518,0.3
+120.27,120.57,"And Kim Jong-un and President Xi of China, Kim Jong-un of North Korea, all of these Putin,",surprised,-0.31701631701631783,0.5792540792540808,0.12803986013986052,0.3
+123.405,123.705,"And Kim Jong-un and President Xi of China, Kim Jong-un of North Korea, all of these Putin,",angry,-0.4829836829836843,0.6207459207459224,0.06686013986014004,0.3
+126.54,126.84,"they don't respect him, they don't fear him, they have nothing going with this gentleman,",angry,-0.7067599067599086,0.6766899766899784,-0.015629370629370677,0.3
+129.96,130.26000000000002,"they don't respect him, they don't fear him, they have nothing going with this gentleman,",angry,-0.818648018648021,0.7046620046620065,-0.05687412587412605,0.3
+133.095,133.395,and he's going to drive us into World War III.,angry,-0.818648018648021,0.7046620046620065,-0.05687412587412605,0.3
+136.515,136.815,You want a World War III?,angry,-0.7067599067599086,0.6766899766899784,-0.015629370629370677,0.3
+139.65,139.95000000000002,"Let him follow and win, and I put him, say, do what you want, NATO.",angry,-0.4829836829836843,0.6207459207459224,0.06686013986014004,0.3
+142.785,143.085,"The whole country is exploding because of you, because they don't respect you, and they",surprised,-0.31701631701631783,0.5792540792540808,0.12803986013986052,0.3
+146.205,146.50500000000002,"have to respect their president, and they don't respect you throughout the world.",surprised,-0.12121212121212144,0.5303030303030305,0.200218181818182,0.3
+149.34,149.64000000000001,(instrumental),surprised,0.032634032634033194,0.49184149184149184,0.2569297202797206,0.3
+152.76,153.06,(instrumental),surprised,0.11188811188811354,0.4720279720279718,0.2861447552447559,0.3
+155.895,156.19500000000002,(instrumental),surprised,0.08391608391608729,0.4790209790209784,0.27583356643356755,0.3
+159.315,159.615,(instrumental),surprised,-0.08391608391607785,0.5209790209790198,0.2139664335664356,0.20612500000001432

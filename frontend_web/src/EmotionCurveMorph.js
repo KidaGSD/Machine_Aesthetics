@@ -89,38 +89,101 @@ const EmotionCurveMorphContent = ({ emotionCurves, emotionA, emotionB }) => {
 
 const EmotionCurveMorph = ({ emotionCurvesPath, top2CsvPath }) => {
   const [emotionCurves, setEmotionCurves] = useState(null);
-  const [emotionLabels, setEmotionLabels] = useState(["j", "s"]);
+  const [emotionLabels, setEmotionLabels] = useState(["c", "j"]); // Default to calm/joy
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const loadAll = async () => {
+      setError(null); // Clear previous errors
       try {
-        const [csvText, json] = await Promise.all([
-          fetch(`${top2CsvPath}?t=${Date.now()}`).then(res => res.text()),
-          fetch(`${emotionCurvesPath}?t=${Date.now()}`).then(res => res.json())
+        console.log("Fetching morph data:", top2CsvPath, emotionCurvesPath);
+        const [csvResponse, jsonResponse] = await Promise.all([
+          fetch(top2CsvPath),
+          fetch(emotionCurvesPath)
         ]);
+
+        // Check responses before processing
+        if (!csvResponse.ok) {
+          throw new Error(`Failed to load top2 CSV: ${csvResponse.status}`);
+        }
+        if (!jsonResponse.ok) {
+          throw new Error(`Failed to load emotion curves JSON: ${jsonResponse.status}`);
+        }
+
+        const csvText = await csvResponse.text();
+        const json = await jsonResponse.json(); // This might fail if response is not JSON
 
         const parsed = Papa.parse(csvText, { header: true });
         const rows = parsed.data.filter(r => r.emotion && r.emotion.length > 0);
 
         const emotionMap = {
           joy: "j", sadness: "s", anger: "a", fear: "f",
-          surprise: "su", neutral: "c", disgust: "d"
+          surprise: "su", neutral: "c", disgust: "d",
+          peaceful: "c", serene: "c", calm: "c" // Map variants to base
         };
 
-        const a = emotionMap[rows[0]?.emotion.trim().toLowerCase()] || "j";
-        const b = emotionMap[rows[1]?.emotion.trim().toLowerCase()] || "s";
+        // Safely get emotions, defaulting if needed
+        const emotionA = rows[0]?.emotion?.trim().toLowerCase() || "neutral";
+        const emotionB = rows[1]?.emotion?.trim().toLowerCase() || "joy";
 
-        setEmotionCurves(json);
-        setEmotionLabels([a, b]);
+        const labelA = emotionMap[emotionA] || "c";
+        const labelB = emotionMap[emotionB] || "j";
+        
+        // Verify that the required curves exist in the loaded JSON
+        if (!json || typeof json !== 'object' || !json[labelA] || !json[labelB]) {
+          console.warn(`Required emotion curves (${labelA}, ${labelB}) not found in JSON. Using defaults.`);
+          // Use default curves if required ones are missing
+          const defaultCurves = {
+            "j": Array.from({length: 36}, (_, i) => [Math.cos(i/36*Math.PI*2)*20, Math.sin(i/36*Math.PI*2)*20]),
+            "s": Array.from({length: 36}, (_, i) => [Math.cos(i/36*Math.PI*2)*15, Math.sin(i/36*Math.PI*2)*15]),
+            "c": Array.from({length: 36}, (_, i) => [Math.cos(i/36*Math.PI*2)*18, Math.sin(i/36*Math.PI*2)*18])
+          };
+          setEmotionCurves(defaultCurves);
+          setEmotionLabels(["c", "j"]); // Reset labels to match default curves
+        } else {
+          setEmotionCurves(json);
+          setEmotionLabels([labelA, labelB]);
+        }
+        
       } catch (err) {
-        console.error("Failed to load emotion morph data", err);
+        console.error("Failed to load emotion morph data:", err);
+        setError(`Error loading visualization data: ${err.message}`);
+        // Set default curves on error
+        const defaultCurves = {
+            "j": Array.from({length: 36}, (_, i) => [Math.cos(i/36*Math.PI*2)*20, Math.sin(i/36*Math.PI*2)*20]),
+            "s": Array.from({length: 36}, (_, i) => [Math.cos(i/36*Math.PI*2)*15, Math.sin(i/36*Math.PI*2)*15]),
+            "c": Array.from({length: 36}, (_, i) => [Math.cos(i/36*Math.PI*2)*18, Math.sin(i/36*Math.PI*2)*18])
+        };
+        setEmotionCurves(defaultCurves);
+        setEmotionLabels(["c", "j"]);
       }
     };
 
-    loadAll();
+    // Only load if paths are provided
+    if (emotionCurvesPath && top2CsvPath) {
+        loadAll();
+    } else {
+        console.warn("EmotionCurveMorph: Missing required paths.");
+        // Optionally set default curves immediately if paths are missing
+        const defaultCurves = {
+            "j": Array.from({length: 36}, (_, i) => [Math.cos(i/36*Math.PI*2)*20, Math.sin(i/36*Math.PI*2)*20]),
+            "s": Array.from({length: 36}, (_, i) => [Math.cos(i/36*Math.PI*2)*15, Math.sin(i/36*Math.PI*2)*15]),
+            "c": Array.from({length: 36}, (_, i) => [Math.cos(i/36*Math.PI*2)*18, Math.sin(i/36*Math.PI*2)*18])
+        };
+        setEmotionCurves(defaultCurves);
+        setEmotionLabels(["c", "j"]);
+    }
   }, [emotionCurvesPath, top2CsvPath]);
 
-  if (!emotionCurves) return null;
+  // Display error message or loading state
+  if (error) {
+    return <div style={{ color: 'red', padding: '10px', background: '#222' }}>{error}</div>;
+  }
+
+  if (!emotionCurves) {
+    // Show a simple loading indicator or placeholder
+    return <div style={{ padding: '10px', background: '#111', color: 'grey' }}>Loading curves...</div>;
+  }
 
   return (
     <Canvas camera={{ position: [0, 0, 80], fov: 50 }} 
