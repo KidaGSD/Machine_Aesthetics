@@ -2,6 +2,8 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import * as THREE from 'three';
 import Papa from 'papaparse';
+// Import configuration
+import { TEXTURE_PATHS, IMAGE_PATHS } from './config';
 
 // Utility function to fetch CSV data
 async function fetchCsv(url) {
@@ -263,10 +265,10 @@ export function useTextureLoader(top2CsvPath, textureClassificationCsvPath) {
       const sourceDir = textureInfo.source;
       const textureFilename = textureInfo.filename;
 
-      // Determine the texture path based on source directory
+      // Determine the texture path based on source directory using config paths
       if (sourceDir === 'normal_grey') {
-        // Normal grey folder path
-        textureUrlPath = `/data/textures/normal_grey/${textureFilename}`;
+        // Normal grey folder path - use config
+        textureUrlPath = `${TEXTURE_PATHS.normalGrey}/${textureFilename}`;
         console.log(`[TextureLoader] Using normal_grey texture: ${textureFilename}`);
       } 
       else if (sourceDir === 'gray_textures') {
@@ -276,19 +278,19 @@ export function useTextureLoader(top2CsvPath, textureClassificationCsvPath) {
         
         if (typeMatch) {
           const category = typeMatch[1];
-          textureUrlPath = `/data/textures/gray_textures/${category}/${textureFilename}`;
+          textureUrlPath = `${TEXTURE_PATHS.grayTextures}/${category}/${textureFilename}`;
           console.log(`[TextureLoader] Using DTD gray_texture: ${category}/${textureFilename}`);
         } else {
           // Try to extract category from path if available
           if (textureInfo.path && textureInfo.path.includes('/')) {
             const pathParts = textureInfo.path.split('/');
             const category = pathParts[pathParts.length - 2];
-            textureUrlPath = `/data/textures/gray_textures/${category}/${textureFilename}`;
+            textureUrlPath = `${TEXTURE_PATHS.grayTextures}/${category}/${textureFilename}`;
             console.log(`[TextureLoader] Using DTD gray_texture with extracted category: ${category}/${textureFilename}`);
           } else {
             console.warn(`[TextureLoader] Could not determine category for gray_texture: ${textureFilename}`);
             // Use a default category
-            textureUrlPath = `/data/textures/gray_textures/lined/${textureFilename}`;
+            textureUrlPath = `${TEXTURE_PATHS.grayTextures}/lined/${textureFilename}`;
           }
         }
       } else if (textureInfo.isFallback) {
@@ -303,8 +305,8 @@ export function useTextureLoader(top2CsvPath, textureClassificationCsvPath) {
         return textureSet;
       } else {
         console.warn(`[TextureLoader] Unknown source directory: ${sourceDir} for ${textureFilename}. Using placeholder/default.`);
-        // Keep placeholder path, loader will fail and fallback
-        textureUrlPath = '/placeholder.png';
+        // Use placeholder from config
+        textureUrlPath = IMAGE_PATHS.placeholder;
       }
 
       console.log(`[TextureLoader] Loading texture from URL: ${textureUrlPath}`);

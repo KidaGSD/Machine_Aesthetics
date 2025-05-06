@@ -4,6 +4,8 @@ import { Environment, OrbitControls, Text, PerspectiveCamera } from '@react-thre
 import * as THREE from 'three';
 import Papa from 'papaparse';
 import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing';
+// Import configuration
+import { TEXTURE_PATHS, IMAGE_PATHS } from '../config';
 
 // Color palette for different texture categories
 const categoryColors = {
@@ -72,8 +74,8 @@ const VectorSpaceVisualization = () => {
   const loadVisualizationData = useCallback(async () => {
     try {
       setLoading(true);
-      // Load texture classification data from the dataset
-      const response = await fetch('/data/va_classification_all.csv');
+      // Load texture classification data using config path
+      const response = await fetch(TEXTURE_PATHS.classificationCsv);
       const csvText = await response.text();
       
       Papa.parse(csvText, {
@@ -96,7 +98,7 @@ const VectorSpaceVisualization = () => {
                 const textureNumber = textureMatch ? textureMatch[1] : '';
                 
                 if (textureNumber) {
-                  imagePath = `/data/textures/normal_grey/texture_${textureNumber}_normal.png`;
+                  imagePath = `${TEXTURE_PATHS.normalGrey}/texture_${textureNumber}_normal.png`;
                 }
               } 
               // For category-based textures (gray_textures folder)
@@ -119,17 +121,17 @@ const VectorSpaceVisualization = () => {
                   while (textureId.length < 4) {
                     textureId = '0' + textureId;
                   }
-                  imagePath = `/data/textures/gray_textures/${categoryFolder}/${categoryFolder}_${textureId}.jpg`;
+                  imagePath = `${TEXTURE_PATHS.grayTextures}/${categoryFolder}/${categoryFolder}_${textureId}.jpg`;
                 } else {
                   // Default to first common file pattern
-                  imagePath = `/data/textures/gray_textures/${categoryFolder}/${categoryFolder}_0001.jpg`;
+                  imagePath = `${TEXTURE_PATHS.grayTextures}/${categoryFolder}/${categoryFolder}_0001.jpg`;
                 }
               }
               // Default to provided path or placeholder
               else if (row.image_path) {
                 imagePath = row.image_path;
               } else {
-                imagePath = '/placeholder.png';
+                imagePath = IMAGE_PATHS.placeholder;
               }
               
               return {

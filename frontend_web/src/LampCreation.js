@@ -4,6 +4,8 @@ import Scene from "./mesh_deformation";
 import EmotionCurveMorph from "./EmotionCurveMorph";
 import Papa from "papaparse";
 import VectorSpaceVisualization from "./components/VectorSpaceVisualization";
+// Import the configuration
+import { BACKEND_URL, TEXTURE_PATHS, getFullBackendPath } from "./config";
 
 const LampCreation = () => {
   const [audioFile, setAudioFile] = useState(null);
@@ -18,8 +20,8 @@ const LampCreation = () => {
   const audioRef = useRef(null);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   
-  // Use direct backend URL for data files
-  const backendUrl = "http://localhost:5001";
+  // Use configuration for backend URL instead of hardcoding
+  // const backendUrl = "http://localhost:5001";
 
   // Add scroll event listener to hide indicator after user scrolls
   useEffect(() => {
@@ -47,8 +49,8 @@ const LampCreation = () => {
       formData.append("file", file);
 
       try {
-        // Updated to use /analyze endpoint
-        const response = await fetch(`${backendUrl}/analyze`, {
+        // Updated to use config BACKEND_URL
+        const response = await fetch(`${BACKEND_URL}/analyze`, {
           method: "POST",
           body: formData,
         });
@@ -75,9 +77,9 @@ const LampCreation = () => {
               sceneRef.current.startRevealAnimation();
             }
           }, 100);
-          // Load top emotions using the new paths
+          // Load top emotions using the new paths and getFullBackendPath helper
           if (result.top2SummaryPath) {
-              loadTopEmotions(`${backendUrl}/${result.top2SummaryPath}?t=${result.timestamp || Date.now()}`);
+              loadTopEmotions(getFullBackendPath(result.top2SummaryPath));
           }
         }
       } catch (error) {
@@ -150,26 +152,12 @@ const LampCreation = () => {
     }
   };
 
-  // Construct full URLs for Scene and EmotionCurveMorph components
-  const getFullPath = (relativePath) => {
-      if (!relativePath) return null;
-      const timestamp = resultPaths.timestamp || Date.now();
-      // Ensure we don't double the base path if it's already absolute
-      if (relativePath.startsWith('http')) {
-          // Check if timestamp is already present
-          if (relativePath.includes('?t=')) {
-              return relativePath; // Return as is if timestamp exists
-          } 
-          return `${relativePath}?t=${timestamp}`;
-      }
-      return `${backendUrl}/${relativePath}?t=${timestamp}`;
-  }
-
-  const top2Path = getFullPath(resultPaths.top2SummaryPath);
-  const amplitudePath = getFullPath(resultPaths.arousalTrackPath); // Use arousal for amplitude
-  const curvesPath = getFullPath(resultPaths.emotionCurvesPath);
-  // Construct the path for the full texture classification data
-  const classificationPath = `${backendUrl}/texture_extractor/data/binary_va_classification9/va_classification_all.csv`;
+  // Use the getFullBackendPath utility from config
+  const top2Path = getFullBackendPath(resultPaths.top2SummaryPath);
+  const amplitudePath = getFullBackendPath(resultPaths.arousalTrackPath); // Use arousal for amplitude
+  const curvesPath = getFullBackendPath(resultPaths.emotionCurvesPath);
+  // Use the texture path from config
+  const classificationPath = TEXTURE_PATHS.fullClassificationPath;
 
   return (
     <div className="lamp-container">
