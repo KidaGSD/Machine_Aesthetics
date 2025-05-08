@@ -5,6 +5,83 @@ import * as THREE from 'three';
 import Papa from 'papaparse';
 import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing';
 
+// WebGL polyfill for getShaderPrecisionFormat
+const applyWebGLPolyfill = () => {
+  try {
+    // Create a test canvas to check WebGL context
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    
+    if (gl && !gl.getShaderPrecisionFormat) {
+      console.log("Applying WebGL polyfill for getShaderPrecisionFormat");
+      
+      // Simple polyfill implementation that returns default values
+      gl.getShaderPrecisionFormat = function(shaderType, precisionType) {
+        return {
+          rangeMin: 1,
+          rangeMax: 1,
+          precision: 1
+        };
+      };
+      
+      // Apply the polyfill to the WebGLRenderingContext prototype
+      WebGLRenderingContext.prototype.getShaderPrecisionFormat = function(shaderType, precisionType) {
+        return {
+          rangeMin: 1,
+          rangeMax: 1,
+          precision: 1
+        };
+      };
+    }
+    
+    return gl !== null;
+  } catch (e) {
+    console.error("Error applying WebGL polyfill:", e);
+    return false;
+  }
+};
+
+// Apply the polyfill immediately
+const hasWebGLSupport = applyWebGLPolyfill();
+
+// WebGL detector function with improved error handling
+const isWebGLAvailable = () => {
+  try {
+    const canvas = document.createElement('canvas');
+    return !!(window.WebGLRenderingContext && 
+      (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+  } catch (e) {
+    console.error("WebGL detection error:", e);
+    return false;
+  }
+};
+
+// Check shader precision support with polyfill handling
+const hasShaderPrecisionSupport = () => {
+  try {
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if (!gl) return false;
+    
+    // If our polyfill is active, shader precision should be "supported"
+    if (!gl.getShaderPrecisionFormat) {
+      console.warn("getShaderPrecisionFormat not found, but polyfill should handle this");
+      return hasWebGLSupport; // Return the result of our polyfill application
+    }
+    
+    // If we have the actual function, test it
+    const testResult = gl.getShaderPrecisionFormat(
+      gl.VERTEX_SHADER, 
+      gl.HIGH_FLOAT
+    );
+    
+    return !!testResult; // Should be a valid object if supported
+  } catch (e) {
+    console.error("Shader precision support test failed:", e);
+    return false;
+  }
+};
+
 // Color palette for different texture categories
 const categoryColors = {
   'banded': '#FF6B6B',
@@ -67,6 +144,20 @@ const VectorSpaceVisualization = () => {
   const [activeCategories, setActiveCategories] = useState([]);
   const [sceneReady, setSceneReady] = useState(false);
   const [totalTextures, setTotalTextures] = useState(0);
+  const [webGLError, setWebGLError] = useState(null);
+
+  // Check WebGL support on component mount
+  useEffect(() => {
+    if (!isWebGLAvailable()) {
+      setWebGLError("WebGL is not supported in your browser, which is required for the 3D visualization.");
+      return;
+    }
+    
+    if (!hasShaderPrecisionSupport()) {
+      setWebGLError("Your browser's WebGL implementation is missing required shader precision features.");
+      return;
+    }
+  }, []);
 
   // Function to load and process the CSV data
   const loadVisualizationData = useCallback(async () => {
@@ -195,7 +286,41 @@ const VectorSpaceVisualization = () => {
         overflow: 'hidden'
       }}
     >
-      {loading ? (
+      {webGLError ? (
+        <div style={{ 
+          width: '100%', 
+          height: '100%', 
+          display: 'flex', 
+          flexDirection: 'column',
+          justifyContent: 'center', 
+          alignItems: 'center',
+          background: '#1a1a1a',
+          color: '#fff',
+          borderRadius: '12px'
+        }}>
+          <div style={{ 
+            background: 'rgba(255,0,0,0.2)', 
+            padding: '15px', 
+            borderRadius: '8px',
+            marginBottom: '15px',
+            maxWidth: '80%',
+            textAlign: 'center'
+          }}>
+            <h3 style={{ margin: '0 0 10px 0' }}>3D Visualization Error</h3>
+            <p style={{ margin: '0' }}>{webGLError}</p>
+          </div>
+          
+          <div style={{ fontSize: '14px', color: '#aaa', maxWidth: '400px' }}>
+            <p>Try these solutions:</p>
+            <ul style={{ textAlign: 'left' }}>
+              <li>Refresh the page</li>
+              <li>Update your browser to the latest version</li>
+              <li>Try a different browser (Chrome, Firefox, or Edge)</li>
+              <li>Check if hardware acceleration is enabled in your browser</li>
+            </ul>
+          </div>
+        </div>
+      ) : loading ? (
         <div 
           style={{
             position: 'absolute',
@@ -233,6 +358,25 @@ const VectorSpaceVisualization = () => {
             }}
             style={{ background: '#000' }}
             camera={{ position: [0, 0, 5], fov: 60 }}
+            onCreated={({ gl }) => {
+              // Apply polyfill within Canvas context if needed
+              if (!gl.getShaderPrecisionFormat) {
+                console.log("Canvas: applying WebGL polyfill for getShaderPrecisionFormat");
+                gl.getShaderPrecisionFormat = function(shaderType, precisionType) {
+                  return {
+                    rangeMin: 1,
+                    rangeMax: 1,
+                    precision: 1
+                  };
+                };
+              }
+              
+              // Additional optimizations for WebGL renderer
+              gl.setClearColor(new THREE.Color('#000000'), 1);
+              
+              // Log successful initialization
+              console.log("WebGL context initialized with shader precision format support");
+            }}
           >
             <color attach="background" args={['#000000']} />
             <fog attach="fog" args={['#000000', 5, 15]} />

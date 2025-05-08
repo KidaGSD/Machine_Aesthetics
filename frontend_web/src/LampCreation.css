@@ -19,6 +19,23 @@
     color: black;
   }
 
+  .custom-loading-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 200px;
+    background: #111;
+    border: 1px solid #fff;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  }
 
 .loading-overlay {
     position: absolute;
@@ -145,6 +162,20 @@ line-height: normal;
         margin-bottom: 2rem;
         align-self: stretch;
         padding-bottom: 1.2rem;
+        border-bottom: 1px solid #444;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        }
+
+      .content-container02 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.1rem;
+        margin-bottom: 2rem;
+        align-self: stretch;
+        padding-bottom: 1.2rem;
+        border-top: 1px solid #444;
         border-bottom: 1px solid #444;
         padding-left: 2rem;
         padding-right: 2rem;
@@ -323,4 +354,127 @@ body, html, #root {
     font-size: 14px;
   }
   
+<<<<<<< Updated upstream
+=======
+  /* styles for the texture toggle button */
+  .texture-btn {
+    background-color: #4c4c4c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .texture-btn.active {
+    background-color: #3498db;
+  }
+
+  .texture-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  /* New styles for the Vector Space Visualization section */
+  .vector-space-section {
+    width: 100%;
+    height: 80vh; /* Maintain significant height */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #050505;
+    border-top: 1px solid #222;
+    position: relative; /* Ensure positioning context for children */
+}
+
+  .vector-space-title {
+    color: #e0e0e0;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .vector-space-wrapper {
+    width: 100%;
+    height: calc(100% - 50px);
+    position: relative;
+    overflow: hidden; /* Keep this to prevent canvas overflow */
+}
+
+  /* Ensure the canvas inside wrapper fills the space */
+  .vector-space-wrapper canvas {
+    width: 100% !important; /* Override default canvas styles if necessary */
+    height: 100% !important;
+  }
+  
+  /* Add scroll indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+    z-index: 100;
+}
+
+.scroll-indicator::before {
+    content: "";
+    width: 6px;
+    height: 10px;
+    background: white;
+    border-radius: 3px;
+    position: absolute;
+    top: 8px;
+    animation: scroll-animation 2s infinite;
+}
+
+@keyframes scroll-animation {
+    0% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(15px); opacity: 0.2; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+  
+.color-animation-box {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+.color-gradient {
+  width: 200%;
+  height: 100%;
+  animation: moveGradient 3s linear infinite;
+  background-size: 200% 100%;
+}
+@keyframes moveGradient {
+  0% { background-position: 0% 0; }
+  100% { background-position: -100% 0; }
+}
+
+@keyframes moveGradientSoft {
+  0% { background-position: 0% 0; }
+  100% { background-position: -50% 0; }
+}
+
+@keyframes moveGradientSoftOrganic {
+  0% { background-position: 0% 0; filter: brightness(1); }
+  25% { background-position: -10% 5%; filter: brightness(1.05); }
+  50% { background-position: -25% 0; filter: brightness(1.1); }
+  75% { background-position: -40% -5%; filter: brightness(1.05); }
+  100% { background-position: -50% 0; filter: brightness(1); }
+}
+  
+>>>>>>> Stashed changes
   

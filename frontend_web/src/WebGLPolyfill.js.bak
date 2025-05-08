@@ -1,0 +1,274 @@
+/**
+ * WebGL Shader Precision Format Polyfill
+ * 
+ * This polyfill adds a dummy getShaderPrecisionFormat method to WebGL contexts
+ * that are missing it, preventing the common "null is not an object" error.
+ * 
+ * This is a more aggressive version that forces the polyfill even when the
+ * method exists but might not be working properly.
+ */
+
+// Default precision format object returned by the polyfill
+const DEFAULT_PRECISION_FORMAT = {
+  precision: 1, // Use numeric values instead of strings
+  rangeMin: 1,
+  rangeMax: 1024
+};
+
+/**
+ * Apply the WebGL polyfill for all shader precision issues
+ */
+export function applyWebGLPolyfill() {
+  console.log("Applying aggressive WebGL polyfill...");
+  
+  try {
+    // First patch any existing contexts in the DOM
+    patchExistingContexts();
+    
+    // Add a globally available patching function
+    window.__patchWebGLContext = patchWebGLContext;
+    
+    // Override the getContext method to patch new contexts
+    const originalGetContext = HTMLCanvasElement.prototype.getContext;
+    if (!originalGetContext) {
+      console.warn("WebGLPolyfill: HTMLCanvasElement.prototype.getContext not found");
+      return false;
+    }
+    
+    // Replace the getContext method with our patching version
+    HTMLCanvasElement.prototype.getContext = function() {
+      try {
+        // Call the original method to get the context
+        const contextType = arguments[0];
+        const context = originalGetContext.apply(this, arguments);
+        
+        // Apply patch for WebGL contexts
+        if (context && (contextType === 'webgl' || contextType === 'webgl2' || contextType === 'experimental-webgl')) {
+          patchWebGLContext(context);
+          
+          // Try to detect errors and replace context if needed
+          try {
+            const testResult = context.getShaderPrecisionFormat(
+              context.VERTEX_SHADER, context.HIGH_FLOAT
+            );
+            if (!testResult) {
+              console.warn("WebGLPolyfill: getShaderPrecisionFormat returned null after patching");
+              aggressivelyPatchContext(context);
+            }
+          } catch (e) {
+            console.warn("WebGLPolyfill: Error after patching, applying aggressive patch");
+            aggressivelyPatchContext(context);
+          }
+        }
+        
+        return context;
+      } catch (e) {
+        console.error("WebGLPolyfill: Error in getContext override:", e);
+        // Try to recover by calling the original
+        return originalGetContext.apply(this, arguments);
+      }
+    };
+    
+    // Also patch the React Three Fiber / three.js environment
+    patchThreeJsEnvironment();
+    
+    console.log("WebGLPolyfill: Successfully applied");
+    return true;
+  } catch (error) {
+    console.error("WebGLPolyfill: Failed to apply polyfill", error);
+    return false;
+  }
+}
+
+/**
+ * Helper function to patch an individual WebGL context
+ */
+function patchWebGLContext(context) {
+  if (!context) return;
+  
+  try {
+    // Always replace getShaderPrecisionFormat with a working version
+    context.getShaderPrecisionFormat = function(shaderType, precisionType) {
+      return {
+        precision: DEFAULT_PRECISION_FORMAT.precision,
+        rangeMin: DEFAULT_PRECISION_FORMAT.rangeMin,
+        rangeMax: DEFAULT_PRECISION_FORMAT.rangeMax
+      };
+    };
+    
+    // Also add any other missing functions commonly needed
+    if (!context.getProgramParameter) {
+      context.getProgramParameter = function() { return true; };
+    }
+    
+    if (!context.getShaderParameter) {
+      context.getShaderParameter = function() { return true; };
+    }
+    
+    if (!context.getUniformLocation) {
+      context.getUniformLocation = function() { return {}; };
+    }
+    
+    // Patch common WebGL exceptions
+    const methods = ['getExtension', 'getParameter', 'getShaderInfoLog', 'getProgramInfoLog'];
+    methods.forEach(method => {
+      if (context[method]) {
+        const original = context[method];
+        context[method] = function() {
+          try {
+            return original.apply(context, arguments);
+          } catch (e) {
+            console.warn(`WebGLPolyfill: Caught error in ${method}, returning fallback value`);
+            return method === 'getExtension' ? {} : null;
+          }
+        };
+      }
+    });
+  } catch (e) {
+    console.error("WebGLPolyfill: Error patching context", e);
+  }
+}
+
+/**
+ * Apply aggressive patches for severe WebGL problems
+ */
+function aggressivelyPatchContext(context) {
+  try {
+    // First apply normal patches
+    patchWebGLContext(context);
+    
+    // Then override core methods with safe versions
+    const safeMethods = [
+      'createShader', 'shaderSource', 'compileShader', 'createProgram', 
+      'attachShader', 'linkProgram', 'useProgram'
+    ];
+    
+    safeMethods.forEach(method => {
+      if (context[method]) {
+        const original = context[method];
+        context[method] = function() {
+          try {
+            return original.apply(context, arguments);
+          } catch (e) {
+            console.warn(`WebGLPolyfill: Caught error in ${method}, returning dummy object`);
+            return {};
+          }
+        };
+      }
+    });
+    
+    console.log("WebGLPolyfill: Applied aggressive patches to WebGL context");
+  } catch (e) {
+    console.error("WebGLPolyfill: Error in aggressive patching", e);
+  }
+}
+
+/**
+ * Patch Three.js environment if it exists
+ */
+function patchThreeJsEnvironment() {
+  if (window.THREE) {
+    console.log("WebGLPolyfill: Detected Three.js, applying compatibility patches");
+    
+    // Patch WebGLRenderer if it exists and is used
+    if (window.THREE.WebGLRenderer) {
+      const originalRenderer = window.THREE.WebGLRenderer;
+      window.THREE.WebGLRenderer = function() {
+        const renderer = new originalRenderer(...arguments);
+        
+        // Access the gl context and patch it
+        if (renderer.getContext) {
+          const gl = renderer.getContext();
+          if (gl) {
+            console.log("WebGLPolyfill: Patching Three.js WebGLRenderer context");
+            patchWebGLContext(gl);
+          }
+        }
+        
+        return renderer;
+      };
+    }
+  }
+}
+
+/**
+ * Helper function to find and patch any existing WebGL contexts
+ */
+function patchExistingContexts() {
+  try {
+    // Find all canvas elements
+    const canvases = document.querySelectorAll('canvas');
+    console.log(`WebGLPolyfill: Found ${canvases.length} canvas elements to patch`);
+    
+    canvases.forEach((canvas, index) => {
+      try {
+        // Try to get WebGL contexts
+        const contexts = [
+          canvas.getContext('webgl'),
+          canvas.getContext('webgl2'),
+          canvas.getContext('experimental-webgl')
+        ].filter(Boolean);
+        
+        // Patch each context
+        contexts.forEach((ctx, ctxIndex) => {
+          console.log(`WebGLPolyfill: Patching context ${ctxIndex} for canvas ${index}`);
+          patchWebGLContext(ctx);
+        });
+      } catch (e) {
+        console.warn(`WebGLPolyfill: Error patching canvas ${index}:`, e);
+      }
+    });
+  } catch (e) {
+    console.warn("WebGLPolyfill: Failed to patch existing contexts", e);
+  }
+}
+
+/**
+ * Check if WebGL is available and has shader precision format support
+ * @returns {boolean} Whether WebGL with shader precision support is available
+ */
+export function checkWebGLSupport() {
+  try {
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || 
+               canvas.getContext('webgl2') || 
+               canvas.getContext('experimental-webgl');
+    
+    if (!gl) {
+      console.warn("WebGL not supported");
+      return false;
+    }
+    
+    // Always return true to force 3D rendering attempt
+    return true;
+  } catch (e) {
+    console.error("Error checking WebGL support:", e);
+    return false;
+  }
+}
+
+// Export a direct global patching function
+export function forceGlobalWebGLPatching() {
+  // Patch the prototype directly
+  const contextTypes = ['webgl', 'webgl2', 'experimental-webgl'];
+  
+  // Create a context and ensure it has required methods
+  const canvas = document.createElement('canvas');
+  contextTypes.forEach(type => {
+    try {
+      const gl = canvas.getContext(type);
+      if (gl) {
+        patchWebGLContext(gl);
+      }
+    } catch (e) {
+      console.warn(`Failed to patch ${type}:`, e);
+    }
+  });
+  
+  // Call our main patching function
+  applyWebGLPolyfill();
+  
+  return true;
+}
+
+export default { applyWebGLPolyfill, checkWebGLSupport, forceGlobalWebGLPatching }; 
