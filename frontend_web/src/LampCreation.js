@@ -3,9 +3,6 @@ import "./LampCreation.css";
 import Scene from "./mesh_deformation";
 import EmotionCurveMorph from "./EmotionCurveMorph";
 import Papa from "papaparse";
-<<<<<<< Updated upstream
-=======
-import VectorSpaceVisualization from "./components/VectorSpaceVisualization";
 // Import the configuration
 import { BACKEND_URL, TEXTURE_PATHS, getFullBackendPath } from "./config";
 import { getEmotionColor } from './emotionColors';
@@ -14,7 +11,6 @@ import { testBackendConnection, testFileAccess } from './testBackend';
 
 // Default emotions to use when none are available
 const DEFAULT_EMOTIONS = ["serene", "joy"];
->>>>>>> Stashed changes
 
 const LampCreation = () => {
   const [audioFile, setAudioFile] = useState(null);
@@ -22,9 +18,6 @@ const LampCreation = () => {
   const [loading, setLoading] = useState(false);
   const [sceneKey, setSceneKey] = useState(0);
   const sceneRef = useRef();
-<<<<<<< Updated upstream
-  const [topEmotions, setTopEmotions] = useState([]);
-=======
   
   // Try to load saved emotions from localStorage or use defaults
   const initialEmotions = (() => {
@@ -48,10 +41,6 @@ const LampCreation = () => {
   const [resultPaths, setResultPaths] = useState({}); // Store paths from backend
   const [textureEnabled, setTextureEnabled] = useState(true); // Add texture toggle state
   const [currentTextureInfo, setCurrentTextureInfo] = useState(null); // Store full texture info
-  const [currentColors, setCurrentColors] = useState({
-    topColor: null,
-    bottomColor: null
-  }); // Store current colors
   const audioRef = useRef(null);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const [analysisComplete, setAnalysisComplete] = useState(false); // Track if analysis is complete
@@ -89,7 +78,6 @@ const LampCreation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
->>>>>>> Stashed changes
 
   // Add diagnostics on component mount
   useEffect(() => {
@@ -253,28 +241,19 @@ const LampCreation = () => {
     if (file) {
       setAudioFile(file);
       setLoading(true);
-<<<<<<< Updated upstream
-=======
       setErrorMessage('');
       setResultPaths({}); // Clear previous results
       setAnalysisComplete(false); // Reset analysis state
-      // Force Scene recreation
-      setSceneKey(prevKey => prevKey + 1);
->>>>>>> Stashed changes
 
       const formData = new FormData();
       formData.append("file", file);
 
       try {
-<<<<<<< Updated upstream
-        const response = await fetch("http://localhost:5001/upload-audio", {
-=======
         // More detailed logging for debugging
         console.log("Preparing to send audio file:", file.name, "Size:", file.size, "Type:", file.type);
         console.log("Sending request to:", `${BACKEND_URL}/analyze`);
         
         const response = await fetch(`${BACKEND_URL}/analyze`, {
->>>>>>> Stashed changes
           method: "POST",
           body: formData,
           // Don't set Content-Type header - browser will set it with boundary for FormData
@@ -286,18 +265,6 @@ const LampCreation = () => {
           // No need to set credentials for same-origin requests
         });
 
-<<<<<<< Updated upstream
-        const result = await response.json();
-        if (result.status === "success") {
-          setSceneKey((prev) => prev + 1);
-          loadTopEmotions(); // Refresh emotion summary
-        } else {
-          alert("Upload failed. Try again.");
-        }
-      } catch (error) {
-        console.error("Upload error:", error);
-        alert("Server error occurred.");
-=======
         console.log("Response status:", response.status, response.statusText);
         
         if (!response.ok) {
@@ -330,21 +297,28 @@ const LampCreation = () => {
           // Store the received paths directly without modification
           setResultPaths(result);
           
+          // Build proper paths with the backend URL prefix
+          const paths = {
+            top2Path: result.top2SummaryPath ? `${BACKEND_URL}/${result.top2SummaryPath}` : null,
+            amplitudePath: result.arousalTrackPath ? `${BACKEND_URL}/${result.arousalTrackPath}` : null,
+            emotionCurvesPath: "/emotions/emotion_curves.json",
+          };
+          
+          console.log("DEBUG - Direct access paths:", paths);
+          
           // Set analysis complete flag before updating scene
           setAnalysisComplete(true);
           
-          // Force reset of scene key to ensure remounting
-          setTimeout(() => {
-            setSceneKey(prevKey => prevKey + 1);
-          }, 100);
+          // Increment sceneKey to force re-render
+          setSceneKey((prev) => prev + 1);
           
-          // Explicitly start the reveal animation after a short delay to ensure scene is mounted
+          // Explicitly start the reveal animation
           setTimeout(() => {
             if (sceneRef.current) {
               console.log("Starting reveal animation");
               sceneRef.current.startRevealAnimation();
             }
-          }, 500);
+          }, 100);
           
           // Load top emotions using direct backend URL
           if (result.top2SummaryPath) {
@@ -357,42 +331,19 @@ const LampCreation = () => {
         console.error("Upload/Analysis error:", error);
         setErrorMessage(`Server/Analysis error: ${error.message}`);
         setAnalysisComplete(false); // Reset analysis state on error
->>>>>>> Stashed changes
       } finally {
         setLoading(false);
       }
     }
   };
 
-<<<<<<< Updated upstream
-  const handleDeleteAudio = () => setAudioFile(null);
-  const handleExportMesh = () => sceneRef.current?.exportSTL();
-
-  const loadTopEmotions = async () => {
-    try {
-      const response = await fetch("data/top2_emotion_summary.csv");
-      const text = await response.text();
-      const parsed = Papa.parse(text, { header: true });
-      const filtered = parsed.data.filter(row => row.emotion);
-      const top2 = filtered.slice(0, 2).map(row => row.emotion);
-      setTopEmotions(top2);
-    } catch (err) {
-      console.error("Failed to load emotion summary:", err);
-    }
-  };
-
-  useEffect(() => {
-    loadTopEmotions(); // Initial load
-  }, []);
-=======
   const handleDeleteAudio = () => {
       setAudioFile(null);
       setAudioObjectUrl(null);
       setResultPaths({}); // Clear results when audio is deleted
       setAnalysisComplete(false); // Reset analysis state
       setTopEmotions(initialEmotions); // Reset emotion data
-      // Force scene recreation
-      setSceneKey(prevKey => prevKey + 1);
+      setSceneKey(prev => prev + 1); // Force scene re-render to default state
       
       // Clean up session storage
       sessionStorage.removeItem('audioFilename');
@@ -479,17 +430,6 @@ const LampCreation = () => {
     }
   };
   
-  // Handle color update from the mesh component
-  const handleColorUpdate = (colorInfo) => {
-    if (colorInfo && (colorInfo.topColor !== currentColors.topColor || colorInfo.bottomColor !== currentColors.bottomColor)) {
-      console.log("Color update:", colorInfo);
-      setCurrentColors({
-        topColor: colorInfo.topColor,
-        bottomColor: colorInfo.bottomColor
-      });
-    }
-  };
-  
   // Helper function to calculate the texture path based on the texture info
   const calculateTexturePath = (textureInfo) => {
     if (!textureInfo || !textureInfo.filename) return null;
@@ -525,41 +465,37 @@ const LampCreation = () => {
     }
   };
 
-  // Build paths with the backend URL prefix - memoize to prevent recalculation on every render
-  const paths = useMemo(() => {
-    return {
-      top2Path: resultPaths.top2SummaryPath 
-        ? `${BACKEND_URL}/${resultPaths.top2SummaryPath}` 
-        : "/data/output/top2_emotion_summary.csv",
-      amplitudePath: resultPaths.arousalTrackPath 
-        ? `${BACKEND_URL}/${resultPaths.arousalTrackPath}` 
-        : "/data/output/arousal_100.csv",
-      curvesPath: "/emotions/emotion_curves.json",
-      classificationPath: TEXTURE_PATHS.fullClassificationPath
-    };
-  }, [resultPaths.top2SummaryPath, resultPaths.arousalTrackPath, BACKEND_URL, TEXTURE_PATHS.fullClassificationPath]);
+  // Build paths with the backend URL prefix
+  const top2Path = resultPaths.top2SummaryPath 
+    ? `${BACKEND_URL}/${resultPaths.top2SummaryPath}` 
+    : "/data/output/top2_emotion_summary.csv"; // Use default file in public folder
+
+  const amplitudePath = resultPaths.arousalTrackPath 
+    ? `${BACKEND_URL}/${resultPaths.arousalTrackPath}` 
+    : "/data/output/arousal_100.csv"; // Use default file in public folder
+    
+  // Keep using the fixed path to the local file in the public directory
+  const curvesPath = "/emotions/emotion_curves.json";
+  // Use the texture path from config
+  const classificationPath = TEXTURE_PATHS.fullClassificationPath;
   
-  // Debug logs - move to a dedicated debug effect to prevent re-renders
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
-      console.log("=== Path Debug Info ===");
-      console.log("top2Path:", paths.top2Path);
-      console.log("amplitudePath:", paths.amplitudePath);
-      console.log("curvesPath:", paths.curvesPath);
-      console.log("topEmotions:", topEmotions);
-      console.log("resultPaths:", resultPaths);
-      console.log("BACKEND_URL:", BACKEND_URL);
-    }
-  }, [paths, topEmotions, resultPaths, BACKEND_URL]);
+  // Add additional debug logs
+  console.log("=== Path Debug Info ===");
+  console.log("top2Path:", top2Path);
+  console.log("amplitudePath:", amplitudePath);
+  console.log("curvesPath:", curvesPath);
+  console.log("topEmotions:", topEmotions);
+  console.log("resultPaths:", resultPaths);
+  console.log("BACKEND_URL:", BACKEND_URL);
   
-  // Help with debugging - validate paths are accessible - only on mount
+  // Help with debugging - validate paths are accessible
   useEffect(() => {
     // Only run once when paths are available
-    if (paths.curvesPath) {
+    if (curvesPath) {
       console.log("Validating paths...");
       
       // Check emotion curves JSON
-      fetch(paths.curvesPath)
+      fetch(curvesPath)
         .then(res => {
           console.log("Emotion curves fetch status:", res.status);
           return res.json();
@@ -570,7 +506,7 @@ const LampCreation = () => {
         .catch(err => console.error("Error fetching emotion curves:", err));
       
       // Check top2 emotions CSV
-      fetch(paths.top2Path, {
+      fetch(top2Path, {
         headers: {
           'Cache-Control': 'no-cache',
           'Pragma': 'no-cache'
@@ -585,8 +521,7 @@ const LampCreation = () => {
         })
         .catch(err => console.error("Error fetching top2 emotions:", err));
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Only run on mount
+  }, [curvesPath, top2Path]);
 
   // Always render the Scene and EmotionCurveMorph with proper paths
   const shouldRenderScene = true; // Always render, with either uploaded or default paths
@@ -604,14 +539,14 @@ const LampCreation = () => {
       }
     }, [emotions]);
     
-    // Get emotion colors for the circles - use currentColors when available
+    // Get emotion colors for the circles
     const color1 = useMemo(() => {
-      return currentColors.topColor || (localEmotions?.[0] ? getEmotionColor(localEmotions[0]).getStyle() : '#333');
-    }, [localEmotions, currentColors.topColor]);
+      return localEmotions?.[0] ? getEmotionColor(localEmotions[0]).getStyle() : '#333';
+    }, [localEmotions]);
     
     const color2 = useMemo(() => {
-      return currentColors.bottomColor || (localEmotions?.[1] ? getEmotionColor(localEmotions[1]).getStyle() : '#666');
-    }, [localEmotions, currentColors.bottomColor]);
+      return localEmotions?.[1] ? getEmotionColor(localEmotions[1]).getStyle() : '#666';
+    }, [localEmotions]);
     
     const containerStyle = {
       width: '100%', 
@@ -738,7 +673,6 @@ const LampCreation = () => {
       </>
     );
   });
->>>>>>> Stashed changes
 
   return (
     <div className="lamp-container">
@@ -746,6 +680,39 @@ const LampCreation = () => {
         <div className="custom-loading-overlay">
           <div className="loading-spinner" style={{ marginBottom: 32 }} />
           <p className="custom-loading-text">Analyzing your audio...</p>
+        </div>
+      )}
+
+      {/* Scroll Indicator */}
+      {showScrollIndicator && (
+        <div className="scroll-indicator" onClick={() => {
+          window.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth'
+          });
+          setShowScrollIndicator(false);
+        }}></div>
+      )}
+
+      {errorMessage && (
+        <div className="error-message" style={{
+          position: 'fixed', 
+          top: '20px', 
+          right: '20px',
+          background: 'rgba(255, 0, 0, 0.8)',
+          color: 'white',
+          padding: '10px',
+          borderRadius: '5px',
+          zIndex: 1000,
+          maxWidth: '300px'
+        }}>
+          <p>{errorMessage}</p>
+          <button 
+            style={{background: 'transparent', border: 'none', color: 'white', cursor: 'pointer'}}
+            onClick={() => setErrorMessage('')}
+          >
+            ✕
+          </button>
         </div>
       )}
 
@@ -809,12 +776,9 @@ const LampCreation = () => {
                 </button>
               </div>
             )}
-<<<<<<< Updated upstream
-=======
 
             {/* Always render the AudioPlayer component with available data */}
             <AudioPlayer file={audioFile} objectUrl={audioObjectUrl} />
->>>>>>> Stashed changes
           </div>
 
           {/* Step 2 */}
@@ -829,7 +793,7 @@ const LampCreation = () => {
             </div>
 
             <p>Ready to save and export your design?</p>
-            <button className="export-button" onClick={handleExportMesh}>
+            <button className="export-button" onClick={handleExportMesh} disabled={!resultPaths.top2SummaryPath}>
               Download My Design
             </button>
           </div>
@@ -837,26 +801,16 @@ const LampCreation = () => {
 
         {/* Center */}
         <div className="lamp-center">
-<<<<<<< Updated upstream
-          <Scene
-            ref={sceneRef}
-            key={sceneKey}
-            csvPath="data/top2_emotion_summary.csv"
-            amplitudeCsvPath="data/summary_per_segment.csv"
-            emotionCurvesPath="emotions/emotion_curves.json"
-          />
-=======
           {shouldRenderScene ? (
             <Scene
               ref={sceneRef}
-              key="main-scene"
-              // Pass specific paths needed by components - use memoized values
-              top2CsvPath={paths.top2Path} 
-              amplitudeCsvPath={paths.amplitudePath}
-              textureClassificationCsvPath={paths.classificationPath}
-              emotionCurvesPath={paths.curvesPath}
+              key={sceneKey}
+              // Pass specific paths needed by components
+              top2CsvPath={top2Path} 
+              amplitudeCsvPath={amplitudePath} // For waves/amplitude visual effect if needed
+              textureClassificationCsvPath={classificationPath} // For texture database
+              emotionCurvesPath={curvesPath} // For shape morph
               onTextureUpdate={handleTextureUpdate}
-              onColorUpdate={handleColorUpdate}
               textureEnabled={textureEnabled} // Pass down the texture enabled state
             />
           ) : (
@@ -871,32 +825,28 @@ const LampCreation = () => {
               Waiting for data loading...
             </div>
           )}
->>>>>>> Stashed changes
         </div>
 
         {/* Right */}
         <div className="lamp-right">
           <div className="content-container01">
             <div className="step-wrapper">
-<<<<<<< Updated upstream
-            <div className="step-box first"></div>
-              <span> Base Shape Visualization</span>
-=======
               <div className="step-box-group">
                 <div className="step-box first" />
                 <div className="step-box faded" />
                 <div className="step-box faded" />
               </div>
               <span className="step-caption"> Base Shape Visualization</span>
->>>>>>> Stashed changes
             </div>
             <div className="step-wrapper">
               <div className="step-box"></div>
 
-            {topEmotions.length === 2 && (
+              {topEmotions.length === 2 ? (
               <p>
-                The audio transitions from <strong>{topEmotions[0]}</strong> to <strong>{topEmotions[1]}</strong>
+                  Audio transitions: <strong>{topEmotions[0]}</strong> to <strong>{topEmotions[1]}</strong>
               </p>
+              ) : (
+                <p>Analyzing emotions...</p> 
             )}
               </div>
 
@@ -910,33 +860,26 @@ const LampCreation = () => {
                 background: "#1a1a1a"
               }}
             >
-<<<<<<< Updated upstream
-              <EmotionCurveMorph
-                key={sceneKey}
-                emotionCurvesPath="emotions/emotion_curves.json"
-                top2CsvPath="data/top2_emotion_summary.csv"
-=======
               {shouldRenderScene ? (
               <EmotionCurveMorph
-                key="emotion-curve-morph"
-                // Use memoized paths
-                emotionCurvesPath={paths.curvesPath}
-                top2CsvPath={paths.top2Path}
->>>>>>> Stashed changes
+                key={sceneKey}
+                  emotionCurvesPath={curvesPath}
+                  top2CsvPath={top2Path}
               />
+              ) : (
+                 <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', color: 'grey'}}>
+                     {errorMessage ? <span style={{color: 'red'}}>Error</span> : <span>Waiting for analysis...</span>}
+                 </div>
+              )}
             </div>
           </div>
 
           {/* Additional Base Shape Visualization Section */}
           <div className="content-container">
             <div className="step-wrapper">
-<<<<<<< Updated upstream
-            <div className="step-box first"></div>
-              <span> Texture Visualization</span>
-=======
               <div className="step-box-group">
                 <div className="step-box first" />
-                <div className="step-box faded" />
+                <div className="step-box first" />
                 <div className="step-box faded" />
               </div>
               <span className="step-caption"> Emotion Color Selection </span>
@@ -956,8 +899,8 @@ const LampCreation = () => {
               <div className="step-wrapper">
               <div className="step-box-group">
                 <div className="step-box first" />
-                <div className="step-box faded" />
-                <div className="step-box faded" />
+                <div className="step-box first" />
+                <div className="step-box first" />
               </div>
               <span className="step-caption"> Texture Visualization </span>
             </div>
@@ -1029,7 +972,6 @@ const LampCreation = () => {
               <p style={{ fontSize: "13px", color: "#888", marginTop: "5px" }}>
                 Textures are automatically selected based on emotional analysis of the audio.
               </p>
->>>>>>> Stashed changes
             </div>
           </div>
         </div>

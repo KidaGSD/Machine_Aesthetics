@@ -72,24 +72,6 @@ def run_analysis(audio_path):
         else:
             rms, zcr, centroid, mfcc = 0, 0, 0, 0
 
-<<<<<<< Updated upstream
-        valence_audio = np.clip((centroid / 5000.0) + (zcr * 2) - 1, -1.0, 1.0)
-        arousal_audio = np.clip((rms * 10) + (mfcc / 200.0), -1.0, 1.0)
-        return {
-            "emotion": label,
-            "valence": round((valence_text + valence_audio) / 2, 4),
-            "arousal": round((arousal_text + arousal_audio) / 2, 4)
-        }
-
-    # Analyze each segment
-    segment_summaries = []
-    for seg in transcript_segments:
-        start_sample = int(seg['start'] * sr)
-        end_sample = int(seg['end'] * sr)
-        audio_slice = y[start_sample:end_sample]
-        emo = analyze_emotion_combined(seg['text'], audio_slice, sr)
-        segment_summaries.append({**seg, **emo, "duration": seg["end"] - seg["start"]})
-=======
 def clear_gpu_memory():
     """清理GPU内存，如果有CUDA设备"""
     if torch.cuda.is_available():
@@ -829,7 +811,6 @@ def run_analysis(audio_path: str):
             traceback.print_exc()
             # Return an error state if even fallback fails
             return {"error": f"Analysis and fallback creation failed: {backup_err}"}
->>>>>>> Stashed changes
 
     df_summary = pd.DataFrame(segment_summaries)
     base_path = os.path.join(os.path.dirname(__file__), "../public/data")

@@ -4,83 +4,8 @@ import { Environment, OrbitControls, Text, PerspectiveCamera } from '@react-thre
 import * as THREE from 'three';
 import Papa from 'papaparse';
 import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing';
-
-// WebGL polyfill for getShaderPrecisionFormat
-const applyWebGLPolyfill = () => {
-  try {
-    // Create a test canvas to check WebGL context
-    const canvas = document.createElement('canvas');
-    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-    
-    if (gl && !gl.getShaderPrecisionFormat) {
-      console.log("Applying WebGL polyfill for getShaderPrecisionFormat");
-      
-      // Simple polyfill implementation that returns default values
-      gl.getShaderPrecisionFormat = function(shaderType, precisionType) {
-        return {
-          rangeMin: 1,
-          rangeMax: 1,
-          precision: 1
-        };
-      };
-      
-      // Apply the polyfill to the WebGLRenderingContext prototype
-      WebGLRenderingContext.prototype.getShaderPrecisionFormat = function(shaderType, precisionType) {
-        return {
-          rangeMin: 1,
-          rangeMax: 1,
-          precision: 1
-        };
-      };
-    }
-    
-    return gl !== null;
-  } catch (e) {
-    console.error("Error applying WebGL polyfill:", e);
-    return false;
-  }
-};
-
-// Apply the polyfill immediately
-const hasWebGLSupport = applyWebGLPolyfill();
-
-// WebGL detector function with improved error handling
-const isWebGLAvailable = () => {
-  try {
-    const canvas = document.createElement('canvas');
-    return !!(window.WebGLRenderingContext && 
-      (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
-  } catch (e) {
-    console.error("WebGL detection error:", e);
-    return false;
-  }
-};
-
-// Check shader precision support with polyfill handling
-const hasShaderPrecisionSupport = () => {
-  try {
-    const canvas = document.createElement('canvas');
-    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-    if (!gl) return false;
-    
-    // If our polyfill is active, shader precision should be "supported"
-    if (!gl.getShaderPrecisionFormat) {
-      console.warn("getShaderPrecisionFormat not found, but polyfill should handle this");
-      return hasWebGLSupport; // Return the result of our polyfill application
-    }
-    
-    // If we have the actual function, test it
-    const testResult = gl.getShaderPrecisionFormat(
-      gl.VERTEX_SHADER, 
-      gl.HIGH_FLOAT
-    );
-    
-    return !!testResult; // Should be a valid object if supported
-  } catch (e) {
-    console.error("Shader precision support test failed:", e);
-    return false;
-  }
-};
+// Import configuration
+import { TEXTURE_PATHS, IMAGE_PATHS } from '../config';
 
 // Color palette for different texture categories
 const categoryColors = {
@@ -144,27 +69,13 @@ const VectorSpaceVisualization = () => {
   const [activeCategories, setActiveCategories] = useState([]);
   const [sceneReady, setSceneReady] = useState(false);
   const [totalTextures, setTotalTextures] = useState(0);
-  const [webGLError, setWebGLError] = useState(null);
-
-  // Check WebGL support on component mount
-  useEffect(() => {
-    if (!isWebGLAvailable()) {
-      setWebGLError("WebGL is not supported in your browser, which is required for the 3D visualization.");
-      return;
-    }
-    
-    if (!hasShaderPrecisionSupport()) {
-      setWebGLError("Your browser's WebGL implementation is missing required shader precision features.");
-      return;
-    }
-  }, []);
 
   // Function to load and process the CSV data
   const loadVisualizationData = useCallback(async () => {
     try {
       setLoading(true);
-      // Load texture classification data from the dataset
-      const response = await fetch('/data/va_classification_all.csv');
+      // Load texture classification data using config path
+      const response = await fetch(TEXTURE_PATHS.classificationCsv);
       const csvText = await response.text();
       
       Papa.parse(csvText, {
@@ -187,7 +98,7 @@ const VectorSpaceVisualization = () => {
                 const textureNumber = textureMatch ? textureMatch[1] : '';
                 
                 if (textureNumber) {
-                  imagePath = `/data/textures/normal_grey/texture_${textureNumber}_normal.png`;
+                  imagePath = `${TEXTURE_PATHS.normalGrey}/texture_${textureNumber}_normal.png`;
                 }
               } 
               // For category-based textures (gray_textures folder)
@@ -210,17 +121,17 @@ const VectorSpaceVisualization = () => {
                   while (textureId.length < 4) {
                     textureId = '0' + textureId;
                   }
-                  imagePath = `/data/textures/gray_textures/${categoryFolder}/${categoryFolder}_${textureId}.jpg`;
+                  imagePath = `${TEXTURE_PATHS.grayTextures}/${categoryFolder}/${categoryFolder}_${textureId}.jpg`;
                 } else {
                   // Default to first common file pattern
-                  imagePath = `/data/textures/gray_textures/${categoryFolder}/${categoryFolder}_0001.jpg`;
+                  imagePath = `${TEXTURE_PATHS.grayTextures}/${categoryFolder}/${categoryFolder}_0001.jpg`;
                 }
               }
               // Default to provided path or placeholder
               else if (row.image_path) {
                 imagePath = row.image_path;
               } else {
-                imagePath = '/placeholder.png';
+                imagePath = IMAGE_PATHS.placeholder;
               }
               
               return {
@@ -280,47 +191,13 @@ const VectorSpaceVisualization = () => {
       className="vector-space-visualization" 
       style={{
         width: '100%',
-        height: '100vh',
+        height: '70vh',
         position: 'relative',
         backgroundColor: '#000',
         overflow: 'hidden'
       }}
     >
-      {webGLError ? (
-        <div style={{ 
-          width: '100%', 
-          height: '100%', 
-          display: 'flex', 
-          flexDirection: 'column',
-          justifyContent: 'center', 
-          alignItems: 'center',
-          background: '#1a1a1a',
-          color: '#fff',
-          borderRadius: '12px'
-        }}>
-          <div style={{ 
-            background: 'rgba(255,0,0,0.2)', 
-            padding: '15px', 
-            borderRadius: '8px',
-            marginBottom: '15px',
-            maxWidth: '80%',
-            textAlign: 'center'
-          }}>
-            <h3 style={{ margin: '0 0 10px 0' }}>3D Visualization Error</h3>
-            <p style={{ margin: '0' }}>{webGLError}</p>
-          </div>
-          
-          <div style={{ fontSize: '14px', color: '#aaa', maxWidth: '400px' }}>
-            <p>Try these solutions:</p>
-            <ul style={{ textAlign: 'left' }}>
-              <li>Refresh the page</li>
-              <li>Update your browser to the latest version</li>
-              <li>Try a different browser (Chrome, Firefox, or Edge)</li>
-              <li>Check if hardware acceleration is enabled in your browser</li>
-            </ul>
-          </div>
-        </div>
-      ) : loading ? (
+      {loading ? (
         <div 
           style={{
             position: 'absolute',
@@ -354,29 +231,10 @@ const VectorSpaceVisualization = () => {
               antialias: true, 
               alpha: false,
               logarithmicDepthBuffer: true,
-              pixelRatio: window.devicePixelRatio
+              pixelRatio: Math.min(2, window.devicePixelRatio)
             }}
             style={{ background: '#000' }}
             camera={{ position: [0, 0, 5], fov: 60 }}
-            onCreated={({ gl }) => {
-              // Apply polyfill within Canvas context if needed
-              if (!gl.getShaderPrecisionFormat) {
-                console.log("Canvas: applying WebGL polyfill for getShaderPrecisionFormat");
-                gl.getShaderPrecisionFormat = function(shaderType, precisionType) {
-                  return {
-                    rangeMin: 1,
-                    rangeMax: 1,
-                    precision: 1
-                  };
-                };
-              }
-              
-              // Additional optimizations for WebGL renderer
-              gl.setClearColor(new THREE.Color('#000000'), 1);
-              
-              // Log successful initialization
-              console.log("WebGL context initialized with shader precision format support");
-            }}
           >
             <color attach="background" args={['#000000']} />
             <fog attach="fog" args={['#000000', 5, 15]} />
@@ -397,11 +255,11 @@ const VectorSpaceVisualization = () => {
                 dampingFactor={0.05} 
                 minDistance={2} 
                 maxDistance={10}
-                rotateSpeed={0.3}
-                minAzimuthAngle={-Math.PI/36}
-                maxAzimuthAngle={Math.PI/36}
-                minPolarAngle={Math.PI/2 - Math.PI/36}
-                maxPolarAngle={Math.PI/2 + Math.PI/36}
+                rotateSpeed={0.5}
+                minAzimuthAngle={-Math.PI/4}
+                maxAzimuthAngle={Math.PI/4}
+                minPolarAngle={Math.PI/3}
+                maxPolarAngle={Math.PI/1.5}
                 autoRotate={false}
               />
               
@@ -419,7 +277,7 @@ const VectorSpaceVisualization = () => {
           <div 
             style={{
               position: 'absolute',
-              bottom: '20px',
+              top: '20px',
               right: '20px',
               backgroundColor: 'rgba(0, 0, 0, 0.7)',
               backdropFilter: 'blur(10px)',
@@ -475,6 +333,28 @@ const VectorSpaceVisualization = () => {
               <div>Y-axis: Arousal (Calm → Energetic)</div>
               <div>Z-axis: Category Grouping</div>
             </div>
+          </div>
+          
+          {/* Add interaction hint */}
+          <div 
+            style={{
+              position: 'absolute',
+              bottom: '20px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              backdropFilter: 'blur(5px)',
+              borderRadius: '10px',
+              padding: '8px 16px',
+              color: 'white',
+              fontSize: '14px',
+              textAlign: 'center',
+              opacity: 0.8,
+              transition: 'opacity 0.3s',
+              zIndex: 99
+            }}
+          >
+            Click and drag to rotate • Scroll to zoom
           </div>
           
           {/* Hover info */}
@@ -633,9 +513,10 @@ const TextureItem = ({ texture, setHoveredTexture, index, totalTextures }) => {
   const [textureObj, setTextureObj] = useState(null);
   const [displayValue, setDisplayValue] = useState({ valence: 0, arousal: 0 });
 
-  // Much smaller base scale
-  const baseScale = 0.2;
-  const hoverScale = 0.8; // Keep hover reasonable
+  // Much smaller base scale for performance
+  const baseScale = 0.15;
+  // Larger hover scale for better visibility
+  const hoverScale = 1.5;
 
   // Update display values on hover (keep this logic)
   useEffect(() => {
@@ -757,45 +638,45 @@ const TextureItem = ({ texture, setHoveredTexture, index, totalTextures }) => {
         side={THREE.DoubleSide}
       />
       
-      {/* Hover text */} 
+      {/* Hover text - adjust positions and font sizes for new scale */}
       {hovered && (
         <group position={[0, 0, 0.02]}>
           <Text
-            position={[0, 0.15, 0]} // Adjusted position for smaller planes
-            fontSize={0.08}
+            position={[0, 0.1, 0]} // Adjusted Y position 
+            fontSize={0.05} // Reduced font size
             color="#00ffff"
             anchorX="left"
             anchorY="middle"
-            outlineWidth={0.003}
+            outlineWidth={0.002} // Reduced outline
             outlineColor="#003333"
           >
             {`V: ${displayValue.valence}`}
           </Text>
           <Text
-            position={[0, 0.05, 0]} // Adjusted position
-            fontSize={0.08}
+            position={[0, 0.02, 0]} // Adjusted Y position
+            fontSize={0.05} // Reduced font size
             color="#ff00ff"
             anchorX="left"
             anchorY="middle"
-            outlineWidth={0.003}
+            outlineWidth={0.002} // Reduced outline
             outlineColor="#330033"
           >
             {`A: ${displayValue.arousal}`}
           </Text>
           <Text
-            position={[0, -0.05, 0]} // Adjusted position
-            fontSize={0.06}
+            position={[0, -0.06, 0]} // Adjusted Y position
+            fontSize={0.04} // Reduced font size
             color="#ffffff"
             anchorX="left"
             anchorY="middle"
-            outlineWidth={0.003}
+            outlineWidth={0.002} // Reduced outline
             outlineColor="#333333"
           >
             {texture.category}
           </Text>
           {/* Smaller background */}
-          <mesh position={[0.2, 0.05, -0.01]}> 
-            <planeGeometry args={[0.5, 0.4]} /> 
+          <mesh position={[0.15, 0.02, -0.01]}> 
+            <planeGeometry args={[0.4, 0.25]} /> // Adjusted background size
             <meshBasicMaterial color="#000000" transparent opacity={0.7} />
           </mesh>
         </group>

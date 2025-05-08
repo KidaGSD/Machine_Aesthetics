@@ -1,14 +1,12 @@
 # backend/app.py
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file, send_from_directory
 from flask_cors import CORS
 import os
 import shutil
+import traceback
 from overall_shape_emotion_analysis import run_analysis  # refactor your script into a callable
 
 app = Flask(__name__)
-<<<<<<< Updated upstream
-CORS(app)
-=======
 # Enhanced CORS configuration
 CORS(app, 
      resources={r"/*": {"origins": "*"}},
@@ -17,19 +15,10 @@ CORS(app,
      expose_headers=["Content-Disposition", "Content-Length"],
      methods=["GET", "POST", "OPTIONS"]
 )
->>>>>>> Stashed changes
 
 UPLOAD_FOLDER = "audio"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-<<<<<<< Updated upstream
-@app.route("/upload-audio", methods=["POST"])
-def upload_audio():
-    file = request.files["file"]
-    if file:
-        save_path = os.path.join(UPLOAD_FOLDER, "uploaded_audio.wav")
-        file.save(save_path)
-=======
 @app.after_request
 def add_header(response):
     """Add headers to prevent caching of responses and add CORS headers."""
@@ -44,16 +33,19 @@ def add_header(response):
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
     
     return response
->>>>>>> Stashed changes
 
-        run_analysis(audio_path=save_path)  # ← you need to refactor your current script into a function
-        return jsonify({"status": "success"})
-    return jsonify({"status": "error"}), 400
+@app.route('/analyze', methods=['POST'])
+def analyze_audio():
+    """Handle audio file upload and analysis"""
+    if 'file' in request.files:
+        file = request.files['file']
+        save_path = os.path.join(UPLOAD_FOLDER, "uploaded_audio.wav")
+        file.save(save_path)
+        
+        result = run_analysis(audio_path=save_path)  # ← you need to refactor your current script into a function
+        return jsonify(result or {"status": "success"})
+    return jsonify({"status": "error", "error": "No file provided"}), 400
 
-<<<<<<< Updated upstream
-if __name__ == "__main__":
-    app.run(port=5001)
-=======
 # Serve CSV and other files from output and statics folders
 @app.route('/output/<path:path>')
 def serve_output_file(path):
@@ -270,4 +262,3 @@ def handle_options(path):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=True)
->>>>>>> Stashed changes

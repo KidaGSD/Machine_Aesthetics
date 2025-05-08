@@ -12,12 +12,6 @@ import * as THREE from "three";
 import Papa from "papaparse";
 import { STLExporter } from "three/examples/jsm/exporters/STLExporter";
 import emotionGradientData from "./emotionGradientData";
-<<<<<<< Updated upstream
-import emotionColors from "./emotionColors";
-import { emotionGradientShader } from "./shaders/emotionGradientShader"; // 🔄 NEW
-
-const ColorCloud = forwardRef(({ csvPath, amplitudeCsvPath, emotionCurvesPath }, ref) => {
-=======
 import emotionColors, { getEmotionColor } from "./emotionColors";
 import { emotionGradientShader } from "./shaders/emotionGradientShader";
 import { useTextureLoader } from "./TextureLoader";
@@ -26,10 +20,10 @@ import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
 // Get backend URL
 const backendUrl = "http://localhost:5001";
 
-const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, textureClassificationCsvPath, emotionCurvesPath, onTextureUpdate, onColorUpdate, textureEnabled: propTextureEnabled = true }, ref) => {
->>>>>>> Stashed changes
+const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, textureClassificationCsvPath, emotionCurvesPath, onTextureUpdate, textureEnabled: propTextureEnabled = true }, ref) => {
   const groupRef = useRef();
   const meshRef = useRef();
+  const materialRef = useRef();
   const [dataRows, setDataRows] = useState([]);
   const [amplitudes, setAmplitudes] = useState([]);
   const [emotionCurves, setEmotionCurves] = useState(null);
@@ -37,10 +31,6 @@ const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, text
   const [revealProgress, setRevealProgress] = useState(0);
   // Add texture management state
   const [currentEmotion, setCurrentEmotion] = useState("neutral");
-<<<<<<< Updated upstream
-  const [activeTextures, setActiveTextures] = useState({});
-  const [textureLoading, setTextureLoading] = useState(false);
-=======
   // Use the prop for initial state if provided
   const [textureEnabled, setTextureEnabled] = useState(propTextureEnabled);
   // Add a ref to track component mounting state
@@ -49,8 +39,6 @@ const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, text
   const lastPathsRef = useRef({ top2CsvPath, amplitudeCsvPath, vadCsvPath, textureClassificationCsvPath, emotionCurvesPath });
   // Track if material has been initialized
   const materialInitialized = useRef(false);
-  // Track whether the component is mounted
-  const mounted = useRef(true);
 
   // Initialize the texture loader hook - Pass VAD path and Classification path
   const { textureMaps, loadingState } = useTextureLoader(
@@ -58,143 +46,65 @@ const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, text
     textureClassificationCsvPath
   );
 
-  // Load environment map with error handling
-  const [envMap, setEnvMap] = useState(null);
-  const envMapRef = useRef(null);
-  
-  // Track mount status
-  useEffect(() => {
-    mounted.current = true;
-    return () => {
-      mounted.current = false;
-    };
-  }, []);
-  
-  useEffect(() => {
-    // Create HDR loader
-    const rgbeLoader = new RGBELoader();
-    
-    // Load environment map asynchronously
-    rgbeLoader.load('/hdri/hdri.hdr', 
-      // Success handler
-      (texture) => {
-        if (!mounted.current) return;
-        texture.mapping = THREE.EquirectangularReflectionMapping;
-        setEnvMap(texture);
-        envMapRef.current = texture; // Store in ref for cleanup
-        console.log("[mesh_deformation] Environment map loaded successfully");
-      },
-      // Progress handler
-      undefined,
-      // Error handler
-      (error) => {
-        console.error("[mesh_deformation] Failed to load environment map:", error);
-      }
-    );
-    
-    // Cleanup function
-    return () => {
-      if (envMapRef.current) {
-        envMapRef.current.dispose();
-        envMapRef.current = null;
-      }
-    };
-  }, []); // Only load once on component mount
+  const envMap = useLoader(RGBELoader, '/hdri/hdri.hdr');
+  envMap.mapping = THREE.EquirectangularReflectionMapping;
 
-  // Initialize the material once - but with better error handling and recovery
-  useEffect(() => {
-    try {
-      if (!materialInitialized.current) {
-        console.log("[mesh_deformation] Initializing material");
-        // Clone the shader material to create an instance for this component
-        materialRef.current = emotionGradientShader.clone();
-        
-        // Verify that the material has the expected uniforms
-        if (!materialRef.current || !materialRef.current.uniforms || !materialRef.current.uniforms.useTexture) {
-          console.error("[mesh_deformation] Material initialization error: uniforms not found");
-          // Try to recover by creating a new material from scratch
-          const defaultMaterial = new THREE.MeshStandardMaterial({ color: '#ffffff' });
-          materialRef.current = defaultMaterial;
-        } else {
-          console.log("[mesh_deformation] Material initialized successfully with uniforms");
-        }
-        
-        materialInitialized.current = true;
-      }
-    } catch (error) {
-      console.error("[mesh_deformation] Error during material initialization:", error);
-      // Fallback to standard material if error occurs
-      materialRef.current = new THREE.MeshStandardMaterial({ color: '#ffffff' });
-      materialInitialized.current = true;
-    }
-  }, []);
-
-  // Update textureEnabled state when the prop changes - with safer access to uniforms
+  // Update textureEnabled state when the prop changes
   useEffect(() => {
     if (propTextureEnabled !== textureEnabled) {
       console.log(`[mesh_deformation] Updating texture state from prop: ${propTextureEnabled}`);
       setTextureEnabled(propTextureEnabled);
       
-      // Safely update material if it exists and has the correct structure
-      try {
-        if (materialRef.current?.uniforms?.useTexture) {
-          materialRef.current.uniforms.useTexture.value = propTextureEnabled ? 1.0 : 0.0;
-          console.log(`[mesh_deformation] Updated useTexture uniform to ${propTextureEnabled ? 1.0 : 0.0}`);
-        }
-      } catch (error) {
-        console.error("[mesh_deformation] Error updating texture state:", error);
+      // Also update material if it exists
+      if (materialRef.current) {
+        materialRef.current.uniforms.useTexture.value = propTextureEnabled ? 1.0 : 0.0;
       }
     }
-  }, [propTextureEnabled, textureEnabled]);
+  }, [propTextureEnabled]);
 
-  // Update textures when they change - with safer access to texture maps and uniforms
+  // Initialize the material once
   useEffect(() => {
-    try {
-      if (materialRef.current?.uniforms && textureMaps) {
-        console.log("[mesh_deformation] Updating texture uniforms");
-        
-        // Safely update texture uniforms
-        const safelyUpdateUniform = (uniformName, value) => {
-          if (materialRef.current?.uniforms && materialRef.current.uniforms[uniformName] !== undefined) {
-            materialRef.current.uniforms[uniformName].value = value;
-            return true;
-          }
-          return false;
-        };
-        
-        // Only update if both the texture and the uniform exist
+    if (!materialInitialized.current) {
+      console.log("[mesh_deformation] Initializing material");
+      // Clone the shader material to create an instance for this component
+      materialRef.current = emotionGradientShader.clone();
+      materialInitialized.current = true;
+    }
+  }, []);
+
+  // Update textures when they change
+  useEffect(() => {
+    if (materialRef.current && textureMaps) {
+      console.log("[mesh_deformation] Updating texture uniforms");
+      
+      try {
         if (textureMaps.texture1?.displacementMap) {
-          safelyUpdateUniform('displacementMap', textureMaps.texture1.displacementMap);
+          materialRef.current.uniforms.displacementMap.value = textureMaps.texture1.displacementMap;
         }
-        
         if (textureMaps.texture1?.normalMap) {
-          safelyUpdateUniform('normalMap', textureMaps.texture1.normalMap);
+          materialRef.current.uniforms.normalMap.value = textureMaps.texture1.normalMap;
         }
-        
         if (textureMaps.texture2?.displacementMap) {
-          safelyUpdateUniform('displacementMap2', textureMaps.texture2.displacementMap);
+          materialRef.current.uniforms.displacementMap2.value = textureMaps.texture2.displacementMap;
         }
-        
         if (textureMaps.texture2?.normalMap) {
-          safelyUpdateUniform('normalMap2', textureMaps.texture2.normalMap);
+          materialRef.current.uniforms.normalMap2.value = textureMaps.texture2.normalMap;
         }
         
         // Update texture detail based on emotion, more detail for high arousal emotions
         const topEmotion = dataRows?.[0]?.emotion?.trim().toLowerCase();
         if (topEmotion) {
-          let textureDetail = 0.5; // Default value
-          
           if (topEmotion === 'anger' || topEmotion === 'fear' || topEmotion === 'surprise') {
-            textureDetail = 0.9; // More detail
+            materialRef.current.uniforms.textureDetail.value = 0.9; // More detail
           } else if (topEmotion === 'joy') {
-            textureDetail = 0.7; // Medium detail
+            materialRef.current.uniforms.textureDetail.value = 0.7; // Medium detail
+          } else {
+            materialRef.current.uniforms.textureDetail.value = 0.5; // Less detail
           }
-          
-          safelyUpdateUniform('textureDetail', textureDetail);
         }
+      } catch (error) {
+        console.error("[mesh_deformation] Error updating texture uniforms:", error);
       }
-    } catch (error) {
-      console.error("[mesh_deformation] Error updating texture uniforms:", error);
     }
   }, [textureMaps, dataRows]);
   
@@ -217,7 +127,6 @@ const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, text
       onTextureUpdate(enhancedTextureInfo);
     }
   }, [textureMaps?.texture1?.textureInfo, onTextureUpdate, loadingState]);
->>>>>>> Stashed changes
 
   const waveDivs = 200;
   const waveCount = 5;
@@ -233,16 +142,15 @@ const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, text
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = "mesh_debug.stl";
+      link.download = "lamp_design.stl";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
     },
     startRevealAnimation: () => {
+      console.log("Starting reveal animation");
       setRevealProgress(0);
-<<<<<<< Updated upstream
-=======
     },
     // Add method to toggle textures
     toggleTextures: () => {
@@ -253,7 +161,7 @@ const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, text
         const newState = !prev;
         
         // Apply immediately to material if it exists
-        if (materialRef.current && materialRef.current.uniforms && materialRef.current.uniforms.useTexture) {
+        if (materialRef.current) {
           materialRef.current.uniforms.useTexture.value = newState ? 1.0 : 0.0;
           console.log(`[mesh_deformation] Set material useTexture uniform to ${newState ? 1.0 : 0.0}`);
         } else {
@@ -262,40 +170,35 @@ const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, text
         
         return newState;
       });
->>>>>>> Stashed changes
     }
   }));
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
 
   useFrame(() => {
     if (meshRef.current) {
       meshRef.current.rotation.y += 0.002;
-<<<<<<< Updated upstream
-=======
       
       // Apply material properties in the animation frame for better sync
-      if (materialRef.current?.uniforms) {
-        try {
-          // Safely update the useTexture uniform with the current state to ensure consistency
-          if (materialRef.current.uniforms.useTexture !== undefined) {
-            materialRef.current.uniforms.useTexture.value = textureEnabled ? 1.0 : 0.0;
-          }
-          
-          if (materialRef.current.uniforms.revealProgress !== undefined) {
-            materialRef.current.uniforms.revealProgress.value = revealProgress;
-          }
-          
-          // Update time uniform for subtle animation effects
-          if (materialRef.current.uniforms.time !== undefined) {
-            materialRef.current.uniforms.time.value += 0.01; // Slow, subtle animation
-          }
-        } catch (error) {
-          // Log error but don't crash the render loop
-          console.error("[mesh_deformation] Error updating material in render loop:", error);
+      if (materialRef.current) {
+        // Update the useTexture uniform with the current state to ensure consistency
+        materialRef.current.uniforms.useTexture.value = textureEnabled ? 1.0 : 0.0;
+        materialRef.current.uniforms.revealProgress.value = revealProgress;
+        
+        // Update time uniform for subtle animation effects
+        if (materialRef.current.uniforms.time) {
+          materialRef.current.uniforms.time.value += 0.01; // Slow, subtle animation
         }
       }
->>>>>>> Stashed changes
     }
-    if (revealProgress < 1.0) {
+    
+    // Only update reveal progress if the component is still mounted
+    if (revealProgress < 1.0 && isMountedRef.current) {
       setRevealProgress((prev) => Math.min(prev + 0.003, 1.0));
     }
   });
@@ -376,16 +279,8 @@ const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, text
     }
   };
 
+  // Load the top 2 emotions data
   useEffect(() => {
-<<<<<<< Updated upstream
-    if (!csvPath) return;
-    fetch(fetchWithNoCache(csvPath))
-      .then(res => res.text())
-      .then(text => {
-        const cleanText = text.replace(/^﻿/, '');
-        const parsed = Papa.parse(cleanText, { header: true, dynamicTyping: true, skipEmptyLines: true });
-        const cleaned = parsed.data.filter(row => row.emotion);
-=======
     if (!top2CsvPath) {
       console.log("[mesh_deformation] No top2CsvPath provided, component may not show data");
       return;
@@ -408,18 +303,17 @@ const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, text
           console.log("Original CSV content:", text);
           console.log("Parsed result:", parsed);
         }
->>>>>>> Stashed changes
         setDataRows(cleaned);
-      });
-  }, [csvPath]);
+      } catch (error) {
+        console.error("[mesh_deformation] Error loading top 2 emotions:", error);
+      }
+    };
+    
+    loadData();
+  }, [top2CsvPath]);
 
+  // Load amplitude data
   useEffect(() => {
-<<<<<<< Updated upstream
-    if (!amplitudeCsvPath) return;
-    fetch(fetchWithNoCache(amplitudeCsvPath))
-      .then(res => res.text())
-      .then(text => {
-=======
     if (!amplitudeCsvPath) {
       console.log("[mesh_deformation] No amplitudeCsvPath provided, using default values");
       // Create default amplitude data if none provided
@@ -436,20 +330,19 @@ const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, text
           console.error("[mesh_deformation] Failed to fetch amplitude data");
           return;
         }
->>>>>>> Stashed changes
         const parsed = Papa.parse(text, { header: true, dynamicTyping: true, skipEmptyLines: true });
         const amps = parsed.data.map(row => parseFloat(row.arousal ?? 0));
         setAmplitudes(amps);
-      });
+      } catch (error) {
+        console.error("[mesh_deformation] Error loading amplitude data:", error);
+      }
+    };
+    
+    loadData();
   }, [amplitudeCsvPath]);
 
+  // Load emotion curves
   useEffect(() => {
-<<<<<<< Updated upstream
-    if (!emotionCurvesPath) return;
-    fetch(fetchWithNoCache(emotionCurvesPath))
-      .then(res => res.json())
-      .then(data => setEmotionCurves(data));
-=======
     if (!emotionCurvesPath) {
       console.error("[mesh_deformation] No emotionCurvesPath provided!");
       return;
@@ -475,102 +368,10 @@ const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, text
     };
     
     loadData();
->>>>>>> Stashed changes
   }, [emotionCurvesPath]);
 
+  // Generate the geometry based on emotions
   useEffect(() => {
-<<<<<<< Updated upstream
-    if (!dataRows.length || !amplitudes.length || !emotionCurves) return;
-
-    const emotionMap = {
-      joy: "j", sadness: "s", anger: "a", fear: "f",
-      surprise: "su", neutral: "c", disgust: "d"
-    };
-
-    const bottomEmotion = dataRows[1].emotion?.trim().toLowerCase();
-    const labelA = emotionMap[dataRows[0].emotion?.trim().toLowerCase()];
-    const labelB = emotionMap[bottomEmotion];
-    const rawA = emotionCurves[labelA]?.map(([x, y]) => new THREE.Vector3(x, 0, y));
-    const rawB = emotionCurves[labelB]?.map(([x, y]) => new THREE.Vector3(x, 0, y));
-    if (!rawA || !rawB) return;
-
-    const centroid = pts => pts.reduce((sum, p) => sum.add(p), new THREE.Vector3()).divideScalar(pts.length);
-    const centerA = centroid(rawA);
-    const centerB = centroid(rawB);
-
-    const valence = parseFloat(dataRows[0]?.valence ?? 0);
-    const valenceScale = 1 + valence * 0.5;
-
-    const ptsA = rawA.map(p => {
-      const centered = p.clone().sub(centerA);
-      return new THREE.Vector3(centered.x * valenceScale, centered.y, centered.z * valenceScale);
-    });
-
-    const ptsB = rawB.map(p => p.clone().sub(centerB));
-
-    const alignedB = (() => {
-      let best = ptsB, min = Infinity;
-      for (let i = 0; i < ptsB.length; i++) {
-        const rotated = [...ptsB.slice(i), ...ptsB.slice(0, i)];
-        const dist = ptsA.reduce((sum, pt, idx) => sum + pt.distanceTo(rotated[idx]), 0);
-        if (dist < min) {
-          min = dist;
-          best = rotated;
-        }
-      }
-      return best;
-    })();
-
-    const segments = ptsA.length;
-    const waveCurves = [];
-
-    for (let i = 0; i < segments; i++) {
-      const curvePoints = [];
-      for (let j = 0; j < waveDivs; j++) {
-        const t = j / (waveDivs - 1);
-        const revealT = Math.min(1, revealProgress * 1.2);
-        const waveOffset = Math.sin(t * Math.PI * waveCount + i * 0.3) * 3;
-        const top = ptsA[i].clone().add(new THREE.Vector3(0, heightPerLayer / 2, 0));
-        const bottom = alignedB[i].clone().add(new THREE.Vector3(0, -heightPerLayer / 2, 0));
-        const base = new THREE.Vector3().lerpVectors(top, bottom, t);
-        const anchor = new THREE.Vector3().lerpVectors(top, bottom, t);
-        let radial = base.clone().sub(anchor).setY(0);
-        if (radial.length() < 0.001) radial = new THREE.Vector3(1, 0, 0);
-        else radial.normalize();
-
-        const waved = base.clone();
-        if (t < revealT && t > 0.05) {
-          waved.add(radial.multiplyScalar(waveOffset));
-        }
-        curvePoints.push(waved);
-      }
-      waveCurves.push(curvePoints);
-    }
-
-    const segmentCount = emotionGradientData.length;
-    const baseColor = emotionColors[bottomEmotion] || new THREE.Color('gray');
-    const baseHSL = {};
-    baseColor.getHSL(baseHSL);
-
-    const vertices = [];
-    const uvs = [];
-    const valences = [];
-    const arousals = [];
-    const indices = [];
-
-    for (let i = 0; i < segments; i++) {
-      for (let j = 0; j < waveDivs; j++) {
-        const p = waveCurves[i][j];
-        vertices.push(p.x, p.y, p.z);
-        uvs.push(i / (segments - 1), j / (waveDivs - 1));
-
-        const t = j / (waveDivs - 1);
-        const segmentIndex = Math.floor(t * segmentCount);
-        const { valence, arousal } = emotionGradientData[Math.min(segmentIndex, segmentCount - 1)];
-        valences.push(valence);
-        arousals.push(arousal);
-      }
-=======
     if (!dataRows.length || !amplitudes.length || !emotionCurves) {
       console.log("[mesh_deformation] Dependencies not met. Waiting...");
       console.log("[mesh_deformation] Data rows:", dataRows.length, "Amplitudes:", amplitudes.length, "Emotion Curves:", emotionCurves ? "Loaded" : "Not loaded");
@@ -857,16 +658,6 @@ const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, text
         materialRef.current.uniforms.colorTop.value.copy(topColor);
         materialRef.current.uniforms.colorBottom.value.copy(bottomColor);
         
-        // Notify parent component about color update
-        if (onColorUpdate) {
-          onColorUpdate({
-            topColor: topColor.getStyle(),
-            bottomColor: bottomColor.getStyle(),
-            topEmotion,
-            bottomEmotion
-          });
-        }
-        
         // Keep texture parameter adjustments based on arousal
         const topArousal = Math.abs(parseFloat(dataRows[0]?.arousal ?? 0));
         const bottomArousal = Math.abs(parseFloat(dataRows[1]?.arousal ?? 0));
@@ -891,31 +682,66 @@ const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, text
     } catch (error) {
       console.error("[mesh_deformation] Error regenerating geometry:", error);
       createDefaultGeometry();
->>>>>>> Stashed changes
     }
+  }, [dataRows, amplitudes, emotionCurves, revealProgress]); // Keep revealProgress for wave animation
 
-    for (let i = 0; i < segments - 1; i++) {
-      for (let j = 0; j < waveDivs - 1; j++) {
-        const a = i * waveDivs + j;
-        const b = (i + 1) * waveDivs + j;
-        const c = (i + 1) * waveDivs + (j + 1);
-        const d = i * waveDivs + (j + 1);
-        indices.push(a, b, d, b, c, d);
+  // Create a default geometry when data is not available
+  const createDefaultGeometry = () => {
+    try {
+      // Create a simple cylindrical shape
+      const segments = 36;
+      const radius = 20;
+      const height = 40;
+      
+      const vertices = [];
+      const uvs = [];
+      const valences = [];
+      const arousals = [];
+      const indices = [];
+      
+      // Create circles for top and bottom
+      for (let i = 0; i < segments; i++) {
+        const angle = (i / segments) * Math.PI * 2;
+        const x = Math.cos(angle) * radius;
+        const z = Math.sin(angle) * radius;
+        
+        // Top vertices
+        vertices.push(x, height/2, z);
+        uvs.push(i / segments, 0);
+        valences.push(0);
+        arousals.push(0);
+        
+        // Bottom vertices
+        vertices.push(x, -height/2, z);
+        uvs.push(i / segments, 1);
+        valences.push(0.5);
+        arousals.push(0.5);
       }
+      
+      // Create face indices
+      for (let i = 0; i < segments; i++) {
+        const topIdx = i * 2;
+        const bottomIdx = i * 2 + 1;
+        const nextTopIdx = ((i + 1) % segments) * 2;
+        const nextBottomIdx = ((i + 1) % segments) * 2 + 1;
+        
+        // Add triangles
+        indices.push(topIdx, nextTopIdx, bottomIdx);
+        indices.push(nextTopIdx, nextBottomIdx, bottomIdx);
+      }
+      
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+      geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+      geometry.setAttribute('valence', new THREE.Float32BufferAttribute(valences, 1));
+      geometry.setAttribute('arousal', new THREE.Float32BufferAttribute(arousals, 1));
+      geometry.setIndex(indices);
+      geometry.computeVertexNormals();
+      
+      setGeneratedGeometry(geometry);
+    } catch (error) {
+      console.error("[mesh_deformation] Error creating default geometry:", error);
     }
-<<<<<<< Updated upstream
-
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-    geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
-    geometry.setAttribute('valence', new THREE.Float32BufferAttribute(valences, 1));
-    geometry.setAttribute('arousal', new THREE.Float32BufferAttribute(arousals, 1));
-    geometry.setIndex(indices);
-    geometry.computeVertexNormals();
-    emotionGradientShader.uniforms.baseHue.value = baseHSL.h;
-    setGeneratedGeometry(geometry);
-  }, [dataRows, amplitudes, emotionCurves, revealProgress]);
-=======
   };
   
   // Create a simplified geometry for performance
@@ -998,7 +824,6 @@ const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, text
       return createDefaultGeometry();
     }
   };
->>>>>>> Stashed changes
 
   return (
     <>
@@ -1006,7 +831,11 @@ const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, text
       <pointLight position={[0, 0, 0]} color="#fff8e1" intensity={2000} distance={2000} decay={2} />
       <group ref={groupRef}>
         {generatedGeometry && (
-          <mesh ref={meshRef} geometry={generatedGeometry} material={emotionGradientShader} />
+          <mesh 
+            ref={meshRef} 
+            geometry={generatedGeometry}
+            material={materialRef.current}
+          />
         )}
         {/* Add a long, thin cylinder in the center as a lamp post */}
         <mesh position={[0, 20, 0]}>
@@ -1017,123 +846,37 @@ const ColorCloud = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, text
             roughness={0}
             ior={2.0}
             reflectivity={1.0}
-            envMap={envMap || null}
+            envMap={envMap}
           />
         </mesh>
       </group>
+      {/* Loading indicator during development */}
+      {process.env.NODE_ENV === 'development' && loadingState === 'loading' && (
+        <mesh position={[0, -50, 0]}>
+          <sphereGeometry args={[5, 16, 16]} />
+          <meshBasicMaterial color="yellow" />
+        </mesh>
+      )}
     </>
   );
 });
 
-<<<<<<< Updated upstream
-const Scene = forwardRef(({ csvPath, amplitudeCsvPath, emotionCurvesPath }, ref) => {
+const Scene = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, textureClassificationCsvPath, emotionCurvesPath, onTextureUpdate, textureEnabled }, ref) => {
   return (
     <Canvas camera={{ position: [0, 50, 100], fov: 45 }} style={{ background: "#000000", width: "100vw", height: "100vh" }}>
       <OrbitControls />
       <ColorCloud
         ref={ref}
-        csvPath={csvPath}
+        top2CsvPath={top2CsvPath}
         amplitudeCsvPath={amplitudeCsvPath}
+        vadCsvPath={vadCsvPath}
+        textureClassificationCsvPath={textureClassificationCsvPath}
         emotionCurvesPath={emotionCurvesPath}
+        onTextureUpdate={onTextureUpdate}
+        textureEnabled={textureEnabled}
       />
-=======
-const Scene = forwardRef(({ top2CsvPath, amplitudeCsvPath, vadCsvPath, textureClassificationCsvPath, emotionCurvesPath, onTextureUpdate, onColorUpdate, textureEnabled }, ref) => {
-  // Track any render errors
-  const [hasRenderError, setHasRenderError] = useState(false);
-  
-  // Error boundary for the ColorCloud component
-  useEffect(() => {
-    const handleError = (event) => {
-      console.error("[Scene] Render error detected:", event);
-      setHasRenderError(true);
-    };
-    
-    window.addEventListener('error', handleError);
-    return () => window.removeEventListener('error', handleError);
-  }, []);
-  
-  // Force remount on path changes to refresh the entire scene
-  const [mountKey, setMountKey] = useState(0);
-  useEffect(() => {
-    // Create a unique key based on props to force remount when paths change
-    const pathsKey = `${top2CsvPath || ''}|${amplitudeCsvPath || ''}|${textureClassificationCsvPath || ''}`;
-    const hash = pathsKey.split('').reduce((acc, char) => (acc * 31 + char.charCodeAt(0)) & 0xFFFFFFFF, 0);
-    setMountKey(hash);
-    
-    // Reset error state on props change
-    setHasRenderError(false);
-  }, [top2CsvPath, amplitudeCsvPath, textureClassificationCsvPath]);
-
-  return (
-    <Canvas 
-      key={`canvas-${mountKey}`}
-      camera={{ position: [0, 50, 100], fov: 45 }} 
-      style={{ background: "#000000", width: "100vw", height: "100vh" }}
-      onCreated={({ gl }) => {
-        // Set renderer parameters for better quality
-        gl.outputColorSpace = THREE.SRGBColorSpace;
-        gl.toneMapping = THREE.ACESFilmicToneMapping;
-      }}
-    >
-      <ErrorBoundary fallback={<FallbackScene />}>
-        <OrbitControls />
-        <ColorCloud
-          key={`lamp-${mountKey}`}
-          ref={ref}
-          top2CsvPath={top2CsvPath}
-          amplitudeCsvPath={amplitudeCsvPath}
-          vadCsvPath={vadCsvPath}
-          textureClassificationCsvPath={textureClassificationCsvPath}
-          emotionCurvesPath={emotionCurvesPath}
-          onTextureUpdate={onTextureUpdate}
-          onColorUpdate={onColorUpdate}
-          textureEnabled={textureEnabled}
-        />
-      </ErrorBoundary>
->>>>>>> Stashed changes
     </Canvas>
   );
 });
-
-// Simple error boundary component
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError(error) {
-    return { hasError: true };
-  }
-
-  componentDidCatch(error, errorInfo) {
-    console.error("[ErrorBoundary] Caught rendering error:", error, errorInfo);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return this.props.fallback;
-    }
-    return this.props.children;
-  }
-}
-
-// Simple fallback scene when main scene errors
-const FallbackScene = () => {
-  return (
-    <>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1} />
-      <mesh>
-        <sphereGeometry args={[10, 32, 32]} />
-        <meshStandardMaterial color="#444444" />
-      </mesh>
-      <mesh position={[0, -20, 0]}>
-        <boxGeometry args={[25, 2, 25]} />
-        <meshStandardMaterial color="#222222" />
-      </mesh>
-    </>
-  );
-}
 
 export default Scene;

@@ -3,46 +3,107 @@ import * as THREE from 'three';
 
 export const emotionGradientShader = new THREE.ShaderMaterial({
   uniforms: {
-    baseHue: { value: 0.0 }, // passed as float (0 to 1), e.g. red = 0.0
+    baseHue: { value: 0.0 }, // base hue adjustment
+    colorTop: { value: new THREE.Color(0x1E90FF) }, // default blue
+    colorBottom: { value: new THREE.Color(0xFFD700) }, // default gold
+    useTexture: { value: 1.0 }, // toggle for using textures
+    textureTiling: { value: 2.0 }, // how many times to tile the texture
+    normalMap: { value: null }, // top normal map
+    normalMap2: { value: null }, // bottom normal map
+    displacementMap: { value: null }, // top displacement map
+    displacementMap2: { value: null }, // bottom displacement map
+    normalScale: { value: 0.5 }, // how strong the normal mapping is
+    displacementScale: { value: 2.0 }, // how strong the displacement is
+    displacementBias: { value: 0.0 }, // bias for displacement
+    textureDetail: { value: 0.7 }, // texture detail/roughness control
+    revealProgress: { value: 1.0 }, // for reveal animation (0-1)
+    time: { value: 0.0 } // for subtle animations
   },
   vertexShader: `
     attribute float valence;
     attribute float arousal;
     varying float vValence;
     varying float vArousal;
+    varying vec2 vUv;
+    varying vec3 vNormal;
+    varying vec3 vViewPosition;
+    varying float vVerticalBlend;
 
     void main() {
       vValence = valence;
       vArousal = arousal;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      vUv = uv;
+      vNormal = normal;
+      
+      // Calculate vertical position for color blending
+      vVerticalBlend = uv.y; // Use UV's y component for vertical blending
+      
+      vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+      vViewPosition = -mvPosition.xyz; // For lighting calculations
+      
+      gl_Position = projectionMatrix * mvPosition;
     }
   `,
   fragmentShader: `
     varying float vValence;
     varying float vArousal;
+    varying vec2 vUv;
+    varying vec3 vNormal;
+    varying vec3 vViewPosition;
+    varying float vVerticalBlend;
+    
     uniform float baseHue;
-
-    vec3 hsl2rgb(vec3 hsl) {
-      float c = (1.0 - abs(2.0 * hsl.z - 1.0)) * hsl.y;
-      float x = c * (1.0 - abs(mod(hsl.x * 6.0, 2.0) - 1.0));
-      float m = hsl.z - c / 2.0;
-      vec3 rgb;
-      if (hsl.x < 1.0/6.0) rgb = vec3(c, x, 0.0);
-      else if (hsl.x < 2.0/6.0) rgb = vec3(x, c, 0.0);
-      else if (hsl.x < 3.0/6.0) rgb = vec3(0.0, c, x);
-      else if (hsl.x < 4.0/6.0) rgb = vec3(0.0, x, c);
-      else if (hsl.x < 5.0/6.0) rgb = vec3(x, 0.0, c);
-      else rgb = vec3(c, 0.0, x);
-      return rgb + vec3(m);
+    uniform vec3 colorTop;
+    uniform vec3 colorBottom;
+    uniform float useTexture;
+    uniform float textureTiling;
+    uniform sampler2D normalMap;
+    uniform sampler2D normalMap2;
+    uniform float normalScale;
+    uniform float textureDetail;
+    uniform float revealProgress;
+    uniform float time;
+    
+    // Function to sample normal map with smoothstep
+    vec3 sampleNormalSmooth(sampler2D map, vec2 uv, float detail) {
+      vec4 normalSample = texture2D(map, uv);
+      vec3 normal = normalSample.xyz * 2.0 - 1.0;
+      
+      // Adjust normal strength based on detail parameter
+      normal.xy *= mix(0.3, 1.0, detail);
+      return normalize(normal);
+    }
+    
+    // Phong lighting calculation
+    vec3 calculateLighting(vec3 baseColor, vec3 normal, vec3 viewDir) {
+      // Main directional light from above and behind
+      vec3 lightDir = normalize(vec3(0.5, 1.0, 0.5));
+      float diff = max(dot(normal, lightDir), 0.0);
+      
+      // Ambient light
+      float ambientStrength = 0.4;
+      vec3 ambient = ambientStrength * vec3(1.0);
+      
+      // Diffuse
+      vec3 diffuse = diff * vec3(1.0);
+      
+      // Specular highlights
+      float specularStrength = 0.3 * (1.0 + vValence * 0.2); // More specular for positive emotions
+      vec3 reflectDir = reflect(-lightDir, normal);
+      float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32.0);
+      vec3 specular = specularStrength * spec * vec3(1.0, 1.0, 1.0);
+      
+      // Calculate rim lighting (edge highlight)
+      float rimStrength = 0.3;
+      float rimFactor = 1.0 - max(dot(viewDir, normal), 0.0);
+      rimFactor = smoothstep(0.5, 1.0, rimFactor);
+      vec3 rim = rimStrength * rimFactor * vec3(1.0);
+      
+      // Combine all lighting components
+      return (ambient + diffuse) * baseColor + specular + rim * baseColor;
     }
 
     void main() {
-<<<<<<< Updated upstream
-      float lightness = clamp(0.4 + vArousal * 0.5, 0.0, 1.0);
-      float saturation = clamp(0.6 + vValence * 0.4, 0.0, 1.0);
-      vec3 color = hsl2rgb(vec3(baseHue, saturation, lightness));
-      gl_FragColor = vec4(color, 1.0);
-=======
       // --- Simplified Color Blending --- 
       // Blend between the two provided RGB colors based on vertical position
       float colorBlendFactor = smoothstep(0.1, 0.9, vVerticalBlend); // Smooth blending
@@ -92,8 +153,11 @@ export const emotionGradientShader = new THREE.ShaderMaterial({
       
       // Output final color
       gl_FragColor = vec4(litColor, 1);
->>>>>>> Stashed changes
     }
   `,
   vertexColors: false,
+  side: THREE.DoubleSide,
+  // Add necessary shader features
+  lights: false,
+  transparent: false,
 });
